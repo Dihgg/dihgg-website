@@ -14,6 +14,7 @@ export const siteContent = {
     latestPostsTitle: '{Ultimos Posts}',
     latestPostsCta: 'Ver todos os posts',
     latestPostsEmptyLabel: 'Sem posts publicados ainda.',
+    latestPostsCardCta: 'Ler post',
     skillsTitle: '{Skills}',
     workTitle: '{Trabalho}',
     projectsTitle: '{Projetos}',
@@ -46,6 +47,7 @@ export const siteContent = {
     latestPostsTitle: '{Latest Posts}',
     latestPostsCta: 'View all posts',
     latestPostsEmptyLabel: 'No published posts yet.',
+    latestPostsCardCta: 'Read post',
     skillsTitle: '{Skills}',
     workTitle: '{Work}',
     projectsTitle: '{Projects}',
@@ -54,7 +56,7 @@ export const siteContent = {
     contactCta: 'Get in touch',
     blogCta: 'Read blog',
     headerBlogLabel: 'Blog',
-    headerContactLabel: 'Contact me',
+    headerContactLabel: 'Get in touch',
     projectCta: 'View project',
     socialAriaLabel: 'Social links',
     switcherAriaLabel: 'Choose language',
@@ -76,6 +78,7 @@ export const siteContent = {
   latestPostsTitle: string;
   latestPostsCta: string;
   latestPostsEmptyLabel: string;
+  latestPostsCardCta: string;
   skillsTitle: string;
   workTitle: string;
   projectsTitle: string;

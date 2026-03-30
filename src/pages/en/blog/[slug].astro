@@ -45,6 +45,15 @@ const { Content } = await render(post);
       {post.data.date.toLocaleDateString(content.dateLocale)}
     </p>
 
+    {post.data.featuredImage && (
+      <img
+        src={post.data.featuredImage}
+        alt={post.data.featuredImageAlt ?? post.data.title}
+        class="mt-8 h-64 w-full rounded-2xl border border-blue-100 object-cover shadow-sm"
+        loading="eager"
+      />
+    )}
+
     <article class="prose mt-10 max-w-none prose-a:text-orange-700 prose-headings:font-bold prose-p:text-black/80">
       <Content />
     </article>

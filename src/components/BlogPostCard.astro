@@ -1,0 +1,44 @@
+---
+import Pill from './Pill';
+import { getBlogPostPath, type BlogPost } from '../lib/blog';
+
+interface Props {
+  post: BlogPost;
+  dateLocale: string;
+  ctaLabel: string;
+  headingClass?: string;
+}
+
+const {
+  post,
+  dateLocale,
+  ctaLabel,
+  headingClass = 'text-lg'
+} = Astro.props;
+
+const href = getBlogPostPath(post);
+---
+
+<li class="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
+  <div class="flex flex-col gap-4">
+    {post.data.featuredImage && (
+      <img
+        src={post.data.featuredImage}
+        alt={post.data.featuredImageAlt ?? post.data.title}
+        class="h-36 w-full rounded-lg border border-blue-100 object-cover"
+        loading="lazy"
+      />
+    )}
+
+    <div class="min-w-0 flex-1">
+      <p class="font-mono text-xs text-slate-500">{post.data.date.toLocaleDateString(dateLocale)}</p>
+      <a class={`mt-2 block font-bold text-slate-900 hover:text-blue-700 ${headingClass}`} href={href}>
+        {post.data.title}
+      </a>
+      <p class="mt-2 text-sm text-slate-700">{post.data.description}</p>
+      <div class="mt-3 flex justify-end">
+        <Pill label={ctaLabel} href={href} />
+      </div>
+    </div>
+  </div>
+</li>
