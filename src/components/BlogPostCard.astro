@@ -1,17 +1,19 @@
 ---
 import Pill from './Pill';
 import { getBlogPostPath, type BlogPost } from '../lib/blog';
+import { formatPostDate } from '../lib/date';
+import type { Locale } from '../data/siteContent';
 
 interface Props {
   post: BlogPost;
-  dateLocale: string;
+  locale: Locale;
   ctaLabel: string;
   headingClass?: string;
 }
 
 const {
   post,
-  dateLocale,
+  locale,
   ctaLabel,
   headingClass = 'text-lg'
 } = Astro.props;
@@ -31,7 +33,7 @@ const href = getBlogPostPath(post);
     )}
 
     <div class="min-w-0 flex-1">
-      <p class="font-mono text-xs text-slate-500">{post.data.date.toLocaleDateString(dateLocale)}</p>
+      <time datetime={post.data.date.toISOString().slice(0, 10)} class="font-mono text-xs text-slate-500">{formatPostDate(post.data.date, locale)}</time>
       <a class={`mt-2 block font-bold text-slate-900 hover:text-blue-700 ${headingClass}`} href={href}>
         {post.data.title}
       </a>

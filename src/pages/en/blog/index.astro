@@ -46,7 +46,7 @@ const posts = await getBlogPosts(locale);
         {posts.map((post) => (
           <BlogPostCard
             post={post}
-            dateLocale={content.dateLocale}
+            locale={locale}
             ctaLabel={content.latestPostsCardCta}
             headingClass="text-2xl"
           />
