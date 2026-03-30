@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout title="Blog | Dihgg" description="Artigos e notas tecnicas de Diego Lopes.">
+  <main class="mx-auto min-h-screen max-w-4xl px-6 py-16">
+    <a href="/" class="font-mono text-sm text-black/60 hover:text-black">← Voltar para home</a>
+    <h1 class="mt-6 text-4xl font-bold">Blog</h1>
+    <p class="mt-3 max-w-2xl text-black/70">
+      Posts em markdown versionados no Git. Simples de manter, simples de publicar.
+    </p>
+
+    <ul class="mt-10 space-y-4">
+      {posts.map((post) => (
+        <li class="rounded-xl border border-black/10 bg-white p-5">
+          <p class="font-mono text-xs text-black/60">{post.data.date.toLocaleDateString('pt-BR')}</p>
+          <a class="mt-2 block text-2xl font-semibold hover:underline" href={`/blog/${post.slug}/`}>
+            {post.data.title}
+          </a>
+          <p class="mt-2 text-black/70">{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Layout>
