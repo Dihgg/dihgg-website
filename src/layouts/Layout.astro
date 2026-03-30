@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 import type { Locale } from '../data/siteContent';
 
 type AlternateLink = {
@@ -16,11 +17,20 @@ type FooterData = {
   madeWithLabel: string;
 };
 
+type HeaderData = {
+  brandHref: string;
+  blogHref: string;
+  contactHref: string;
+  blogLabel: string;
+  contactLabel: string;
+};
+
 interface Props {
   title: string;
   description?: string;
   lang?: string;
   alternates?: AlternateLink[];
+  header?: HeaderData;
   footer?: FooterData;
 }
 
@@ -29,6 +39,7 @@ const {
   description = 'Portfolio de Diego Lopes: projetos, experiencia e artigos sobre desenvolvimento.',
   lang = 'pt-BR',
   alternates = [],
+  header,
   footer
 } = Astro.props;
 ---
@@ -51,6 +62,7 @@ const {
     <title>{title}</title>
   </head>
   <body>
+    {header && <SiteHeader {...header} />}
     <slot />
     {footer && <SiteFooter {...footer} />}
   </body>

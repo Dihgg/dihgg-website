@@ -17,6 +17,13 @@ const posts = await getBlogPosts(locale);
     { href: 'https://dihgg.com/blog/', hreflang: 'pt-BR' },
     { href: 'https://dihgg.com/en/blog/', hreflang: 'en' }
   ]}
+  header={{
+    brandHref: '/en/',
+    blogHref: '/en/blog/',
+    contactHref: '/en/#contato',
+    blogLabel: content.headerBlogLabel,
+    contactLabel: content.headerContactLabel
+  }}
   footer={{
     currentLocale: locale,
     ptHref: '/blog/',
