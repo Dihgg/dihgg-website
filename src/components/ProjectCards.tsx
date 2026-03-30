@@ -2,9 +2,10 @@ import type { Project } from '../data/portfolio';
 
 type Props = {
   projects: Project[];
+  ctaLabel?: string;
 };
 
-export default function ProjectCards({ projects }: Props) {
+export default function ProjectCards({ projects, ctaLabel = 'View project' }: Props) {
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {projects.map((project) => (
@@ -18,7 +19,7 @@ export default function ProjectCards({ projects }: Props) {
             target="_blank"
             rel="noreferrer"
           >
-            Ver projeto
+            {ctaLabel}
           </a>
         </article>
       ))}

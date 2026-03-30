@@ -6,6 +6,8 @@ tags:
   - astro
   - portfolio
   - frontend
+locale: pt-BR
+translationKey: portfolio-launch
 ---
 
 Este espaco vai registrar aprendizados de projeto, arquitetura e front-end.

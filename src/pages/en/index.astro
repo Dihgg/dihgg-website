@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HomePage from '../../components/HomePage.astro';
+import { siteContent } from '../../data/siteContent';
+
+const locale = 'en' as const;
+const content = siteContent[locale];
+---
+
+<Layout
+  title={content.homeTitle}
+  description={content.homeDescription}
+  lang={locale}
+  alternates={[
+    { href: 'https://dihgg.com/', hreflang: 'pt-BR' },
+    { href: 'https://dihgg.com/en/', hreflang: 'en' }
+  ]}
+  footer={{
+    currentLocale: locale,
+    ptHref: '/',
+    enHref: '/en/',
+    switcherAriaLabel: content.switcherAriaLabel,
+    madeWithLabel: content.madeWithLabel
+  }}
+>
+  <HomePage locale={locale} />
+</Layout>

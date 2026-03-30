@@ -1,0 +1,21 @@
+---
+import type { Locale } from '../data/siteContent';
+
+interface Props {
+  currentLocale: Locale;
+  ptHref: string;
+  enHref: string;
+  ariaLabel: string;
+}
+
+const { currentLocale, ptHref, enHref, ariaLabel } = Astro.props;
+
+const baseClass = 'inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] transition';
+const activeClass = 'border-transparent bg-[var(--accent)] text-white';
+const inactiveClass = 'border-blue-200 bg-white/80 text-slate-700 hover:bg-blue-50';
+---
+
+<nav aria-label={ariaLabel} class="flex items-center gap-2">
+  <a href={ptHref} class={`${baseClass} ${currentLocale === 'pt-BR' ? activeClass : inactiveClass}`}>PT</a>
+  <a href={enHref} class={`${baseClass} ${currentLocale === 'en' ? activeClass : inactiveClass}`}>EN</a>
+</nav>

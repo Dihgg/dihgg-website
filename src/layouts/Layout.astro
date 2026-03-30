@@ -1,25 +1,47 @@
 ---
 import '../styles/global.css';
+import SiteFooter from '../components/SiteFooter.astro';
+import type { Locale } from '../data/siteContent';
+
+type AlternateLink = {
+  href: string;
+  hreflang: string;
+};
+
+type FooterData = {
+  currentLocale: Locale;
+  ptHref: string;
+  enHref: string;
+  switcherAriaLabel: string;
+  madeWithLabel: string;
+};
 
 interface Props {
   title: string;
   description?: string;
+  lang?: string;
+  alternates?: AlternateLink[];
+  footer?: FooterData;
 }
 
 const {
   title,
-  description = 'Portfolio de Diego Lopes: projetos, experiencia e artigos sobre desenvolvimento.'
+  description = 'Portfolio de Diego Lopes: projetos, experiencia e artigos sobre desenvolvimento.',
+  lang = 'pt-BR',
+  alternates = [],
+  footer
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,5 +52,6 @@ const {
   </head>
   <body>
     <slot />
+    {footer && <SiteFooter {...footer} />}
   </body>
 </html>

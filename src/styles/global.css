@@ -110,3 +110,16 @@ body {
 	-webkit-animation: spritesheet 1s steps(7) infinite;
 	animation: spritesheet 1s steps(7) infinite;
 }
+
+.prose {
+	color: rgb(51 65 85);
+	line-height: 1.8;
+}
+
+.prose a {
+	color: rgb(29 78 216);
+}
+
+.prose a:hover {
+	color: rgb(30 64 175);
+}

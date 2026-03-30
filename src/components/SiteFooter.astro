@@ -1,0 +1,45 @@
+---
+import LocaleSwitcher from './LocaleSwitcher.astro';
+import StackIcons from './StackIcons';
+import type { Locale } from '../data/siteContent';
+
+interface Props {
+  currentLocale: Locale;
+  ptHref: string;
+  enHref: string;
+  switcherAriaLabel: string;
+  madeWithLabel: string;
+}
+
+const {
+  currentLocale,
+  ptHref,
+  enHref,
+  switcherAriaLabel,
+  madeWithLabel
+} = Astro.props;
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-20 border-t border-blue-100 bg-white/50 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+    <div class="flex justify-center">
+      <LocaleSwitcher
+        currentLocale={currentLocale}
+        ptHref={ptHref}
+        enHref={enHref}
+        ariaLabel={switcherAriaLabel}
+      />
+    </div>
+
+    <div class="flex flex-col items-center justify-between gap-4 text-center text-sm text-slate-600 md:flex-row md:text-left">
+      <p>&copy; {'{Dihgg}'} {year}</p>
+
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">{madeWithLabel}</span>
+        <StackIcons />
+      </div>
+    </div>
+  </div>
+</footer>

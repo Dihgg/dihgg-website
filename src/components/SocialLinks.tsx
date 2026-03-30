@@ -12,11 +12,12 @@ const iconMap: Record<SocialLink['icon'], React.ReactNode> = {
 
 type Props = {
   links: SocialLink[];
+  ariaLabel?: string;
 };
 
-export default function SocialLinks({ links }: Props) {
+export default function SocialLinks({ links, ariaLabel = 'Social links' }: Props) {
   return (
-    <ul className="flex flex-wrap gap-3" aria-label="Redes sociais">
+    <ul className="flex flex-wrap gap-3" aria-label={ariaLabel}>
       {links.map((link) => (
         <li key={link.href}>
           <Pill
