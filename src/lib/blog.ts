@@ -3,8 +3,15 @@ import type { Locale } from '../data/siteContent';
 
 export type BlogPost = CollectionEntry<'blog'>;
 
+// Extract filename from nested slug (e.g., "pt-BR/primeiro-post" -> "primeiro-post")
+function getSlugName(slug: string): string {
+  const parts = slug.split('/');
+  return parts.length > 1 ? parts[parts.length - 1] : slug;
+}
+
 export function getBlogPostPath(post: BlogPost) {
-  return post.data.locale === 'en' ? `/en/blog/${post.slug}/` : `/blog/${post.slug}/`;
+  const slugName = getSlugName(post.slug);
+  return post.data.locale === 'en' ? `/en/blog/${slugName}/` : `/blog/${slugName}/`;
 }
 
 export async function getAllBlogPosts() {
@@ -23,13 +30,18 @@ export async function getLocalizedBlogStaticPaths(locale: Locale, alternateLocal
     getBlogPosts(alternateLocale)
   ]);
 
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: {
-      post,
-      alternatePost: alternatePosts.find(
-        (candidate) => candidate.data.translationKey === post.data.translationKey
-      ) ?? null
-    }
-  }));
+  return posts.map((post) => {
+    const slugName = getSlugName(post.slug);
+    const alternatePost = alternatePosts.find(
+      (candidate) => candidate.data.translationKey === post.data.translationKey
+    ) ?? null;
+    
+    return {
+      params: { slug: slugName },
+      props: {
+        post,
+        alternatePost
+      }
+    };
+  });
 }
