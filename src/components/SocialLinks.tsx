@@ -1,4 +1,14 @@
+import { FaFacebook, FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import type { SocialLink } from '../data/portfolio';
+import Pill from './Pill';
+
+const iconMap: Record<SocialLink['icon'], React.ReactNode> = {
+  GitHub: <FaGithub />,
+  LinkedIn: <FaLinkedin />,
+  Twitter: <FaXTwitter />,
+  Facebook: <FaFacebook />,
+  Mail: null,
+};
 
 type Props = {
   links: SocialLink[];
@@ -9,14 +19,12 @@ export default function SocialLinks({ links }: Props) {
     <ul className="flex flex-wrap gap-3" aria-label="Redes sociais">
       {links.map((link) => (
         <li key={link.href}>
-          <a
-            className="inline-flex rounded-full border border-black/20 bg-white/80 px-4 py-2 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-yellow-200"
+          <Pill
+            label={link.label}
+            icon={iconMap[link.icon]}
             href={link.href}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {link.label}
-          </a>
+            external
+          />
         </li>
       ))}
     </ul>

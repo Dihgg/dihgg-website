@@ -6,8 +6,8 @@ describe('SocialLinks', () => {
     render(
       <SocialLinks
         links={[
-          { label: 'GitHub', href: 'https://github.com/Dihgg' },
-          { label: 'LinkedIn', href: 'https://linkedin.com/in/dihgg' }
+          { label: 'GitHub', href: 'https://github.com/Dihgg', icon: 'GitHub' },
+          { label: 'LinkedIn', href: 'https://linkedin.com/in/dihgg', icon: 'LinkedIn' }
         ]}
       />
     );

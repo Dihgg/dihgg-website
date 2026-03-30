@@ -1,6 +1,7 @@
 export type SocialLink = {
   label: string;
   href: string;
+  icon: 'GitHub' | 'LinkedIn' | 'Twitter' | 'Facebook' | 'Mail';
 };
 
 export type TimelineItem = {
@@ -18,10 +19,10 @@ export type Project = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/Dihgg' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/dihgg/' },
-  { label: 'Twitter', href: 'https://twitter.com/Diihgg' },
-  { label: 'Facebook', href: 'https://facebook.com/dihgg' }
+  { label: 'GitHub', href: 'https://github.com/Dihgg', icon: 'GitHub' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/dihgg/', icon: 'LinkedIn' },
+  { label: 'Twitter', href: 'https://twitter.com/Diihgg', icon: 'Twitter' },
+  { label: 'Facebook', href: 'https://facebook.com/dihgg', icon: 'Facebook' }
 ];
 
 export const skills: string[] = [

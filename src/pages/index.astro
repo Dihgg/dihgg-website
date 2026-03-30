@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Pill from '../components/Pill';
+import SkillList from '../components/SkillList';
 import SocialLinks from '../components/SocialLinks';
 import ProjectCards from '../components/ProjectCards';
 import { projects, skills, socialLinks, timeline } from '../data/portfolio';
-
 ---
 
 <Layout title="Dihgg | Diego Lopes" description="Portfolio de Diego Lopes, desenvolvedor web e de aplicacoes.">
@@ -17,7 +18,7 @@ import { projects, skills, socialLinks, timeline } from '../data/portfolio';
 				Diego Lopes
 			</h1>
 			<p class="mt-4 max-w-2xl text-lg text-black/75 md:text-xl">
-				Desenvolvedor. Crio experiencias web, produtos digitais e projetos com foco em desempenho e clareza.
+				Cientista da computação, adoro aprender novas tecnologias e tenho interesses em: desenvolvimento WEB, Inteligência Artificial, Ciência de Dados, Internet das Coisas e desenvolvimento de jogos.
 			</p>
 
 			<div class="mt-8">
@@ -25,8 +26,8 @@ import { projects, skills, socialLinks, timeline } from '../data/portfolio';
 			</div>
 
 			<div class="mt-10 flex flex-wrap gap-3">
-				<a class="chip chip-primary" href="#contato">Entre em contato</a>
-				<a class="chip" href="/blog/">Ler blog</a>
+				<Pill label="Entre em contato" variant="primary" href="#contato" />
+				<Pill label="Ler blog" href="/blog/" />
 			</div>
 		</section>
 
@@ -35,18 +36,13 @@ import { projects, skills, socialLinks, timeline } from '../data/portfolio';
 			<p class="mt-4 max-w-3xl text-lg text-black/80">
 				Com mais de uma década de experiência em desenvolvimento de software. Tenho experiência em empresas que incluem consultoria de desenvolvimento, aplicações web e desenvolvimento de jogos educacionais. Trabalhei com Frontend e Backend, com alguma experiência em: Javascript, Node, Angular, HTML, CSS, SQL, PHP, Python e Java.
 			</p>
-			<p class="mt-4 max-w-3xl text-lg text-black/80">
-				Sou formado em ciência da computação, adoro aprender novas tecnologias e tenho interesses em: desenvolvimento WEB, Inteligência Artificial, Ciência de Dados, Internet das Coisas e desenvolvimento de jogos.
-			</p>
 		</section>
 
 		<section id="skills" class="mx-auto max-w-6xl px-6 py-12">
 			<h2 class="section-title">{'{Skills}'}</h2>
-			<ul class="mt-6 flex flex-wrap gap-3">
-				{skills.map((skill) => (
-					<li class="rounded-full border border-black/20 bg-white px-4 py-2 text-sm font-semibold">{skill}</li>
-				))}
-			</ul>
+			<div class="mt-6">
+				<SkillList skills={skills} />
+			</div>
 		</section>
 
 		<section id="trabalho" class="mx-auto max-w-6xl px-6 py-12">
