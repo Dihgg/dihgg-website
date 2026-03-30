@@ -11,6 +11,9 @@ export const siteContent = {
     aboutTitle: '{Sobre}',
     aboutText:
       'Com mais de uma decada de experiencia em desenvolvimento de software. Tenho experiencia em empresas que incluem consultoria de desenvolvimento, aplicacoes web e desenvolvimento de jogos educacionais. Trabalhei com frontend e backend, com alguma experiencia em: Javascript, Node, Angular, HTML, CSS, SQL, PHP, Python e Java.',
+    latestPostsTitle: '{Ultimos Posts}',
+    latestPostsCta: 'Ver todos os posts',
+    latestPostsEmptyLabel: 'Sem posts publicados ainda.',
     skillsTitle: '{Skills}',
     workTitle: '{Trabalho}',
     projectsTitle: '{Projetos}',
@@ -18,6 +21,8 @@ export const siteContent = {
     contactLead: 'Envie um email para',
     contactCta: 'Entre em contato',
     blogCta: 'Ler blog',
+    headerBlogLabel: 'Blog',
+    headerContactLabel: 'Contato',
     projectCta: 'Ver projeto',
     socialAriaLabel: 'Redes sociais',
     switcherAriaLabel: 'Selecionar idioma',
@@ -38,6 +43,9 @@ export const siteContent = {
     aboutTitle: '{About}',
     aboutText:
       'With more than a decade of experience in software development, I have worked in consulting, web applications, and educational game development. I have delivered frontend and backend work with hands-on experience in Javascript, Node, Angular, HTML, CSS, SQL, PHP, Python, and Java.',
+    latestPostsTitle: '{Latest Posts}',
+    latestPostsCta: 'View all posts',
+    latestPostsEmptyLabel: 'No published posts yet.',
     skillsTitle: '{Skills}',
     workTitle: '{Work}',
     projectsTitle: '{Projects}',
@@ -45,6 +53,8 @@ export const siteContent = {
     contactLead: 'Send an email to',
     contactCta: 'Get in touch',
     blogCta: 'Read blog',
+    headerBlogLabel: 'Blog',
+    headerContactLabel: 'Contact me',
     projectCta: 'View project',
     socialAriaLabel: 'Social links',
     switcherAriaLabel: 'Choose language',
@@ -63,6 +73,9 @@ export const siteContent = {
   heroLead: string;
   aboutTitle: string;
   aboutText: string;
+  latestPostsTitle: string;
+  latestPostsCta: string;
+  latestPostsEmptyLabel: string;
   skillsTitle: string;
   workTitle: string;
   projectsTitle: string;
@@ -70,6 +83,8 @@ export const siteContent = {
   contactLead: string;
   contactCta: string;
   blogCta: string;
+  headerBlogLabel: string;
+  headerContactLabel: string;
   projectCta: string;
   socialAriaLabel: string;
   switcherAriaLabel: string;
