@@ -1,4 +1,11 @@
-import type { Project } from '../data/portfolio';
+import Pill from './Pill';
+
+type Project = {
+  name: string;
+  description: string;
+  stack: string;
+  href: string;
+};
 
 type Props = {
   projects: Project[];
@@ -13,14 +20,9 @@ export default function ProjectCards({ projects, ctaLabel = 'View project' }: Pr
           <p className="font-mono text-xs uppercase tracking-wider text-orange-700">{project.stack}</p>
           <h3 className="mt-2 text-xl font-bold">{project.name}</h3>
           <p className="mt-2 text-sm text-black/70">{project.description}</p>
-          <a
-            className="mt-4 inline-block text-sm font-semibold underline decoration-orange-500 decoration-2 underline-offset-4"
-            href={project.href}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {ctaLabel}
-          </a>
+          <div className="mt-3 flex justify-end">
+            <Pill label={ctaLabel} href={project.href} external />
+          </div>
         </article>
       ))}
     </div>

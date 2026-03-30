@@ -15,4 +15,36 @@ const blog = defineCollection({
   })
 });
 
-export const collections = { blog };
+const work = defineCollection({
+  type: 'content',
+  schema: z.object({
+    company: z.string(),
+    role: z.string(),
+    period: z.string(),
+    summary: z.string(),
+    locale: z.enum(['pt-BR', 'en'])
+  })
+});
+
+const skills = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    category: z.string(),
+    sortOrder: z.number().default(0)
+  })
+});
+
+const projects = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    stack: z.string(),
+    href: z.string().url(),
+    locale: z.enum(['pt-BR', 'en']),
+    sortOrder: z.number().default(0)
+  })
+});
+
+export const collections = { blog, work, skills, projects };
