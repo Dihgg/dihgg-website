@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 :root {
-	--paper: #f5f2ea;
-	--ink: #121212;
-	--accent: #ff7a18;
+	--paper: #f0f4f9;
+	--ink: #0f172a;
+	--accent: #0ea5e9;
+	--blue-primary: #2563eb;
+	--blue-secondary: #3b82f6;
 }
 
 html,
@@ -14,8 +16,8 @@ body {
 body {
 	margin: 0;
 	background:
-		radial-gradient(circle at 8% 10%, rgba(255, 122, 24, 0.22), transparent 35%),
-		radial-gradient(circle at 87% 22%, rgba(28, 191, 187, 0.18), transparent 28%),
+		radial-gradient(circle at 8% 10%, rgba(37, 99, 235, 0.15), transparent 35%),
+		radial-gradient(circle at 87% 22%, rgba(14, 165, 233, 0.12), transparent 28%),
 		var(--paper);
 	color: var(--ink);
 	font-family: 'Bricolage Grotesque', sans-serif;
@@ -35,31 +37,33 @@ body {
 .hero-glow-left {
 	left: -6rem;
 	top: 2rem;
-	background: #ff9b51;
+	background: #3b82f6;
 }
 
 .hero-glow-right {
 	right: -7rem;
 	top: 10rem;
-	background: #13b4b1;
+	background: #0ea5e9;
 	animation-delay: 1.4s;
 }
 
 .section-title {
 	display: inline-flex;
-	border: 1px solid rgba(0, 0, 0, 0.22);
+	border: 1px solid rgba(37, 99, 235, 0.2);
 	border-radius: 9999px;
 	padding: 0.35rem 0.8rem;
 	font-family: 'IBM Plex Mono', monospace;
 	font-size: 0.8rem;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
+	color: rgb(37, 99, 235);
+	font-weight: 600;
 }
 
 .chip {
-	border: 1px solid rgba(0, 0, 0, 0.2);
+	border: 1px solid rgba(37, 99, 235, 0.2);
 	border-radius: 9999px;
-	background: rgba(255, 255, 255, 0.8);
+	background: rgba(255, 255, 255, 0.85);
 	padding: 0.65rem 1rem;
 	color: var(--ink);
 	font-weight: 700;
@@ -69,11 +73,12 @@ body {
 
 .chip:hover {
 	transform: translateY(-2px);
+	background: rgba(59, 130, 246, 0.1);
 }
 
 .chip-primary {
 	background: var(--accent);
-	color: #1a1208;
+	color: white;
 }
 
 @keyframes drift {
@@ -84,4 +89,24 @@ body {
 	50% {
 		transform: translateY(-10px);
 	}
+}
+
+@keyframes spritesheet {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -1750px 0;
+	}
+}
+
+.sprite-animation {
+	width: 185px;
+	height: 320px;
+	background-image: url('/dihgg1.png');
+	background-size: auto 100%;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	-webkit-animation: spritesheet 1s steps(7) infinite;
+	animation: spritesheet 1s steps(7) infinite;
 }

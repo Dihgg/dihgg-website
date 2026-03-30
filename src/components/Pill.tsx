@@ -13,8 +13,8 @@ export default function Pill({ label, icon, href, variant = 'default', external 
     'inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5';
 
   const variants = {
-    default: 'border-black/20 bg-white/80 text-black hover:bg-yellow-200',
-    primary: 'border-transparent bg-[var(--accent)] text-[#1a1208] hover:brightness-105',
+    default: 'border-blue-200 bg-white/90 text-slate-900 hover:bg-blue-50',
+    primary: 'border-transparent bg-[var(--accent)] text-white hover:brightness-110',
   };
 
   const className = `${base} ${variants[variant]}`;
