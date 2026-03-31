@@ -1,5 +1,5 @@
 ---
 name: "WordPress"
-category: "CMS"
-sortOrder: 1
+category: "Framework"
+sortOrder: 2
 ---

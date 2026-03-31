@@ -1,5 +1,5 @@
 ---
 name: "Jest"
-category: "Testing"
-sortOrder: 1
+category: "Framework"
+sortOrder: 2
 ---

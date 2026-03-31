@@ -1,5 +1,5 @@
 ---
 name: "React"
 category: "Frameworks"
-sortOrder: 1
+sortOrder: 2
 ---

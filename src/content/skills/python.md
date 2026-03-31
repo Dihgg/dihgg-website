@@ -1,5 +1,5 @@
 ---
 name: "Python"
 category: "Languages"
-sortOrder: 4
+sortOrder: 1
 ---
