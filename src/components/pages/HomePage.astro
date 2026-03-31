@@ -1,17 +1,17 @@
 ---
-import Pill from './Pill';
-import BlogPostCard from './BlogPostCard.astro';
-import SkillList from './SkillList';
-import SocialLinks from './SocialLinks';
-import ProjectCards from './ProjectCards';
-import { socialLinks } from '../data/portfolio';
+import Pill from '@/components/Pill';
+import BlogPostCard from '@/components/BlogPostCard.astro';
+import SkillList from '@/components/SkillList';
+import SocialLinks from '@/components/SocialLinks';
+import ProjectCards from '@/components/ProjectCards';
+import { socialLinks } from '@/data/portfolio';
 import {
   getLocalizedBlogPath,
   siteContent,
   type Locale
-} from '../data/siteContent';
-import { getBlogPosts } from '../lib/blog';
-import { getWorkItems, getSkills, getProjects } from '../lib/portfolio';
+} from '@/data/siteContent';
+import { getBlogPosts } from '@/lib/blog';
+import { getWorkItems, getSkills, getProjects } from '@/lib/portfolio';
 
 interface Props {
   locale: Locale;
