@@ -85,3 +85,11 @@
 	-webkit-animation: spritesheet 1s steps(7) infinite;
 	animation: spritesheet 1s steps(7) infinite;
 }
+
+.home-hero__title {
+	font-family: 'Press Start 2P', monospace;
+	font-size: clamp(2rem, 5vw, 4.75rem);
+	line-height: 1.15;
+	letter-spacing: -0.04em;
+	text-wrap: balance;
+}
