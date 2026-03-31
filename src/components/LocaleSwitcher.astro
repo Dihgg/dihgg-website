@@ -15,7 +15,7 @@ const classess = (locale: "en" | "pt-BR") =>
   classnames(
     "inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] transition",
     {
-      "border-transparent bg-[var(--accent)] text-white":
+      "border-transparent bg-(--accent) text-white":
         currentLocale === locale,
       "border-blue-200 bg-white/80 text-slate-700 hover:bg-blue-50":
         currentLocale !== locale,
