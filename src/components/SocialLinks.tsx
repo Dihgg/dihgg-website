@@ -1,13 +1,12 @@
-import { FaFacebook, FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { MdEmail } from "react-icons/md";
 import type { SocialLink } from '../data/portfolio';
 import Pill from './Pill';
 
 const iconMap: Record<SocialLink['icon'], React.ReactNode> = {
   GitHub: <FaGithub />,
   LinkedIn: <FaLinkedin />,
-  Twitter: <FaXTwitter />,
-  Facebook: <FaFacebook />,
-  Mail: null,
+  Mail: <MdEmail />,
 };
 
 type Props = {
