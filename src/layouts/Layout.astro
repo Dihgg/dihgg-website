@@ -3,6 +3,7 @@ import '../styles/global.css';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import type { Locale } from '../data/siteContent';
+import { GTAG_ID } from '../lib/constants';
 
 type AlternateLink = {
   href: string;
@@ -61,6 +62,19 @@ const {
     <meta name="theme-color" content="#1d4ed8" />
     <link rel="shortcut icon" href="/favicon.ico" />
     {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
+    {GTAG_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+        <script is:inline define:vars={{ GTAG_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', GTAG_ID);
+        </script>
+      </>
+    )}
     <title>{title}</title>
   </head>
   <body>
