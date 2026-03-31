@@ -9,25 +9,30 @@ interface Props {
   post: BlogPost;
   locale: Locale;
   ctaLabel: string;
-  size?: 'default' | 'large';
+  variant?: 'vertical' | 'horizontal';
 }
 
 const {
   post,
   locale,
   ctaLabel,
-  size = 'default'
+  variant = 'vertical'
 } = Astro.props;
 
 const href = getBlogPostPath(post);
 
+const cardClassName = classnames('blog-card', {
+  'blog-card--vertical': variant === 'vertical',
+  'blog-card--horizontal': variant === 'horizontal'
+});
+
 const titleClassName = classnames('blog-card__title', {
-  'blog-card__title--large': size === 'large',
-  'blog-card__title--default': size === 'default'
+  'blog-card__title--horizontal': variant === 'horizontal',
+  'blog-card__title--vertical': variant === 'vertical'
 });
 ---
 
-<li class="blog-card">
+<li class={cardClassName}>
   <div class="blog-card__layout">
     {post.data.featuredImage && (
       <img
