@@ -40,11 +40,11 @@
 	}
 
 	.blog-card {
-		@apply rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md;
+		@apply flex h-full rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md;
 	}
 
 	.blog-card__layout {
-		@apply flex flex-col gap-4;
+		@apply flex w-full flex-col gap-4;
 	}
 
 	.blog-card__image {
@@ -52,7 +52,7 @@
 	}
 
 	.blog-card__content {
-		@apply min-w-0 flex-1;
+		@apply flex min-w-0 flex-1 flex-col;
 	}
 
 	.blog-card__date {
@@ -76,7 +76,7 @@
 	}
 
 	.blog-card__cta {
-		@apply mt-3 flex justify-end;
+		@apply mt-auto flex justify-end pt-4;
 	}
 
 	.blog-search {
