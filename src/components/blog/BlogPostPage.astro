@@ -1,9 +1,9 @@
 ---
 import { render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import { getLocalizedBlogPath, getLocalizedHomePath, siteContent, type Locale } from '../../data/siteContent';
-import { getBlogPostPath, type BlogPost } from '../../lib/blog';
-import { formatPostDate } from '../../lib/date';
+import Layout from '@/layouts/Layout.astro';
+import { getLocalizedBlogPath, getLocalizedHomePath, siteContent, type Locale } from '@/data/siteContent';
+import { getBlogPostPath, type BlogPost } from '@/lib/blog';
+import { formatPostDate } from '@/lib/date';
 
 interface Props {
   locale: Locale;

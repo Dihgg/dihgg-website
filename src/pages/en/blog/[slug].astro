@@ -1,6 +1,6 @@
 ---
-import BlogPostPage from '../../../components/blog/BlogPostPage.astro';
-import { getLocalizedBlogStaticPaths } from '../../../lib/blog';
+import BlogPostPage from '@/components/blog/BlogPostPage.astro';
+import { getLocalizedBlogStaticPaths } from '@/lib/blog';
 
 export async function getStaticPaths() {
   return getLocalizedBlogStaticPaths('en', 'pt-BR');

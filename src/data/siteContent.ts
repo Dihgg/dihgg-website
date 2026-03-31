@@ -5,11 +5,11 @@ export const siteContent = {
     homeTitle: 'Dihgg | Diego Lopes',
     homeDescription: 'Portfolio de Diego Lopes, desenvolvedor web e de aplicacoes.',
     heroLead:
-      'Cientista da computacao, adoro aprender novas tecnologias e tenho interesses em: desenvolvimento web, inteligencia artificial, ciencia de dados, internet das coisas e desenvolvimento de jogos.',
+      'Cientista da computação, adoro aprender novas tecnologias e tenho interesses em: desenvolvimento web, inteligência artificial, ciência de dados, internet das coisas e desenvolvimento de jogos.',
     aboutTitle: '{Sobre}',
     aboutText:
-      'Com mais de uma decada de experiencia em desenvolvimento de software. Tenho experiencia em empresas que incluem consultoria de desenvolvimento, aplicacoes web e desenvolvimento de jogos educacionais. Trabalhei com frontend e backend, com alguma experiencia em: Javascript, Node, Angular, HTML, CSS, SQL, PHP, Python e Java.',
-    latestPostsTitle: '{Ultimos Posts}',
+      'Com mais de uma década de experiência em desenvolvimento de software. Trabalhei em empresas que incluem consultoria de desenvolvimento, aplicações web e desenvolvimento de jogos educacionais. Trabalhei com frontend e backend, com experiência em: Javascript, Typescript, Node, Angular, HTML, CSS, SQL, PHP, Python, Java e muito mais.',
+    latestPostsTitle: '{Últimos Posts}',
     latestPostsCta: 'Ver todos os posts',
     latestPostsEmptyLabel: 'Sem posts publicados ainda.',
     latestPostsCardCta: 'Ler post',
@@ -26,7 +26,7 @@ export const siteContent = {
     socialAriaLabel: 'Redes sociais',
     switcherAriaLabel: 'Selecionar idioma',
     blogPageTitle: 'Blog | Dihgg',
-    blogDescription: 'Artigos e notas tecnicas de Diego Lopes.',
+    blogDescription: 'Artigos e notas técnicas de Diego Lopes.',
     blogIntro: 'Bem-vindo(a) ao meu blog pessoal! Aqui compartilho artigos, notas técnicas e insights sobre desenvolvimento web, programação e tecnologia. Fique ligado(a) para atualizações regulares e sinta-se à vontade para entrar em contato caso tenha alguma dúvida ou sugestão de temas que gostaria que eu abordasse.',
     noPostsLabel: 'Ainda sem posts neste idioma.',
     backHomeLabel: '← Voltar para home',

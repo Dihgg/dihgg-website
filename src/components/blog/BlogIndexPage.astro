@@ -1,9 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import BlogPostCard from '../../components/BlogPostCard.astro';
-import BlogSearch from '../../components/BlogSearch.astro';
-import { getLocalizedHomePath, siteContent, type Locale } from '../../data/siteContent';
-import { getBlogPosts } from '../../lib/blog';
+import Layout from '@/layouts/Layout.astro';
+import BlogPostCard from '@/components/BlogPostCard.astro';
+import BlogSearch from '@/components/BlogSearch.astro';
+import { getLocalizedHomePath, siteContent, type Locale } from '@/data/siteContent';
+import { getBlogPosts } from '@/lib/blog';
 
 interface Props {
   locale: Locale;
