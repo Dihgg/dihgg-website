@@ -12,6 +12,7 @@ import {
   type Locale
 } from '@/data/siteContent';
 import { getBlogPosts } from '@/lib/blog';
+import { LATEST_POSTS_COUNT } from '@/lib/constants';
 import { getWorkItems, getSkills, getProjects } from '@/lib/portfolio';
 
 interface Props {
@@ -23,7 +24,7 @@ const content = siteContent[locale];
 const workItems = await getWorkItems(locale);
 const skillItems = await getSkills();
 const projectItems = await getProjects(locale);
-const latestPosts = (await getBlogPosts(locale)).slice(0, 3);
+const latestPosts = (await getBlogPosts(locale)).slice(0, LATEST_POSTS_COUNT);
 
 // Transform data to match component expectations
 const skillNames = skillItems.map(item => item.data.name);

@@ -1,5 +1,15 @@
 ---
 import BlogIndexPage from '@/components/pages/BlogIndexPage.astro';
+import { getBlogPageCount, getBlogPosts, BLOG_POSTS_PER_PAGE } from '@/lib/blog';
+
+const posts = await getBlogPosts('en');
+const alternatePosts = await getBlogPosts('pt-BR');
 ---
 
-<BlogIndexPage locale="en" />
+<BlogIndexPage
+	locale="en"
+	posts={posts.slice(0, BLOG_POSTS_PER_PAGE)}
+	currentPage={1}
+	lastPage={getBlogPageCount(posts.length)}
+	alternatePageCount={getBlogPageCount(alternatePosts.length)}
+/>

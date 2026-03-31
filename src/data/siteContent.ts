@@ -33,6 +33,9 @@ export const siteContent = {
     backBlogLabel: '← Blog',
     madeWithLabel: 'feito com',
     searchPlaceholder: 'Buscar posts...',
+    paginationAriaLabel: 'Paginação do blog',
+    paginationPreviousLabel: 'Anterior',
+    paginationNextLabel: 'Próxima',
     dateLocale: 'pt-BR'
   },
   en: {
@@ -42,7 +45,7 @@ export const siteContent = {
       'Computer scientist who loves learning new technologies, with interests in web development, artificial intelligence, data science, internet of things, and game development.',
     aboutTitle: '{About}',
     aboutText:
-      'With more than a decade of experience in software development, I have worked in consulting, web applications, and educational game development. I have delivered frontend and backend work with hands-on experience in Javascript, Node, Angular, HTML, CSS, SQL, PHP, Python, and Java.',
+      'With more than a decade of experience in software development, I have worked in consulting, web applications, and educational game development. I have delivered frontend and backend work with hands-on experience in Javascript, Node, Angular, HTML, CSS, SQL, PHP, Python, Java and more.',
     latestPostsTitle: '{Latest Posts}',
     latestPostsCta: 'View all posts',
     latestPostsEmptyLabel: 'No published posts yet.',
@@ -67,6 +70,9 @@ export const siteContent = {
     backBlogLabel: '← Blog',
     madeWithLabel: 'made with',
     searchPlaceholder: 'Search posts...',
+    paginationAriaLabel: 'Blog pagination',
+    paginationPreviousLabel: 'Previous',
+    paginationNextLabel: 'Next',
     dateLocale: 'en-US'
   }
 } as const satisfies Record<Locale, {
@@ -99,11 +105,19 @@ export const siteContent = {
   backBlogLabel: string;
   madeWithLabel: string;
   searchPlaceholder: string;
+  paginationAriaLabel: string;
+  paginationPreviousLabel: string;
+  paginationNextLabel: string;
   dateLocale: string;
 }>;
 
 export function getLocalizedHomePath(locale: Locale) {
   return locale === 'en' ? '/en/' : '/';
+}
+
+export function getLocalizedBlogPagePath(locale: Locale, page = 1) {
+  const base = locale === 'en' ? '/en/blog/' : '/blog/';
+  return page <= 1 ? base : `${base}page/${page}/`;
 }
 
 export function getLocalizedBlogPath(locale: Locale, slug?: string) {

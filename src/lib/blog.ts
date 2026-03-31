@@ -1,7 +1,9 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Locale } from '../data/siteContent';
+import { BLOG_POSTS_PER_PAGE } from './constants';
 
 export type BlogPost = CollectionEntry<'blog'>;
+export { BLOG_POSTS_PER_PAGE };
 
 // Extract filename from nested slug (e.g., "pt-BR/primeiro-post" -> "primeiro-post")
 function getSlugName(slug: string): string {
@@ -22,6 +24,10 @@ export async function getAllBlogPosts() {
 export async function getBlogPosts(locale: Locale) {
   const posts = await getCollection('blog', ({ data }) => !data.draft && data.locale === locale);
   return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+}
+
+export function getBlogPageCount(totalPosts: number, pageSize = BLOG_POSTS_PER_PAGE) {
+  return Math.max(1, Math.ceil(totalPosts / pageSize));
 }
 
 export async function getLocalizedBlogStaticPaths(locale: Locale, alternateLocale: Locale) {

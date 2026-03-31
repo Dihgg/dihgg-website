@@ -16,7 +16,7 @@
 	}
 
 	.page-shell__return-link {
-		@apply text-sm text-black/50;
+		@apply text-sm text-black/50 mt-5;
 	}
 
 	.page-shell__return-link-anchor {
