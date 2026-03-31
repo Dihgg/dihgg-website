@@ -10,9 +10,19 @@ import {
   SiWordpress,
   SiPython,
   SiMysql,
-  SiAngular
+  SiAngular,
+  SiUnity,
+  SiSass,
+  SiJavascript,
+  SiHtml5,
+  SiCss,
+  SiGit,
+  SiExpress,
+  SiDocker,
+  SiLinux,
+  SiSpringboot
 } from 'react-icons/si';
-import { DiJava } from 'react-icons/di';
+import { DiJava, DiPhotoshop } from 'react-icons/di';
 import type { ReactNode } from 'react';
 
 type Props = {
@@ -31,7 +41,19 @@ const skillIconMap: Record<string, ReactNode> = {
   'Java': <DiJava />,
   'Python': <SiPython />,
   'MySQL': <SiMysql />,
-  'Angular': <SiAngular />
+  'Angular': <SiAngular />,
+  'Unity': <SiUnity />,
+  'Sass': <SiSass />,
+  'Photoshop': <DiPhotoshop />,
+  'JavaScript': <SiJavascript />,
+  'HTML5': <SiHtml5 />,
+  'CSS': <SiCss />,
+  'Git': <SiGit />,
+  'Express.js': <SiExpress />,
+  'Docker': <SiDocker />,
+  'Linux': <SiLinux />,
+  'Spring Boot (Java)': <SiSpringboot />
+
 };
 
 export default function SkillList({ skills }: Props) {

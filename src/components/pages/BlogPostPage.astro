@@ -1,0 +1,144 @@
+---
+import { render } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { getLocalizedBlogPath, getLocalizedHomePath, siteContent, type Locale } from '@/data/siteContent';
+import { getBlogPostPath, type BlogPost } from '@/lib/blog';
+import { SITE_URL } from '@/lib/constants';
+import { formatPostDate } from '@/lib/date';
+
+interface Props {
+  locale: Locale;
+  post: BlogPost;
+  alternatePost: BlogPost | null;
+}
+
+const { locale, post, alternatePost } = Astro.props;
+const content = siteContent[locale];
+const { Content } = await render(post);
+
+const isEnglish = locale === 'en';
+const currentPostPath = getBlogPostPath(post);
+const fallbackAlternatePath = getLocalizedBlogPath(isEnglish ? 'pt-BR' : 'en');
+const alternatePostPath = alternatePost ? getBlogPostPath(alternatePost) : fallbackAlternatePath;
+
+const ptPostPath = isEnglish ? alternatePostPath : currentPostPath;
+const enPostPath = isEnglish ? currentPostPath : alternatePostPath;
+---
+
+<Layout
+  title={`${post.data.title} | Blog Dihgg`}
+  description={post.data.description}
+  lang={locale}
+  alternates={[
+    { href: `${SITE_URL}${ptPostPath}`, hreflang: 'pt-BR' },
+    { href: `${SITE_URL}${enPostPath}`, hreflang: 'en' }
+  ]}
+  header={{
+    brandHref: isEnglish ? '/en/' : '/',
+    blogHref: isEnglish ? '/en/blog/' : '/blog/',
+    contactHref: isEnglish ? '/en/#contato' : '/#contato',
+    blogLabel: content.headerBlogLabel,
+    contactLabel: content.headerContactLabel
+  }}
+  footer={{
+    currentLocale: locale,
+    ptHref: ptPostPath,
+    enHref: enPostPath,
+    switcherAriaLabel: content.switcherAriaLabel,
+    madeWithLabel: content.madeWithLabel
+  }}
+>
+  <main class="page-shell page-shell--narrow blog-post">
+    <a href={getLocalizedBlogPath(locale)} class="page-shell__back-link">{content.backBlogLabel}</a>
+
+    <h1 data-pagefind-meta="title" class="blog-post__title">{post.data.title}</h1>
+    <time
+      datetime={post.data.date.toISOString().slice(0, 10)}
+      class="blog-post__meta"
+    >
+      {formatPostDate(post.data.date, locale)}
+    </time>
+
+    {post.data.tags.length > 0 && (
+      <div class="blog-post__tags">
+        {post.data.tags.map((tag) => (
+          <span class="blog-post__tag">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+
+    {post.data.featuredImage && (
+      <img
+        src={post.data.featuredImage}
+        alt={post.data.featuredImageAlt ?? post.data.title}
+        class="blog-post__image"
+        loading="eager"
+      />
+    )}
+
+    <article data-blog-content data-pagefind-body data-pagefind-filter={`language:${locale}`} class="blog-post__article prose">
+      {post.data.tags.map((tag) => (
+        <span class="hidden" data-pagefind-filter={`tag:${tag}`}>{tag}</span>
+      ))}
+      <Content />
+    </article>
+
+    <script is:inline>
+      {
+        (() => {
+          const root = document.querySelector('[data-blog-content]');
+          if (!root) return;
+
+          const normalizeCodeLanguage = (value) => {
+            if (!value) return '';
+            const normalized = value.toLowerCase();
+            const languageMap = {
+              js: 'JavaScript',
+              ts: 'TypeScript',
+              jsx: 'JSX',
+              tsx: 'TSX',
+              sh: 'Shell',
+              bash: 'Bash',
+              yml: 'YAML',
+              md: 'Markdown',
+              py: 'Python',
+              rb: 'Ruby',
+              rs: 'Rust',
+              csharp: 'C#',
+              cs: 'C#',
+              cpp: 'C++',
+              plaintext: 'Text',
+              text: 'Text'
+            };
+            if (languageMap[normalized]) return languageMap[normalized];
+            return normalized.charAt(0).toUpperCase() + normalized.slice(1);
+          };
+
+          root.querySelectorAll('a[href]').forEach((link) => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          });
+
+          root.querySelectorAll('pre > code[class]').forEach((codeBlock) => {
+            const pre = codeBlock.parentElement;
+            if (!pre || pre.hasAttribute('data-language')) return;
+
+            const languageClass = Array.from(codeBlock.classList).find((className) => className.startsWith('language-'));
+            if (!languageClass) return;
+
+            const language = normalizeCodeLanguage(languageClass.replace('language-', ''));
+            if (!language) return;
+
+            pre.setAttribute('data-language', language);
+          });
+        })();
+      }
+    </script>
+
+    <p class="page-shell__return-link">
+      <a href={getLocalizedHomePath(locale)} class="page-shell__return-link-anchor">{content.backHomeLabel}</a>
+    </p>
+  </main>
+</Layout>

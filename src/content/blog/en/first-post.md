@@ -15,3 +15,10 @@ translationKey: portfolio-launch
 This space will capture project lessons, architecture notes, and front-end experiments.
 
 The blog structure is based on markdown files so everything stays versioned in Git and easy to publish.
+
+code example:
+
+```typescript
+const xpto = 10;
+const xpta = (a: number, b: number) => a + b;
+```

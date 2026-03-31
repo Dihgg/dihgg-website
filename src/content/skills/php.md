@@ -1,5 +1,5 @@
 ---
 name: "PHP"
 category: "Languages"
-sortOrder: 2
+sortOrder: 1
 ---

@@ -1,0 +1,35 @@
+---
+import BlogIndexPage from '@/components/pages/BlogIndexPage.astro';
+import type { Locale } from '@/data/siteContent';
+import { BLOG_POSTS_PER_PAGE, getBlogPageCount, getBlogPosts } from '@/lib/blog';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getBlogPosts('pt-BR');
+  const alternatePosts = await getBlogPosts('en');
+
+  return paginate(posts, {
+    pageSize: BLOG_POSTS_PER_PAGE,
+    params: {},
+    props: {
+      locale: 'pt-BR',
+      alternatePageCount: getBlogPageCount(alternatePosts.length)
+    }
+  }).filter((entry) => entry.params.page !== '1');
+}) satisfies GetStaticPaths;
+
+interface Props extends InferGetStaticPropsType<typeof getStaticPaths> {
+  locale: Locale;
+  alternatePageCount: number;
+}
+
+const { page, locale, alternatePageCount }: Props = Astro.props;
+---
+
+<BlogIndexPage
+  locale={locale}
+  posts={page.data}
+  currentPage={page.currentPage}
+  lastPage={page.lastPage}
+  alternatePageCount={alternatePageCount}
+/>

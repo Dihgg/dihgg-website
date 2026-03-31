@@ -1,5 +1,5 @@
 ---
 name: "Angular"
 category: "Frameworks"
-sortOrder: 3
+sortOrder: 2
 ---

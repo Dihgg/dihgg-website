@@ -1,92 +1,12 @@
 ---
-import { render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import { getLocalizedBlogPath, getLocalizedHomePath, siteContent } from '../../data/siteContent';
-import { getBlogPostPath, getLocalizedBlogStaticPaths } from '../../lib/blog';
-import { formatPostDate } from '../../lib/date';
-import Pill from '../../components/Pill';
+import BlogPostPage from '@/components/pages/BlogPostPage.astro';
+import { getLocalizedBlogStaticPaths } from '@/lib/blog';
 
 export async function getStaticPaths() {
   return getLocalizedBlogStaticPaths('pt-BR', 'en');
 }
 
-const locale = 'pt-BR' as const;
-const content = siteContent[locale];
 const { post, alternatePost } = Astro.props;
-const { Content } = await render(post);
-const ptPostPath = getBlogPostPath(post);
-const enPostPath = alternatePost ? getBlogPostPath(alternatePost) : getLocalizedBlogPath('en');
 ---
 
-<Layout
-  title={`${post.data.title} | Blog Dihgg`}
-  description={post.data.description}
-  lang={locale}
-  alternates={[
-    { href: `https://dihgg.com${ptPostPath}`, hreflang: 'pt-BR' },
-    { href: `https://dihgg.com${enPostPath}`, hreflang: 'en' }
-  ]}
-  header={{
-    brandHref: '/',
-    blogHref: '/blog/',
-    contactHref: '/#contato',
-    blogLabel: content.headerBlogLabel,
-    contactLabel: content.headerContactLabel
-  }}
-  footer={{
-    currentLocale: locale,
-    ptHref: ptPostPath,
-    enHref: enPostPath,
-    switcherAriaLabel: content.switcherAriaLabel,
-    madeWithLabel: content.madeWithLabel
-  }}
->
-  <main class="mx-auto min-h-screen max-w-3xl px-6 py-16">
-    <a href={getLocalizedBlogPath(locale)} class="font-mono text-sm text-black/60 hover:text-black">{content.backBlogLabel}</a>
-    <h1 data-pagefind-meta="title" class="mt-5 text-4xl font-bold leading-tight">{post.data.title}</h1>
-    <time
-      datetime={post.data.date.toISOString().slice(0, 10)}
-      class="mt-3 block font-mono text-xs uppercase tracking-wide text-black/60"
-    >
-      {formatPostDate(post.data.date, locale)}
-    </time>
-
-    {post.data.featuredImage && (
-      <img
-        src={post.data.featuredImage}
-        alt={post.data.featuredImageAlt ?? post.data.title}
-        class="mt-8 h-64 w-full rounded-2xl border border-blue-100 object-cover shadow-sm"
-        loading="eager"
-      />
-    )}
-
-    <article data-blog-content data-pagefind-body data-pagefind-filter="language:pt-BR" class="prose mt-10 max-w-none prose-a:text-orange-700 prose-headings:font-bold prose-p:text-black/80">
-      {post.data.tags.length > 0 && (
-        <div class="mt-4 flex flex-wrap gap-2">
-          {post.data.tags.map(tag => (
-            <Pill label={tag} data-pagefind-filter={`tag:${tag}`} />
-          ))}
-        </div>
-      )}
-      <Content />
-    </article>
-
-    <script is:inline>
-      {
-        (() => {
-          const root = document.querySelector('[data-blog-content]');
-          if (!root) return;
-
-          root.querySelectorAll('a[href]').forEach((link) => {
-            link.setAttribute('target', '_blank');
-            link.setAttribute('rel', 'noopener noreferrer');
-          });
-        })();
-      }
-    </script>
-
-    <p class="mt-10 text-sm text-black/50">
-      <a href={getLocalizedHomePath(locale)} class="hover:text-black">{content.backHomeLabel}</a>
-    </p>
-  </main>
-</Layout>
+<BlogPostPage locale="pt-BR" post={post} alternatePost={alternatePost} />

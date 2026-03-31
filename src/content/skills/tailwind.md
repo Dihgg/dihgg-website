@@ -1,5 +1,5 @@
 ---
 name: "Tailwind"
-category: "Styling"
-sortOrder: 1
+category: "Frameworks"
+sortOrder: 2
 ---

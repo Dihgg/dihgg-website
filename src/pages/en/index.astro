@@ -1,7 +1,8 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import HomePage from '../../components/HomePage.astro';
-import { siteContent } from '../../data/siteContent';
+import Layout from '@/layouts/Layout.astro';
+import HomePage from '@/components/pages/HomePage.astro';
+import { siteContent } from '@/data/siteContent';
+import { SITE_URL } from '@/lib/constants';
 
 const locale = 'en' as const;
 const content = siteContent[locale];
@@ -12,8 +13,8 @@ const content = siteContent[locale];
   description={content.homeDescription}
   lang={locale}
   alternates={[
-    { href: 'https://dihgg.com/', hreflang: 'pt-BR' },
-    { href: 'https://dihgg.com/en/', hreflang: 'en' }
+    { href: `${SITE_URL}/`, hreflang: 'pt-BR' },
+    { href: `${SITE_URL}/en/`, hreflang: 'en' }
   ]}
   header={{
     brandHref: '/en/',

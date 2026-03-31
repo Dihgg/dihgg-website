@@ -1,5 +1,5 @@
 ---
 name: "Java"
 category: "Languages"
-sortOrder: 3
+sortOrder: 1
 ---

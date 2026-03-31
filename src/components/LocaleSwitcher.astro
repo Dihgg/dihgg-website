@@ -1,5 +1,6 @@
 ---
-import type { Locale } from '../data/siteContent';
+import classnames from "classnames";
+import type { Locale } from "@/data/siteContent";
 
 interface Props {
   currentLocale: Locale;
@@ -10,12 +11,19 @@ interface Props {
 
 const { currentLocale, ptHref, enHref, ariaLabel } = Astro.props;
 
-const baseClass = 'inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] transition';
-const activeClass = 'border-transparent bg-[var(--accent)] text-white';
-const inactiveClass = 'border-blue-200 bg-white/80 text-slate-700 hover:bg-blue-50';
+const classess = (locale: "en" | "pt-BR") =>
+  classnames(
+    "inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] transition",
+    {
+      "border-transparent bg-(--accent) text-white":
+        currentLocale === locale,
+      "border-blue-200 bg-white/80 text-slate-700 hover:bg-blue-50":
+        currentLocale !== locale,
+    },
+  );
 ---
 
 <nav aria-label={ariaLabel} class="flex items-center gap-2">
-  <a href={ptHref} class={`${baseClass} ${currentLocale === 'pt-BR' ? activeClass : inactiveClass}`}>PT</a>
-  <a href={enHref} class={`${baseClass} ${currentLocale === 'en' ? activeClass : inactiveClass}`}>EN</a>
+  <a href={ptHref} class={classess("pt-BR")}>PT</a>
+  <a href={enHref} class={classess("en")}>EN</a>
 </nav>

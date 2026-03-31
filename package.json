@@ -15,6 +15,9 @@
   "type": "module",
   "dependencies": {
     "@astrojs/react": "^5.0.2",
+    "@fontsource/bricolage-grotesque": "^5.2.10",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@fontsource/press-start-2p": "^5.2.7",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^5.18.1",
     "date-fns": "^4.1.0",
@@ -30,6 +33,7 @@
     "@types/jest": "^30.0.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "classnames": "^2.5.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.2.0",

@@ -1,0 +1,39 @@
+---
+import type { WorkItem } from '@/lib/portfolio';
+
+interface Props {
+  items: WorkItem[];
+}
+
+const { items } = Astro.props;
+
+function getLogoPath(item: WorkItem) {
+  const slug = item.id.split('/').pop()?.replace(/\.md$/, '');
+  return slug ? `/images/${slug}.svg` : undefined;
+}
+---
+
+<div class="work-grid">
+  {items.map((item) => {
+    const logoPath = getLogoPath(item);
+
+    return (
+      <article class="work-card">
+        <div class="work-card__media" aria-hidden="true">
+          {logoPath ? (
+            <img src={logoPath} alt="" class="work-card__logo" loading="lazy" />
+          ) : (
+            <span class="work-card__fallback">{item.data.company.slice(0, 2).toUpperCase()}</span>
+          )}
+        </div>
+
+        <div class="work-card__body">
+          <p class="work-card__period">{item.data.period}</p>
+          <h3 class="work-card__company">{item.data.company}</h3>
+          <p class="work-card__role">{item.data.role}</p>
+          <p class="work-card__summary">{item.data.summary}</p>
+        </div>
+      </article>
+    );
+  })}
+</div>
