@@ -15,7 +15,12 @@ import {
   SiSass,
   SiJavascript,
   SiHtml5,
-  SiCss
+  SiCss,
+  SiGit,
+  SiExpress,
+  SiDocker,
+  SiLinux,
+  SiSpringboot
 } from 'react-icons/si';
 import { DiJava, DiPhotoshop } from 'react-icons/di';
 import type { ReactNode } from 'react';
@@ -42,7 +47,12 @@ const skillIconMap: Record<string, ReactNode> = {
   'Photoshop': <DiPhotoshop />,
   'JavaScript': <SiJavascript />,
   'HTML5': <SiHtml5 />,
-  'CSS': <SiCss />
+  'CSS': <SiCss />,
+  'Git': <SiGit />,
+  'Express.js': <SiExpress />,
+  'Docker': <SiDocker />,
+  'Linux': <SiLinux />,
+  'Spring Boot (Java)': <SiSpringboot />
 
 };
 
