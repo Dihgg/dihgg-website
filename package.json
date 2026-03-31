@@ -4,7 +4,7 @@
   "description": "Personal portfolio and blog built with Astro, React, Tailwind, and Jest.",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "test": "jest",
     "coverage": "jest --coverage"
@@ -33,6 +33,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.2.0",
+    "pagefind": "^1.4.0",
     "ts-jest": "^29.4.6"
   }
 }

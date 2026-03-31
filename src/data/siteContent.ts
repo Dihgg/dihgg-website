@@ -27,11 +27,12 @@ export const siteContent = {
     switcherAriaLabel: 'Selecionar idioma',
     blogPageTitle: 'Blog | Dihgg',
     blogDescription: 'Artigos e notas tecnicas de Diego Lopes.',
-    blogIntro: 'Posts em markdown versionados no Git. Simples de manter, simples de publicar.',
+    blogIntro: 'Bem-vindo(a) ao meu blog pessoal! Aqui compartilho artigos, notas técnicas e insights sobre desenvolvimento web, programação e tecnologia. Fique ligado(a) para atualizações regulares e sinta-se à vontade para entrar em contato caso tenha alguma dúvida ou sugestão de temas que gostaria que eu abordasse.',
     noPostsLabel: 'Ainda sem posts neste idioma.',
     backHomeLabel: '← Voltar para home',
     backBlogLabel: '← Blog',
     madeWithLabel: 'feito com',
+    searchPlaceholder: 'Buscar posts...',
     dateLocale: 'pt-BR'
   },
   en: {
@@ -60,11 +61,12 @@ export const siteContent = {
     switcherAriaLabel: 'Choose language',
     blogPageTitle: 'Blog | Dihgg',
     blogDescription: 'Articles and engineering notes by Diego Lopes.',
-    blogIntro: 'Markdown posts versioned in Git. Easy to maintain, easy to publish.',
+    blogIntro: 'Welcome to my personal blog! Here I share articles, technical notes, and insights on web development, programming, and technology. Stay tuned for regular updates and feel free to reach out if you have any questions or topics you would like me to cover.',
     noPostsLabel: 'No posts in this language yet.',
     backHomeLabel: '← Back to home',
     backBlogLabel: '← Blog',
     madeWithLabel: 'made with',
+    searchPlaceholder: 'Search posts...',
     dateLocale: 'en-US'
   }
 } as const satisfies Record<Locale, {
@@ -96,6 +98,7 @@ export const siteContent = {
   backHomeLabel: string;
   backBlogLabel: string;
   madeWithLabel: string;
+  searchPlaceholder: string;
   dateLocale: string;
 }>;
 
