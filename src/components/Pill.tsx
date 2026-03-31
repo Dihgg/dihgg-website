@@ -6,9 +6,9 @@ type PillProps = {
   href?: string;
   variant?: 'default' | 'primary';
   external?: boolean;
-};
+} & React.HTMLAttributes<HTMLAnchorElement | HTMLSpanElement>;
 
-export default function Pill({ label, icon, href, variant = 'default', external = false }: PillProps) {
+export default function Pill({ label, icon, href, variant = 'default', external = false, ...extraProps }: PillProps) {
   const base =
     'inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5';
 
@@ -32,11 +32,12 @@ export default function Pill({ label, icon, href, variant = 'default', external 
         className={className}
         href={href}
         {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
+        {...extraProps}
       >
         {content}
       </a>
     );
   }
 
-  return <span className={className}>{content}</span>;
+  return <span className={className} {...extraProps}>{content}</span>;
 }

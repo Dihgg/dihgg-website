@@ -1,10 +1,9 @@
 ---
 interface Props {
-  language: 'pt-BR' | 'en';
   placeholder?: string;
 }
 
-const { language, placeholder = 'Search...' } = Astro.props;
+const { placeholder = 'Search...' } = Astro.props;
 ---
 
 <div id="blog-search-wrap" class="mt-8">
@@ -13,7 +12,7 @@ const { language, placeholder = 'Search...' } = Astro.props;
 
 <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
 
-<script is:inline define:vars={{ language, placeholder }}>
+<script is:inline define:vars={{ placeholder }}>
   (async function () {
     try {
       await import('/pagefind/pagefind-ui.js');

@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getLocalizedBlogPath, getLocalizedHomePath, siteContent } from '../../data/siteContent';
 import { getBlogPostPath, getLocalizedBlogStaticPaths } from '../../lib/blog';
 import { formatPostDate } from '../../lib/date';
+import Pill from '../../components/Pill';
 
 export async function getStaticPaths() {
   return getLocalizedBlogStaticPaths('pt-BR', 'en');
@@ -60,6 +61,13 @@ const enPostPath = alternatePost ? getBlogPostPath(alternatePost) : getLocalized
     )}
 
     <article data-blog-content data-pagefind-body data-pagefind-filter="language:pt-BR" class="prose mt-10 max-w-none prose-a:text-orange-700 prose-headings:font-bold prose-p:text-black/80">
+      {post.data.tags.length > 0 && (
+        <div class="mt-4 flex flex-wrap gap-2">
+          {post.data.tags.map(tag => (
+            <Pill label={tag} data-pagefind-filter={`tag:${tag}`} />
+          ))}
+        </div>
+      )}
       <Content />
     </article>
 
