@@ -5,12 +5,6 @@ export type WorkItem = CollectionEntry<'work'>;
 export type SkillItem = CollectionEntry<'skills'>;
 export type ProjectItem = CollectionEntry<'projects'>;
 
-// Helper to extract filename from nested slug
-function getSlugName(slug: string): string {
-  const parts = slug.split('/');
-  return parts.length > 1 ? parts[parts.length - 1] : slug;
-}
-
 // Work items
 export async function getWorkItems(locale: Locale) {
   const items = await getCollection('work', ({ data }) => data.locale === locale);

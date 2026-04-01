@@ -1,21 +1,11 @@
 ---
 import BlogIndexPage from '@/components/pages/BlogIndexPage.astro';
 import type { Locale } from '@/data/siteContent';
-import { BLOG_POSTS_PER_PAGE, getBlogPageCount, getBlogPosts } from '@/lib/blog';
+import { getLocalizedBlogIndexHrefs, getLocalizedBlogPaginationStaticPaths } from '@/lib/blog';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts = await getBlogPosts('en');
-  const alternatePosts = await getBlogPosts('pt-BR');
-
-  return paginate(posts, {
-    pageSize: BLOG_POSTS_PER_PAGE,
-    params: {},
-    props: {
-      locale: 'en',
-      alternatePageCount: getBlogPageCount(alternatePosts.length)
-    }
-  }).filter((entry) => entry.params.page !== '1');
+  return getLocalizedBlogPaginationStaticPaths('en', 'pt-BR', paginate);
 }) satisfies GetStaticPaths;
 
 interface Props extends InferGetStaticPropsType<typeof getStaticPaths> {
@@ -24,6 +14,7 @@ interface Props extends InferGetStaticPropsType<typeof getStaticPaths> {
 }
 
 const { page, locale, alternatePageCount }: Props = Astro.props;
+const { ptHref, enHref } = getLocalizedBlogIndexHrefs(locale, page.currentPage, alternatePageCount);
 ---
 
 <BlogIndexPage
@@ -31,5 +22,6 @@ const { page, locale, alternatePageCount }: Props = Astro.props;
   posts={page.data}
   currentPage={page.currentPage}
   lastPage={page.lastPage}
-  alternatePageCount={alternatePageCount}
+  ptHref={ptHref}
+  enHref={enHref}
 />

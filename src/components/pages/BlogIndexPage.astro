@@ -2,29 +2,32 @@
 import Layout from '@/layouts/Layout.astro';
 import BlogPostCard from '@/components/BlogPostCard.astro';
 import BlogSearch from '@/components/BlogSearch.astro';
-import { getLocalizedBlogPagePath, getLocalizedHomePath, siteContent, type Locale } from '@/data/siteContent';
+import { getLocalizedPaths, siteContent, type Locale } from '@/data/siteContent';
 import type { BlogPost } from '@/lib/blog';
-import { SITE_URL } from '@/lib/constants';
+import classNames from 'classnames';
 
 interface Props {
   locale: Locale;
   posts: BlogPost[];
   currentPage: number;
   lastPage: number;
-  alternatePageCount: number;
+  ptHref: string;
+  enHref: string;
 }
 
-const { locale, posts, currentPage, lastPage, alternatePageCount } = Astro.props;
+const { locale, posts, currentPage, lastPage, ptHref, enHref } = Astro.props;
+
 const content = siteContent[locale];
-const isEnglish = locale === 'en';
+
+const blogPath = getLocalizedPaths('/blog/');
+const homePath = getLocalizedPaths('/');
+
 const pageTitle = currentPage > 1 ? `${content.blogPageTitle} | ${currentPage}` : content.blogPageTitle;
-const currentPath = getLocalizedBlogPagePath(locale, currentPage);
-const alternateLocale = isEnglish ? 'pt-BR' : 'en';
-const alternatePage = Math.min(currentPage, alternatePageCount);
-const alternatePath = getLocalizedBlogPagePath(alternateLocale, alternatePage);
-const previousHref = currentPage > 1 ? getLocalizedBlogPagePath(locale, currentPage - 1) : null;
-const nextHref = currentPage < lastPage ? getLocalizedBlogPagePath(locale, currentPage + 1) : null;
-const pageNumbers = Array.from({ length: lastPage }, (_, index) => index + 1);
+
+const pagePaths = (new Array(lastPage)).fill(null).map((_, index) => `${blogPath[locale]}${index > 0 ? `page/${index + 1}/` : ''}`);
+
+const previousHref = currentPage > 1 ? pagePaths[currentPage - 2] : null;
+const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
 ---
 
 <Layout
@@ -32,26 +35,26 @@ const pageNumbers = Array.from({ length: lastPage }, (_, index) => index + 1);
   description={content.blogDescription}
   lang={locale}
   alternates={[
-    { href: `${SITE_URL}${locale === 'pt-BR' ? currentPath : alternatePath}`, hreflang: 'pt-BR' },
-    { href: `${SITE_URL}${locale === 'en' ? currentPath : alternatePath}`, hreflang: 'en' }
+    { href: `${ptHref}`, hreflang: 'pt-BR' },
+    { href: `${enHref}`, hreflang: 'en' }
   ]}
   header={{
-    brandHref: isEnglish ? '/en/' : '/',
-    blogHref: isEnglish ? '/en/blog/' : '/blog/',
-    contactHref: isEnglish ? '/en/#contato' : '/#contato',
+    brandHref: homePath[locale],
+    blogHref: blogPath[locale],
+    contactHref: `${homePath[locale]}#contato`,
     blogLabel: content.headerBlogLabel,
     contactLabel: content.headerContactLabel
   }}
   footer={{
     currentLocale: locale,
-    ptHref: locale === 'pt-BR' ? currentPath : alternatePath,
-    enHref: locale === 'en' ? currentPath : alternatePath,
+    ptHref,
+    enHref,
     switcherAriaLabel: content.switcherAriaLabel,
     madeWithLabel: content.madeWithLabel
   }}
 >
   <main class="page-shell page-shell--wide blog-index">
-    <a href={getLocalizedHomePath(locale)} class="page-shell__back-link">{content.backHomeLabel}</a>
+    <a href={homePath[locale]} class="page-shell__back-link">{content.backHomeLabel}</a>
     <h1 class="blog-index__title">Blog</h1>
     <p class="blog-index__intro">{content.blogIntro}</p>
 
@@ -84,17 +87,19 @@ const pageNumbers = Array.from({ length: lastPage }, (_, index) => index + 1);
               )}
 
               <ol class="blog-pagination__list">
-                {pageNumbers.map((pageNumber) => (
+                {pagePaths.map((pagePath, index) => (
                   <li>
                     <a
-                      href={getLocalizedBlogPagePath(locale, pageNumber)}
-                      class:list={[
+                      href={pagePath}
+                      class={classNames(
                         'blog-pagination__link',
-                        pageNumber === currentPage && 'blog-pagination__link--active'
-                      ]}
-                      aria-current={pageNumber === currentPage ? 'page' : undefined}
+                        {
+                          'blog-pagination__link--active': index + 1 === currentPage
+                        }
+                      )}
+                      aria-current={index + 1 === currentPage ? 'page' : undefined}
                     >
-                      {pageNumber}
+                      {index + 1}
                     </a>
                   </li>
                 ))}

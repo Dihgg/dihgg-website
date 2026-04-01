@@ -1,12 +1,13 @@
 ---
 import BlogPostPage from '@/components/pages/BlogPostPage.astro';
-import { getLocalizedBlogStaticPaths } from '@/lib/blog';
+import { getLocalizedBlogPostHrefs, getLocalizedBlogStaticPaths } from '@/lib/blog';
 
 export async function getStaticPaths() {
   return getLocalizedBlogStaticPaths('en', 'pt-BR');
 }
 
 const { post, alternatePost } = Astro.props;
+const { ptPostPath, enPostPath } = getLocalizedBlogPostHrefs(post, alternatePost);
 ---
 
-<BlogPostPage locale="en" post={post} alternatePost={alternatePost} />
+<BlogPostPage locale="en" post={post} ptPostPath={ptPostPath} enPostPath={enPostPath} />

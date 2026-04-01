@@ -1,28 +1,24 @@
 ---
 import { render } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import { getLocalizedBlogPath, getLocalizedHomePath, siteContent, type Locale } from '@/data/siteContent';
-import { getBlogPostPath, type BlogPost } from '@/lib/blog';
+import { getLocalizedPaths, siteContent, type Locale } from '@/data/siteContent';
+import type { BlogPost } from '@/lib/blog';
 import { SITE_URL } from '@/lib/constants';
 import { formatPostDate } from '@/lib/date';
 
 interface Props {
   locale: Locale;
   post: BlogPost;
-  alternatePost: BlogPost | null;
+  ptPostPath: string;
+  enPostPath: string;
 }
 
-const { locale, post, alternatePost } = Astro.props;
+const { locale, post, ptPostPath, enPostPath } = Astro.props;
 const content = siteContent[locale];
 const { Content } = await render(post);
 
-const isEnglish = locale === 'en';
-const currentPostPath = getBlogPostPath(post);
-const fallbackAlternatePath = getLocalizedBlogPath(isEnglish ? 'pt-BR' : 'en');
-const alternatePostPath = alternatePost ? getBlogPostPath(alternatePost) : fallbackAlternatePath;
-
-const ptPostPath = isEnglish ? alternatePostPath : currentPostPath;
-const enPostPath = isEnglish ? currentPostPath : alternatePostPath;
+const homePath = getLocalizedPaths('/');
+const blogPath = getLocalizedPaths('/blog/');
 ---
 
 <Layout
@@ -34,9 +30,9 @@ const enPostPath = isEnglish ? currentPostPath : alternatePostPath;
     { href: `${SITE_URL}${enPostPath}`, hreflang: 'en' }
   ]}
   header={{
-    brandHref: isEnglish ? '/en/' : '/',
-    blogHref: isEnglish ? '/en/blog/' : '/blog/',
-    contactHref: isEnglish ? '/en/#contato' : '/#contato',
+    brandHref: homePath[locale],
+    blogHref: blogPath[locale],
+    contactHref: `${homePath[locale]}#contato`,
     blogLabel: content.headerBlogLabel,
     contactLabel: content.headerContactLabel
   }}
@@ -49,7 +45,7 @@ const enPostPath = isEnglish ? currentPostPath : alternatePostPath;
   }}
 >
   <main class="page-shell page-shell--narrow blog-post">
-    <a href={getLocalizedBlogPath(locale)} class="page-shell__back-link">{content.backBlogLabel}</a>
+    <a href={blogPath[locale]} class="page-shell__back-link">{content.backBlogLabel}</a>
 
     <h1 data-pagefind-meta="title" class="blog-post__title">{post.data.title}</h1>
     <time
@@ -138,7 +134,7 @@ const enPostPath = isEnglish ? currentPostPath : alternatePostPath;
     </script>
 
     <p class="page-shell__return-link">
-      <a href={getLocalizedHomePath(locale)} class="page-shell__return-link-anchor">{content.backHomeLabel}</a>
+      <a href={homePath[locale]} class="page-shell__return-link-anchor">{content.backHomeLabel}</a>
     </p>
   </main>
 </Layout>

@@ -111,16 +111,9 @@ export const siteContent = {
   dateLocale: string;
 }>;
 
-export function getLocalizedHomePath(locale: Locale) {
-  return locale === 'en' ? '/en/' : '/';
-}
-
-export function getLocalizedBlogPagePath(locale: Locale, page = 1) {
-  const base = locale === 'en' ? '/en/blog/' : '/blog/';
-  return page <= 1 ? base : `${base}page/${page}/`;
-}
-
-export function getLocalizedBlogPath(locale: Locale, slug?: string) {
-  const base = locale === 'en' ? '/en/blog/' : '/blog/';
-  return slug ? `${base}${slug}/` : base;
+export const getLocalizedPaths = (path: string) => {
+  return {
+    'pt-BR': path,
+    en: `/en${path}`
+  };
 }

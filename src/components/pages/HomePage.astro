@@ -7,7 +7,7 @@ import ProjectCards from '@/components/ProjectCards';
 import WorkCards from '@/components/WorkCards.astro';
 import { socialLinks } from '@/data/portfolio';
 import {
-  getLocalizedBlogPath,
+  getLocalizedPaths,
   siteContent,
   type Locale
 } from '@/data/siteContent';
@@ -21,6 +21,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const content = siteContent[locale];
+const blogPath = getLocalizedPaths('/blog/')[locale];
 const workItems = await getWorkItems(locale);
 const skillItems = await getSkills();
 const projectItems = await getProjects(locale);
@@ -57,7 +58,7 @@ const projects = projectItems.map(item => ({
 
         <div class="mt-10 flex flex-wrap gap-3">
           <Pill label={content.contactCta} variant="primary" href="#contato" />
-          <Pill label={content.blogCta} href={getLocalizedBlogPath(locale)} />
+          <Pill label={content.blogCta} href={blogPath} />
         </div>
       </div>
 
@@ -76,7 +77,7 @@ const projects = projectItems.map(item => ({
     <div class="flex flex-wrap items-center justify-between gap-4">
       <h2 class="section-title">{content.latestPostsTitle}</h2>
       <a
-        href={getLocalizedBlogPath(locale)}
+        href={blogPath}
         class="text-sm font-semibold text-blue-700 underline decoration-blue-400 decoration-2 underline-offset-4 transition hover:text-blue-900"
       >
         {content.latestPostsCta}
