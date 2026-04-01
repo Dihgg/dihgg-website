@@ -1,12 +1,6 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa6';
 import type { SocialLink } from '@/types';
 import Pill from '@/components/Pill';
 
-const iconMap: Record<SocialLink['icon'], React.ReactNode> = {
-  GitHub: <FaGithub />,
-  LinkedIn: <FaLinkedin />,
-  Mail: <FaEnvelope />,
-};
 
 type Props = {
   links: SocialLink[];
@@ -19,7 +13,7 @@ export default function SocialLinks({ links, ariaLabel = 'Social links' }: Props
       {links.map((link) => (
         <li key={link.href}>
           <Pill
-            icon={iconMap[link.icon]}
+            icon={link.icon}
             href={link.href}
             external
           >

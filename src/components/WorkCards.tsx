@@ -1,5 +1,5 @@
 import type { WorkItem } from "@/types";
-import { siteContent } from "@/data/siteContent";
+import { translations } from "@/data/translations";
 
 type Props = {
   items: WorkItem[];
@@ -11,7 +11,7 @@ export default function WorkCards({ items }: Props) {
       {items.map((item) => {
         
         const { company, logo, role, summary, yearIn, yearOut } = item.data;
-        const outYearDisplay = yearOut ?? siteContent[item.data.locale].today;
+        const outYearDisplay = yearOut ?? translations[item.data.locale].today;
 
         return (
           <article key={item.id} className="work-card">

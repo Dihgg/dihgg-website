@@ -1,5 +1,8 @@
 import type { SocialLink } from "@/types";
 
+import type { ReactNode } from 'react';
+
+
 /**
  * Ordered list of public social/contact destinations for the portfolio site.
  */

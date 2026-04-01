@@ -1,11 +1,11 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import HomePage from '@/components/pages/HomePage.astro';
-import { siteContent } from '@/data/siteContent';
+import { translations } from '@/data/translations';
 import { SITE_URL } from '@/lib/constants';
 
 const locale = 'en' as const;
-const content = siteContent[locale];
+const content = translations[locale];
 ---
 
 <Layout

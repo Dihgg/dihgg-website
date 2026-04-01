@@ -42,6 +42,7 @@ const projects = defineCollection({
   schema: z.object({
     name: z.string(),
     description: z.string(),
+    icon: z.string().optional(),
     stack: z.string(),
     href: z.string().url(),
     locale: z.enum(['pt-BR', 'en']),

@@ -1,8 +1,9 @@
-import type { ReactNode } from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
+import Icon from '@/components/Icon';
+
 
 type PillProps = {
-  icon?: ReactNode;
+  icon?: string;
   href?: string;
   variant?: 'default' | 'primary';
   external?: boolean;
@@ -10,14 +11,18 @@ type PillProps = {
 
 export default function Pill({ icon, href, variant = 'default', external = false, ...props }: PillProps) {
   const { className, children, ...restProps } = props;
-  const classess = classnames('pill', {
+  const classess = classNames('pill', {
     'pill--primary': variant === 'primary',
     'pill--default': variant === 'default'
   }, className);
 
   const content = (
     <>
-      {icon && <span className="pill__icon">{icon}</span>}
+      {icon && 
+        <span className="pill__icon" aria-hidden>
+          <Icon name={icon} />
+        </span>
+      }
       {children}
     </>
   );

@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import type { Locale } from '@/data/siteContent';
+import type { Locale } from '@/data/translations';
 
 type Props = {
   currentLocale: Locale;

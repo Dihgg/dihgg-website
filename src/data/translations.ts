@@ -3,7 +3,7 @@ import type { Locale } from "@/types";
 /**
  * Locale-specific UI copy used across pages and layouts.
  */
-export const siteContent = {
+export const translations = {
   'pt-BR': {
     homeTitle: 'Dihgg | Diego Lopes',
     homeDescription: 'Portfolio de Diego Lopes, desenvolvedor web e de aplicacoes.',

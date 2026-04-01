@@ -20,4 +20,3 @@ export type SocialLink = {
   href: string;
   icon: 'GitHub' | 'LinkedIn' | 'Mail';
 };
-

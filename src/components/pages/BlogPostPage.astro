@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import { getLocalizedPaths, siteContent, type Locale } from '@/data/siteContent';
+import { getLocalizedPaths, translations, type Locale } from '@/data/translations';
 import type { BlogPost } from '@/lib/blog';
 import { SITE_URL } from '@/lib/constants';
 import { formatPostDate } from '@/lib/date';
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { locale, post, ptPostPath, enPostPath } = Astro.props;
-const content = siteContent[locale];
+const content = translations[locale];
 const { Content } = await render(post);
 
 const homePath = getLocalizedPaths('/');

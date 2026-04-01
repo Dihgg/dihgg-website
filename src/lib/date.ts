@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { ptBR, enUS } from 'date-fns/locale';
-import type { Locale } from '../data/siteContent';
+import type { Locale } from '../data/translations';
 
 const localeMap = {
   'pt-BR': ptBR,
