@@ -1,11 +1,12 @@
 ---
 import BlogIndexPage from '@/components/pages/BlogIndexPage.astro';
-import type { Locale } from '@/data/translations';
+import type { Locale } from '@/types';
 import { getLocalizedBlogIndexHrefs, getLocalizedBlogPaginationStaticPaths } from '@/lib/blog';
+import { EN_LOCALE, getAlternateLocale } from '@/i18n/config';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 
 export const getStaticPaths = (async ({ paginate }) => {
-  return getLocalizedBlogPaginationStaticPaths('en', 'pt-BR', paginate);
+  return getLocalizedBlogPaginationStaticPaths(EN_LOCALE, getAlternateLocale(EN_LOCALE), paginate);
 }) satisfies GetStaticPaths;
 
 interface Props extends InferGetStaticPropsType<typeof getStaticPaths> {

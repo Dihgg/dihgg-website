@@ -5,9 +5,9 @@ import SkillList from '@/components/SkillList';
 import SocialLinks from '@/components/SocialLinks';
 import ProjectCards from '@/components/ProjectCards';
 import WorkCards from '@/components/WorkCards';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { socialLinks } from '@/data/portfolio';
 import {
-  getLocalizedPaths,
   translations,
 } from '@/data/translations';
 import { getBlogPosts } from '@/lib/blog';
@@ -21,7 +21,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const content = translations[locale];
-const blogPath = getLocalizedPaths('/blog/')[locale];
+const blogPath = getRelativeLocaleUrl(locale, 'blog');
 const workItems = await getWorkItems(locale);
 const skillItems = await getSkills();
 const projectItems = await getProjects(locale);

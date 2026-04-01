@@ -1,8 +1,9 @@
 ---
 import { render } from 'astro:content';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import Layout from '@/layouts/Layout.astro';
-import { getLocalizedPaths, translations, type Locale } from '@/data/translations';
-import type { BlogPost } from '@/lib/blog';
+import { translations } from '@/data/translations';
+import type { BlogPost, Locale } from '@/types';
 import { SITE_URL } from '@/lib/constants';
 import { formatPostDate } from '@/lib/date';
 
@@ -17,8 +18,8 @@ const { locale, post, ptPostPath, enPostPath } = Astro.props;
 const content = translations[locale];
 const { Content } = await render(post);
 
-const homePath = getLocalizedPaths('/');
-const blogPath = getLocalizedPaths('/blog/');
+const homePath = getRelativeLocaleUrl(locale);
+const blogPath = getRelativeLocaleUrl(locale, 'blog');
 ---
 
 <Layout
@@ -30,9 +31,9 @@ const blogPath = getLocalizedPaths('/blog/');
     { href: `${SITE_URL}${enPostPath}`, hreflang: 'en' }
   ]}
   header={{
-    brandHref: homePath[locale],
-    blogHref: blogPath[locale],
-    contactHref: `${homePath[locale]}#contato`,
+    brandHref: homePath,
+    blogHref: blogPath,
+    contactHref: `${homePath}#contato`,
     blogLabel: content.headerBlogLabel,
     contactLabel: content.headerContactLabel
   }}
@@ -45,7 +46,7 @@ const blogPath = getLocalizedPaths('/blog/');
   }}
 >
   <main class="page-shell page-shell--narrow blog-post">
-    <a href={blogPath[locale]} class="page-shell__back-link">{content.backBlogLabel}</a>
+    <a href={blogPath} class="page-shell__back-link">{content.backBlogLabel}</a>
 
     <h1 data-pagefind-meta="title" class="blog-post__title">{post.data.title}</h1>
     <time
@@ -57,7 +58,7 @@ const blogPath = getLocalizedPaths('/blog/');
 
     {post.data.tags.length > 0 && (
       <div class="blog-post__tags">
-        {post.data.tags.map((tag) => (
+        {post.data.tags.map((tag: string) => (
           <span class="blog-post__tag">
             {tag}
           </span>
@@ -75,7 +76,7 @@ const blogPath = getLocalizedPaths('/blog/');
     )}
 
     <article data-blog-content data-pagefind-body data-pagefind-filter={`language:${locale}`} class="blog-post__article prose">
-      {post.data.tags.map((tag) => (
+      {post.data.tags.map((tag: string) => (
         <span class="hidden" data-pagefind-filter={`tag:${tag}`}>{tag}</span>
       ))}
       <Content />
@@ -134,7 +135,7 @@ const blogPath = getLocalizedPaths('/blog/');
     </script>
 
     <p class="page-shell__return-link">
-      <a href={homePath[locale]} class="page-shell__return-link-anchor">{content.backHomeLabel}</a>
+      <a href={homePath} class="page-shell__return-link-anchor">{content.backHomeLabel}</a>
     </p>
   </main>
 </Layout>

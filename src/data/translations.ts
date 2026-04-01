@@ -117,13 +117,3 @@ export const translations = {
   today: string;
 }>;
 
-/**
- * Returns the shared path variants for supported locales using the `/en` prefix
- * convention. Use this only when both locales share the same path structure.
- */
-export const getLocalizedPaths = (path: string) => {
-  return {
-    'pt-BR': path,
-    en: `/en${path}`
-  };
-}

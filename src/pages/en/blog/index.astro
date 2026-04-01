@@ -1,16 +1,19 @@
 ---
 import BlogIndexPage from '@/components/pages/BlogIndexPage.astro';
 import { getBlogPageCount, getBlogPosts, getLocalizedBlogIndexHrefs, BLOG_POSTS_PER_PAGE } from '@/lib/blog';
+import { EN_LOCALE, getAlternateLocale } from '@/i18n/config';
 
-const posts = await getBlogPosts('en');
-const alternatePosts = await getBlogPosts('pt-BR');
+const locale = EN_LOCALE;
+const alternateLocale = getAlternateLocale(locale);
+const posts = await getBlogPosts(locale);
+const alternatePosts = await getBlogPosts(alternateLocale);
 const currentPage = 1;
 const alternatePageCount = getBlogPageCount(alternatePosts.length);
-const { ptHref, enHref } = getLocalizedBlogIndexHrefs('en', currentPage, alternatePageCount);
+const { ptHref, enHref } = getLocalizedBlogIndexHrefs(locale, currentPage, alternatePageCount);
 ---
 
 <BlogIndexPage
-	locale="en"
+	locale={locale}
 	posts={posts.slice(0, BLOG_POSTS_PER_PAGE)}
 	currentPage={currentPage}
 	lastPage={getBlogPageCount(posts.length)}

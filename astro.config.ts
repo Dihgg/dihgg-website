@@ -1,28 +1,29 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-
 import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
+import { DEFAULT_LOCALE, LOCALES, SITEMAP_LOCALES } from './src/i18n/config';
+
 export default defineConfig({
   output: 'static',
   site: process.env.PUBLIC_SITE_URL || 'https://dihgg.com',
+  i18n: {
+    locales: [...LOCALES],
+    defaultLocale: DEFAULT_LOCALE,
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [
     react(),
     sitemap({
       i18n: {
-        defaultLocale: 'pt-BR',
-        locales: {
-          'pt-BR': 'pt-BR',
-          en: 'en'
-        }
+        defaultLocale: DEFAULT_LOCALE,
+        locales: SITEMAP_LOCALES
       }
     })
   ],
-
   vite: {
     plugins: [tailwindcss()]
   }

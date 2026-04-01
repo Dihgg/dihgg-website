@@ -1,7 +1,5 @@
 import { type CollectionEntry } from 'astro:content';
-
-/** Supported locales for the site. */
-export type Locale = 'pt-BR' | 'en';
+export type { Locale } from '@/i18n/config';
 
 /** Represents a blog post entry in the content collection. */
 export type BlogPost = CollectionEntry<'blog'>;

@@ -1,13 +1,14 @@
 ---
 import BlogPostPage from '@/components/pages/BlogPostPage.astro';
 import { getLocalizedBlogPostHrefs, getLocalizedBlogStaticPaths } from '@/lib/blog';
+import { DEFAULT_LOCALE, getAlternateLocale } from '@/i18n/config';
 
 export async function getStaticPaths() {
-  return getLocalizedBlogStaticPaths('pt-BR', 'en');
+  return getLocalizedBlogStaticPaths(DEFAULT_LOCALE, getAlternateLocale(DEFAULT_LOCALE));
 }
 
 const { post, alternatePost } = Astro.props;
 const { ptPostPath, enPostPath } = getLocalizedBlogPostHrefs(post, alternatePost);
 ---
 
-<BlogPostPage locale="pt-BR" post={post} ptPostPath={ptPostPath} enPostPath={enPostPath} />
+<BlogPostPage locale={DEFAULT_LOCALE} post={post} ptPostPath={ptPostPath} enPostPath={enPostPath} />

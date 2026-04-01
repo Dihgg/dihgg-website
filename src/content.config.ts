@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import { LOCALES } from '@/i18n/config';
 
 const blog = defineCollection({
   type: 'content',
@@ -10,7 +11,7 @@ const blog = defineCollection({
     date: z.coerce.date(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
-    locale: z.enum(['pt-BR', 'en']),
+    locale: z.enum(LOCALES),
     translationKey: z.string()
   })
 });
@@ -24,7 +25,7 @@ const work = defineCollection({
     yearIn: z.number(),
     yearOut: z.number().optional(),
     summary: z.string(),
-    locale: z.enum(['pt-BR', 'en'])
+    locale: z.enum(LOCALES)
   })
 });
 
@@ -48,7 +49,7 @@ const projects = defineCollection({
       href: z.string().url(),
       icon: z.string().optional()
     })).optional(),
-    locale: z.enum(['pt-BR', 'en']),
+    locale: z.enum(LOCALES),
     sortOrder: z.number().default(0)
   })
 });

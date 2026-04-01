@@ -2,8 +2,9 @@
 import Layout from '@/layouts/Layout.astro';
 import BlogPostCard from '@/components/BlogPostCard';
 import BlogSearch from '@/components/pages/BlogSearch.astro';
-import { getLocalizedPaths, translations, type Locale } from '@/data/translations';
-import type { BlogPost } from '@/lib/blog';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { translations } from '@/data/translations';
+import type { BlogPost, Locale } from '@/types';
 import classNames from 'classnames';
 
 interface Props {
@@ -19,12 +20,14 @@ const { locale, posts, currentPage, lastPage, ptHref, enHref } = Astro.props;
 
 const content = translations[locale];
 
-const blogPath = getLocalizedPaths('/blog/');
-const homePath = getLocalizedPaths('/');
+const blogPath = getRelativeLocaleUrl(locale, 'blog');
+const homePath = getRelativeLocaleUrl(locale);
 
 const pageTitle = currentPage > 1 ? `${content.blogPageTitle} | ${currentPage}` : content.blogPageTitle;
 
-const pagePaths = (new Array(lastPage)).fill(null).map((_, index) => `${blogPath[locale]}${index > 0 ? `page/${index + 1}/` : ''}`);
+const pagePaths = (new Array(lastPage)).fill(null).map((_, index) =>
+  getRelativeLocaleUrl(locale, index > 0 ? `blog/page/${index + 1}` : 'blog')
+);
 
 const previousHref = currentPage > 1 ? pagePaths[currentPage - 2] : null;
 const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
@@ -39,9 +42,9 @@ const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
     { href: `${enHref}`, hreflang: 'en' }
   ]}
   header={{
-    brandHref: homePath[locale],
-    blogHref: blogPath[locale],
-    contactHref: `${homePath[locale]}#contato`,
+    brandHref: homePath,
+    blogHref: blogPath,
+    contactHref: `${homePath}#contato`,
     blogLabel: content.headerBlogLabel,
     contactLabel: content.headerContactLabel
   }}
@@ -54,7 +57,7 @@ const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
   }}
 >
   <main class="page-shell page-shell--wide blog-index">
-    <a href={homePath[locale]} class="page-shell__back-link">{content.backHomeLabel}</a>
+    <a href={homePath} class="page-shell__back-link">{content.backHomeLabel}</a>
     <h1 class="blog-index__title">Blog</h1>
     <p class="blog-index__intro">{content.blogIntro}</p>
 
