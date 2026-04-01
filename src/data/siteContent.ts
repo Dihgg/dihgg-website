@@ -1,5 +1,8 @@
 export type Locale = 'pt-BR' | 'en';
 
+/**
+ * Locale-specific UI copy used across pages and layouts.
+ */
 export const siteContent = {
   'pt-BR': {
     homeTitle: 'Dihgg | Diego Lopes',
@@ -111,6 +114,10 @@ export const siteContent = {
   dateLocale: string;
 }>;
 
+/**
+ * Returns the shared path variants for supported locales using the `/en` prefix
+ * convention. Use this only when both locales share the same path structure.
+ */
 export const getLocalizedPaths = (path: string) => {
   return {
     'pt-BR': path,
