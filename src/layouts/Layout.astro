@@ -1,9 +1,9 @@
 ---
-import '../styles/global.css';
-import SiteFooter from '../components/SiteFooter.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import type { Locale } from '../data/siteContent';
-import { GTAG_ID } from '../lib/constants';
+import '@/styles/global.css';
+import SiteFooter from '@/components/SiteFooter';
+import SiteHeader from '@/components/SiteHeader';
+import type { Locale } from '@/data/siteContent';
+import { GTAG_ID } from '@/lib/constants';
 
 type AlternateLink = {
   href: string;

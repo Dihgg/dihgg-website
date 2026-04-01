@@ -4,7 +4,8 @@
   "description": "Personal portfolio and blog built with Astro, React, Tailwind, and Jest.",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build",
+    "postbuild": "pagefind --site dist",
     "preview": "astro preview",
     "test": "jest",
     "coverage": "jest --coverage"
