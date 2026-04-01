@@ -8,17 +8,17 @@ type Props = {
 
 export default function ProjectCards({ projects, ctaLabel = 'View project' }: Props) {
   return (
-    <div className="grid gap-4 md:grid-cols-2">
+    <div className="project-cards">
       {projects.map((project) => {
         const { name, description, links = [], stack } = project.data;
 
         return (
-          <article key={name} className="group flex h-full flex-col rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-            <p className="font-mono text-xs uppercase tracking-wider text-orange-700">{stack}</p>
-            <h3 className="mt-2 text-xl font-bold">{name}</h3>
-            <p className="mt-2 text-sm text-black/70">{description}</p>
+          <article key={name} className="project-card">
+            <p className="project-card__stack">{stack}</p>
+            <h3 className="project-card__title">{name}</h3>
+            <p className="project-card__description">{description}</p>
             {links.length > 0 && (
-              <div className="mt-auto flex flex-wrap justify-end gap-2 pt-4">
+              <div className="project-card__links">
                 {links.map((link) => (
                   <Pill
                     key={`${name}-${link.label}-${link.href}`}
