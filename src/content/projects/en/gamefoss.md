@@ -1,9 +1,11 @@
 ---
 name: "Gamefoss"
-description: "Portal with continuous development and content strategy."
-icon: "podcast"
+description: "about games, entertainment and technology in a relevant, accurate and easy-to-understand way."
 stack: "Podcasting"
-href: "https://gamefoss.com.br/"
+links:
+    - label: "View"
+      href: "https://gamefoss.com.br/"
+      icon: "podcast"
 locale: "en"
 sortOrder: 3
 ---

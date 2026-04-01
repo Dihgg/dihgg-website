@@ -1,9 +1,11 @@
 ---
 name: "Guaxinim Games"
-description: "Site institucional para estudio de jogos independente."
-icon: "computer"
+description: "Site institucional para estúdio de jogos independente."
 stack: "Web Development"
-href: "https://guaxinimgames.com/"
+links:
+    - label: "Ver"
+      href: "https://guaxinimgames.com/"
+      icon: "computer"
 locale: "pt-BR"
 sortOrder: 3
 ---

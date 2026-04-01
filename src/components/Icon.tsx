@@ -21,6 +21,8 @@ import {
     SiLinux,
     SiSpringboot,
     SiSteam,
+    SiGoogleplay,
+    SiAppstore,
 } from 'react-icons/si';
 import { DiJava, DiPhotoshop } from 'react-icons/di';
 import { RiComputerLine } from 'react-icons/ri';
@@ -58,6 +60,8 @@ const iconMap: Record<string, ReactNode> = {
     'github': <FaGithub />,
     'linkedin': <FaLinkedin />,
     'mail': <FaEnvelope />,
+    'google-play': <SiGoogleplay />,
+    'app-store': <SiAppstore />
 };
 
 export default function Icon({ name }: { name: string }): ReactNode | null {
