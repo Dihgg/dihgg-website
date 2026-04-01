@@ -1,9 +1,5 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
-import type { Locale } from '../data/siteContent';
-
-export type WorkItem = CollectionEntry<'work'>;
-export type SkillItem = CollectionEntry<'skills'>;
-export type ProjectItem = CollectionEntry<'projects'>;
+import type { Locale } from '@/types';
+import { getCollection } from 'astro:content';
 
 /**
  * Returns work history entries for a locale sorted from most recent to oldest.
@@ -11,8 +7,8 @@ export type ProjectItem = CollectionEntry<'projects'>;
 export async function getWorkItems(locale: Locale) {
   const items = await getCollection('work', ({ data }) => data.locale === locale);
   return items.sort((a, b) => {
-    const aYear = parseInt(b.data.period.split('-')[0]);
-    const bYear = parseInt(a.data.period.split('-')[0]);
+    const aYear = b.data.yearIn;
+    const bYear = a.data.yearIn;
     return aYear - bYear;
   });
 }

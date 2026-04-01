@@ -1,4 +1,4 @@
-export type Locale = 'pt-BR' | 'en';
+import type { Locale } from "@/types";
 
 /**
  * Locale-specific UI copy used across pages and layouts.
@@ -39,7 +39,8 @@ export const siteContent = {
     paginationAriaLabel: 'Paginação do blog',
     paginationPreviousLabel: 'Anterior',
     paginationNextLabel: 'Próxima',
-    dateLocale: 'pt-BR'
+    dateLocale: 'pt-BR',
+    today: 'Hoje'
   },
   en: {
     homeTitle: 'Dihgg | Diego Lopes',
@@ -76,7 +77,8 @@ export const siteContent = {
     paginationAriaLabel: 'Blog pagination',
     paginationPreviousLabel: 'Previous',
     paginationNextLabel: 'Next',
-    dateLocale: 'en-US'
+    dateLocale: 'en-US',
+    today: 'Today'
   }
 } as const satisfies Record<Locale, {
   homeTitle: string;
@@ -112,6 +114,7 @@ export const siteContent = {
   paginationPreviousLabel: string;
   paginationNextLabel: string;
   dateLocale: string;
+  today: string;
 }>;
 
 /**

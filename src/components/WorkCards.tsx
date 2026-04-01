@@ -1,35 +1,31 @@
-import type { WorkItem } from '@/lib/portfolio';
+import type { WorkItem } from "@/types";
+import { siteContent } from "@/data/siteContent";
 
 type Props = {
   items: WorkItem[];
 };
 
-function getLogoPath(item: WorkItem) {
-  const slug = item.id.split('/').pop()?.replace(/\.md$/, '');
-  return slug ? `/images/${slug}.svg` : undefined;
-}
-
 export default function WorkCards({ items }: Props) {
   return (
     <div className="work-grid">
       {items.map((item) => {
-        const logoPath = getLogoPath(item);
+        
+        const { company, logo, role, summary, yearIn, yearOut } = item.data;
+        const outYearDisplay = yearOut ?? siteContent[item.data.locale].today;
 
         return (
           <article key={item.id} className="work-card">
             <div className="work-card__media" aria-hidden="true">
-              {logoPath ? (
-                <img src={logoPath} alt="" className="work-card__logo" loading="lazy" />
-              ) : (
-                <span className="work-card__fallback">{item.data.company.slice(0, 2).toUpperCase()}</span>
-              )}
+              <img src={`/images/${logo}`} alt="" className="work-card__logo" loading="lazy" />
             </div>
-
             <div className="work-card__body">
-              <p className="work-card__period">{item.data.period}</p>
-              <h3 className="work-card__company">{item.data.company}</h3>
-              <p className="work-card__role">{item.data.role}</p>
-              <p className="work-card__summary">{item.data.summary}</p>
+              <p className="work-card__period">
+                <span>{yearIn}</span>
+                {(yearOut !== yearIn) && <span> - {outYearDisplay}</span>}
+              </p>
+              <h3 className="work-card__company">{company}</h3>
+              <p className="work-card__role">{role}</p>
+              <p className="work-card__summary">{summary}</p>
             </div>
           </article>
         );

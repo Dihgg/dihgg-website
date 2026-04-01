@@ -61,7 +61,7 @@ export default function SkillList({ skills }: Props) {
     <ul className="flex flex-wrap gap-3">
       {skills.map((skill) => (
         <li key={skill}>
-          <Pill label={skill} icon={skillIconMap[skill]} />
+          <Pill icon={skillIconMap[skill]}>{skill}</Pill>
         </li>
       ))}
     </ul>

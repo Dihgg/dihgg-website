@@ -19,8 +19,10 @@ const work = defineCollection({
   type: 'content',
   schema: z.object({
     company: z.string(),
+    logo: z.string(),
     role: z.string(),
-    period: z.string(),
+    yearIn: z.number(),
+    yearOut: z.number().optional(),
     summary: z.string(),
     locale: z.enum(['pt-BR', 'en'])
   })

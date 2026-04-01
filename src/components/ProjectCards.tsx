@@ -21,7 +21,7 @@ export default function ProjectCards({ projects, ctaLabel = 'View project' }: Pr
           <h3 className="mt-2 text-xl font-bold">{project.name}</h3>
           <p className="mt-2 text-sm text-black/70">{project.description}</p>
           <div className="mt-3 flex justify-end">
-            <Pill label={ctaLabel} href={project.href} external />
+            <Pill href={project.href} external>{ctaLabel}</Pill>
           </div>
         </article>
       ))}

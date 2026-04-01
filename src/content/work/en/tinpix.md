@@ -1,7 +1,9 @@
 ---
 company: "Tinpix"
+logo: "tinpix.svg"
 role: "Web Programmer"
-period: "2014 - 2019"
+yearIn: 2014
+yearOut: 2019
 summary: "Delivery of institutional websites, e-commerce and web platform maintenance."
 locale: "en"
 ---

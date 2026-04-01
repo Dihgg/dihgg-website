@@ -1,8 +1,8 @@
 import classnames from 'classnames';
 import Pill from '@/components/Pill';
-import { getBlogPostPath, type BlogPost } from '@/lib/blog';
+import { getBlogPostPath } from '@/lib/blog';
 import { formatPostDate } from '@/lib/date';
-import type { Locale } from '@/data/siteContent';
+import type { BlogPost, Locale } from '@/types';
 
 type Props = {
   post: BlogPost;
@@ -45,7 +45,7 @@ export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertic
           </a>
           <p className="blog-card__description">{post.data.description}</p>
           <div className="blog-card__cta">
-            <Pill label={ctaLabel} href={href} />
+            <Pill href={href}>{ctaLabel}</Pill>
           </div>
         </div>
       </div>

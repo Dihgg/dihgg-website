@@ -1,7 +1,8 @@
 ---
 company: "Thoughtworks"
+logo: "thoughtworks.svg"
 role: "Pessoa Desenvolvedora"
-period: "2021 - Atual"
+yearIn: 2021
 summary: "Consultoria em produtos digitais com foco em qualidade, acessibilidade e colaboracao."
 locale: "pt-BR"
 ---

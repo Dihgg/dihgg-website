@@ -1,8 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import type { Locale } from '@/data/siteContent';
 import { BLOG_POSTS_PER_PAGE } from '@/lib/constants';
+import type { BlogPost, Locale } from '@/types';
 
-export type BlogPost = CollectionEntry<'blog'>;
 export { BLOG_POSTS_PER_PAGE };
 
 // Extract filename from nested slug (e.g., "pt-BR/primeiro-post" -> "primeiro-post")

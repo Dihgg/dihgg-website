@@ -2,15 +2,14 @@ import type { ReactNode } from 'react';
 import classnames from 'classnames';
 
 type PillProps = {
-  label: string;
   icon?: ReactNode;
   href?: string;
   variant?: 'default' | 'primary';
   external?: boolean;
 } & React.HTMLAttributes<HTMLAnchorElement | HTMLSpanElement>;
 
-export default function Pill({ label, icon, href, variant = 'default', external = false, ...props }: PillProps) {
-  const { className, ...restProps } = props;
+export default function Pill({ icon, href, variant = 'default', external = false, ...props }: PillProps) {
+  const { className, children, ...restProps } = props;
   const classess = classnames('pill', {
     'pill--primary': variant === 'primary',
     'pill--default': variant === 'default'
@@ -19,7 +18,7 @@ export default function Pill({ label, icon, href, variant = 'default', external 
   const content = (
     <>
       {icon && <span className="pill__icon">{icon}</span>}
-      {label}
+      {children}
     </>
   );
 

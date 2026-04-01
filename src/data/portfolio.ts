@@ -1,11 +1,4 @@
-/**
- * External profile and contact links rendered in header/footer and home sections.
- */
-export type SocialLink = {
-  label: string;
-  href: string;
-  icon: 'GitHub' | 'LinkedIn' | 'Mail';
-};
+import type { SocialLink } from "@/types";
 
 /**
  * Ordered list of public social/contact destinations for the portfolio site.
