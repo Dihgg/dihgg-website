@@ -8,7 +8,7 @@ export const siteContent = {
       'Cientista da computação, adoro aprender novas tecnologias e tenho interesses em: desenvolvimento web, inteligência artificial, ciência de dados, internet das coisas e desenvolvimento de jogos.',
     aboutTitle: '{Sobre}',
     aboutText:
-      'Com mais de uma década de experiência em desenvolvimento de software. Trabalhei em empresas que incluem consultoria de desenvolvimento, aplicações web e desenvolvimento de jogos educacionais. Trabalhei com frontend e backend, com experiência em: Javascript, Typescript, Node, Angular, HTML, CSS, SQL, PHP, Python, Java e muito mais.',
+      'Com mais de uma década de experiência em desenvolvimento de software. Já trabalhei com consultoria de desenvolvimento, aplicações web, desktop, mobile e jogos educacionais. Minha experiência incluí: Javascript, Typescript, Node, Angular, HTML, CSS, SQL, PHP, Python, Java e muito mais.',
     latestPostsTitle: '{Últimos Posts}',
     latestPostsCta: 'Ver todos os posts',
     latestPostsEmptyLabel: 'Sem posts publicados ainda.',
