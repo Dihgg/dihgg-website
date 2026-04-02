@@ -75,64 +75,12 @@ const blogPath = getRelativeLocaleUrl(locale, 'blog');
       />
     )}
 
-    <article data-blog-content data-pagefind-body data-pagefind-filter={`language:${locale}`} class="blog-post__article prose">
+    <article data-pagefind-body data-pagefind-filter={`language:${locale}`} class="blog-post__article prose">
       {post.data.tags.map((tag: string) => (
         <span class="hidden" data-pagefind-filter={`tag:${tag}`}>{tag}</span>
       ))}
       <Content />
     </article>
-
-    <script is:inline>
-      {
-        (() => {
-          const root = document.querySelector('[data-blog-content]');
-          if (!root) return;
-
-          const normalizeCodeLanguage = (value) => {
-            if (!value) return '';
-            const normalized = value.toLowerCase();
-            const languageMap = {
-              js: 'JavaScript',
-              ts: 'TypeScript',
-              jsx: 'JSX',
-              tsx: 'TSX',
-              sh: 'Shell',
-              bash: 'Bash',
-              yml: 'YAML',
-              md: 'Markdown',
-              py: 'Python',
-              rb: 'Ruby',
-              rs: 'Rust',
-              csharp: 'C#',
-              cs: 'C#',
-              cpp: 'C++',
-              plaintext: 'Text',
-              text: 'Text'
-            };
-            if (languageMap[normalized]) return languageMap[normalized];
-            return normalized.charAt(0).toUpperCase() + normalized.slice(1);
-          };
-
-          root.querySelectorAll('a[href]').forEach((link) => {
-            link.setAttribute('target', '_blank');
-            link.setAttribute('rel', 'noopener noreferrer');
-          });
-
-          root.querySelectorAll('pre > code[class]').forEach((codeBlock) => {
-            const pre = codeBlock.parentElement;
-            if (!pre || pre.hasAttribute('data-language')) return;
-
-            const languageClass = Array.from(codeBlock.classList).find((className) => className.startsWith('language-'));
-            if (!languageClass) return;
-
-            const language = normalizeCodeLanguage(languageClass.replace('language-', ''));
-            if (!language) return;
-
-            pre.setAttribute('data-language', language);
-          });
-        })();
-      }
-    </script>
 
     <p class="page-shell__return-link">
       <a href={homePath} class="page-shell__return-link-anchor">{content.backHomeLabel}</a>

@@ -2,8 +2,10 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import rehypeExternalLinks from 'rehype-external-links';
 
 import { DEFAULT_LOCALE, LOCALES, SITEMAP_LOCALES } from './src/i18n/config';
+import { codeBlock } from '@/lib/markdown/rehype';
 
 export default defineConfig({
   output: 'static',
@@ -24,6 +26,18 @@ export default defineConfig({
       }
     })
   ],
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          target: '_blank',
+          rel: ['noopener', 'noreferrer']
+        }
+      ],
+      codeBlock
+    ]
+  },
   vite: {
     plugins: [tailwindcss()]
   }
