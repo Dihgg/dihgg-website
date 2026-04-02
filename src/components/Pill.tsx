@@ -1,15 +1,16 @@
 import classNames from 'classnames';
-import Icon from '@/components/Icon';
+import Icon, { isValidIcon } from '@/components/Icon';
 
 
 type PillProps = {
   icon?: string;
   href?: string;
+  onClick?: () => void;
   variant?: 'default' | 'primary' | 'tag';
   external?: boolean;
-} & React.HTMLAttributes<HTMLAnchorElement | HTMLSpanElement>;
+} & React.HTMLAttributes<HTMLAnchorElement | HTMLSpanElement | HTMLButtonElement>;
 
-export default function Pill({ icon, href, variant = 'default', external = false, ...props }: PillProps) {
+export default function Pill({ icon, href, onClick, variant = 'default', external = false, ...props }: PillProps) {
   const { className, children, ...restProps } = props;
   const classess = classNames('pill', {
     'pill--primary': variant === 'primary',
@@ -19,7 +20,7 @@ export default function Pill({ icon, href, variant = 'default', external = false
 
   const content = (
     <>
-      {icon && 
+      {icon && isValidIcon(icon) && 
         <span className="pill__icon" aria-hidden>
           <Icon name={icon} />
         </span>
@@ -28,6 +29,17 @@ export default function Pill({ icon, href, variant = 'default', external = false
     </>
   );
 
+  if (onClick) {
+    return (
+      <button
+        className={classess}
+        onClick={onClick}
+        {...restProps}
+      >
+        {content}
+      </button>
+    );
+  }
   if (href) {
     return (
       <a

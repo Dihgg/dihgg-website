@@ -7,6 +7,7 @@ import type { BlogPost, Locale } from '@/types';
 import { SITE_URL } from '@/lib/constants';
 import { formatPostDate } from '@/lib/date';
 import Pill from '@/components/Pill';
+import Share from '@/components/Share';
 
 interface Props {
   locale: Locale;
@@ -21,6 +22,8 @@ const { Content } = await render(post);
 
 const homePath = getRelativeLocaleUrl(locale);
 const blogPath = getRelativeLocaleUrl(locale, 'blog');
+const postPath = locale === 'pt-BR' ? ptPostPath : enPostPath;
+const shareUrl = `${SITE_URL}${postPath}`;
 ---
 
 <Layout
@@ -80,6 +83,13 @@ const blogPath = getRelativeLocaleUrl(locale, 'blog');
       ))}
       <Content />
     </article>
+    <Share
+      client:load
+      locale={locale}
+      title={post.data.title}
+      url={shareUrl}
+      description={post.data.description}
+    />
 
     <p class="page-shell__return-link">
       <a href={homePath} class="page-shell__return-link-anchor">{content.backHomeLabel}</a>

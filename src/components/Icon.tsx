@@ -28,12 +28,14 @@ import {
     SiLua
 } from 'react-icons/si';
 import { DiJava, DiPhotoshop } from 'react-icons/di';
-import { RiComputerLine } from 'react-icons/ri';
+import { RiComputerLine, RiTwitterXFill } from 'react-icons/ri';
 import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaPodcast } from "react-icons/fa";
-import { MdFindInPage } from "react-icons/md";
+import { MdFindInPage, MdIosShare } from "react-icons/md";
 import { GiRaiseZombie } from "react-icons/gi";
 import { CgGames } from "react-icons/cg";
 import { FaGear } from "react-icons/fa6";
+import { TbBrandWhatsapp } from "react-icons/tb";
+import { IoIosCopy } from "react-icons/io";
 
 const iconMap: Record<string, ReactNode> = {
     'typescript': <SiTypescript />,
@@ -73,8 +75,16 @@ const iconMap: Record<string, ReactNode> = {
     'project-zomboid': <GiRaiseZombie />,
     'lua': <SiLua />,
     'games': <CgGames />,
-    'modding': <FaGear />
+    'modding': <FaGear />,
+    'twitter': <RiTwitterXFill />,
+    'whatsapp': <TbBrandWhatsapp />,
+    'share': <MdIosShare />,
+    'copy': <IoIosCopy />
 };
+
+export function isValidIcon(name: string): boolean {
+    return !!iconMap[name.toLowerCase()];
+}
 
 export default function Icon({ name }: { name: string }): ReactNode | null {
     const icon = iconMap[name.toLowerCase()];

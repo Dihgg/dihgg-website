@@ -36,6 +36,13 @@ export const translations = {
     backBlogLabel: '← Blog',
     madeWithLabel: 'feito com',
     searchPlaceholder: 'Buscar posts...',
+    shareTitle: 'Compartilhar post',
+    shareNativeLabel: 'Compartilhar',
+    shareCopyLabel: 'Copiar link',
+    shareCopiedLabel: 'Link copiado',
+    shareXLabel: 'X',
+    shareLinkedInLabel: 'LinkedIn',
+    shareWhatsappLabel: 'WhatsApp',
     paginationAriaLabel: 'Paginação do blog',
     paginationPreviousLabel: 'Anterior',
     paginationNextLabel: 'Próxima',
@@ -74,6 +81,13 @@ export const translations = {
     backBlogLabel: '← Blog',
     madeWithLabel: 'made with',
     searchPlaceholder: 'Search posts...',
+    shareTitle: 'Share post',
+    shareNativeLabel: 'Share',
+    shareCopyLabel: 'Copy link',
+    shareCopiedLabel: 'Copied',
+    shareXLabel: 'X',
+    shareLinkedInLabel: 'LinkedIn',
+    shareWhatsappLabel: 'WhatsApp',
     paginationAriaLabel: 'Blog pagination',
     paginationPreviousLabel: 'Previous',
     paginationNextLabel: 'Next',
@@ -110,6 +124,13 @@ export const translations = {
   backBlogLabel: string;
   madeWithLabel: string;
   searchPlaceholder: string;
+  shareTitle: string;
+  shareNativeLabel: string;
+  shareCopyLabel: string;
+  shareCopiedLabel: string;
+  shareXLabel: string;
+  shareLinkedInLabel: string;
+  shareWhatsappLabel: string;
   paginationAriaLabel: string;
   paginationPreviousLabel: string;
   paginationNextLabel: string;
