@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import {
     SiTypescript,
     SiReact,
@@ -23,11 +24,16 @@ import {
     SiSteam,
     SiGoogleplay,
     SiAppstore,
+    SiGithubactions,
+    SiLua
 } from 'react-icons/si';
 import { DiJava, DiPhotoshop } from 'react-icons/di';
 import { RiComputerLine } from 'react-icons/ri';
 import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaPodcast } from "react-icons/fa";
-import type { ReactNode } from 'react';
+import { MdFindInPage } from "react-icons/md";
+import { GiRaiseZombie } from "react-icons/gi";
+import { CgGames } from "react-icons/cg";
+import { FaGear } from "react-icons/fa6";
 
 const iconMap: Record<string, ReactNode> = {
     'typescript': <SiTypescript />,
@@ -61,7 +67,13 @@ const iconMap: Record<string, ReactNode> = {
     'linkedin': <FaLinkedin />,
     'mail': <FaEnvelope />,
     'google-play': <SiGoogleplay />,
-    'app-store': <SiAppstore />
+    'app-store': <SiAppstore />,
+    'pagefind': <MdFindInPage />,
+    'github-actions': <SiGithubactions />,
+    'project-zomboid': <GiRaiseZombie />,
+    'lua': <SiLua />,
+    'games': <CgGames />,
+    'modding': <FaGear />
 };
 
 export default function Icon({ name }: { name: string }): ReactNode | null {

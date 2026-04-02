@@ -6,6 +6,7 @@ import { translations } from '@/data/translations';
 import type { BlogPost, Locale } from '@/types';
 import { SITE_URL } from '@/lib/constants';
 import { formatPostDate } from '@/lib/date';
+import Pill from '@/components/Pill';
 
 interface Props {
   locale: Locale;
@@ -59,9 +60,7 @@ const blogPath = getRelativeLocaleUrl(locale, 'blog');
     {post.data.tags.length > 0 && (
       <div class="blog-post__tags">
         {post.data.tags.map((tag: string) => (
-          <span class="blog-post__tag">
-            {tag}
-          </span>
+          <Pill icon={tag} variant="tag">{tag}</Pill>
         ))}
       </div>
     )}

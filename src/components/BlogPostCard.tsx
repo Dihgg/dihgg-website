@@ -12,6 +12,9 @@ type Props = {
 };
 
 export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertical' }: Props) {
+  
+  const { title, description, featuredImage, featuredImageAlt, date } = post.data;
+  
   const href = getBlogPostPath(post);
 
   const cardClassName = classnames('blog-card', {
@@ -27,23 +30,23 @@ export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertic
   return (
     <li className={cardClassName}>
       <div className="blog-card__layout">
-        {post.data.featuredImage && (
+        {featuredImage && (
           <img
-            src={post.data.featuredImage}
-            alt={post.data.featuredImageAlt ?? post.data.title}
+            src={featuredImage}
+            alt={featuredImageAlt ?? title}
             className="blog-card__image"
             loading="lazy"
           />
         )}
 
         <div className="blog-card__content">
-          <time dateTime={post.data.date.toISOString().slice(0, 10)} className="blog-card__date">
-            {formatPostDate(post.data.date, locale)}
+          <time dateTime={date.toISOString().slice(0, 10)} className="blog-card__date">
+            {formatPostDate(date, locale)}
           </time>
           <a className={titleClassName} href={href}>
-            {post.data.title}
+            {title}
           </a>
-          <p className="blog-card__description">{post.data.description}</p>
+          <p className="blog-card__description">{description}</p>
           <div className="blog-card__cta">
             <Pill href={href}>{ctaLabel}</Pill>
           </div>
