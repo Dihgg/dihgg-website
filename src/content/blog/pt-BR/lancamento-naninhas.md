@@ -14,59 +14,41 @@ locale: pt-BR
 translationKey: naninhas-launch
 ---
 
-O [Naninhas](https://steamcommunity.com/sharedfiles/filedetails/?id=3624617298) nasceu de uma pergunta simples: se as pelúcias acopláveis do [AuthenticZ](https://steamcommunity.com/sharedfiles/filedetails/?id=2335368829) já adicionam personalidade ao **Project Zomboid**, por que não também adicionar elemento de Gameplay?
+[Naninhas](https://steamcommunity.com/sharedfiles/filedetails/?id=3624617298) nasceu de uma pergunta simples: se as pelúcias acopláveis do [AuthenticZ](https://steamcommunity.com/sharedfiles/filedetails/?id=2335368829) adicionam personalidade a **Project Zomboid**, por que não utilizá-las para dar vantagens ao jogador, desta forma existirá um motivo para colecionar as Naninhas.
 
-A proposta nunca foi quebrar o balanceamento do jogo. O foco sempre foi criar algo pequeno, temático e integrado ao fluxo normal.
+A proposta não é quebrar o balanceamento do jogo. O foco sempre foi criar algo pequeno, temático e integrado ao fluxo normal.
 
-## O desafio era estabilidade, não só efeito
 
-Aplicar bônus ao equipar parece simples, mas o difícil é manter o sistema confiável ao longo do tempo.
+## A estabilidade para além do efeito 🤔
 
-No **Naninhas**, isso exigiu atenção forte em:
+Aplicar bônus ao equipar algo parece simples, mas existem nuances que precisei considerar:
 
-- aplicação e remoção segura das *traits*
-- rastreamento explícito de *traits* suprimidas
-- prevenção de acúmulo indevido de multiplicadores de XP
-- loops periódicos idempotentes
+- Aplicar e remover segura das *traits*
+- Rastrear quais *traits* foram suprimidas (para poder adicioná-las novamente)
+- Prevenção de acúmulo indevido de multiplicadores de XP (para evitar *exploits*)
+- Efeitos periódicos para além das *traits*
 
-Esse trabalho quase não aparece para quem joga, mas é o que sustenta a qualidade de um mod.
+Esse trabalho quase não aparece para quem joga, mas é o que sustenta a qualidade do mod.
 
-## Build 42 elevou o nível técnico
+## Como o código do Naninhas roda na prática 👩‍💻
 
-Suportar a **Build 42** não foi só ajustar nomes. Foi necessário revisar integração de *traits*, essa build introduziu novas **APIs** que quebraram o **Mod**.
+Cada pelúcia tem efeitos que podem ser ativados ao acoplá-la e também podem ter efeitos que devem ser tratados periodicamente (diminuir a fatiga, por exemplo).
 
-Isso me fez refletir para introduzir:
+Para fazer isso acontecer, optei por um *[Observer pattern](https://refactoring.guru/design-patterns/observer)* em que cada Objeto Naninha é responsável pelo seu próprio comportamento e um observador é responsável por ativar, desativar e atualizar todas as naninhas que estão acopladas.
 
-- tipagens melhores para APIs do jogo
-- lógica de resolução de traits mais precisa
-- modelagem mais fiel ao comportamento real em runtime
+Essa abordagem facilita adicionar novos efeitos sem reescrever tudo.
 
-**Resultado:** código mais legível, mais estável e mais fácil de evoluir.
+## Publicar também fez parte do trabalho 📦
 
-## Por que TypeScript-to-Lua + PipeWrench
+Finalizar um mod envolve mais que escrever o código código: documentação, notas de versão, *screenshots*, *metadata* e comunicação clara sobre requisitos.
 
-O mod usa fluxo **TypeScript-to-Lua** com [PipeWrench](https://github.com/asledgehammer/PipeWrench). Em sistemas com estado temporário, *traits*, bônus de XP e um *pattern* de observadores, essa estrutura trouxe:
+Isso fricção e melhora a experiência de quem instala seu mod.
 
-- arquitetura modular
-- segurança para refatorar
-- melhor testabilidade
-- manutenção mais sustentável
+O desafio agora é compartilhar o mod com o maior número de pessoas possível!
 
-## Arquitetura e testes fizeram diferença
+---
 
-A base do **Naninhas** separa um núcleo que varre itens equipados e módulos de pelúcia responsáveis pelo próprio comportamento.
-
-Essa abordagem facilita adicionar novos efeitos sem reescrever tudo e separa bem regra de gameplay da camada acoplada ao jogo.
-
-Testes também foram fundamentais para evitar regressões em comportamentos com estado.
-
-## Publicar bem também é desenvolvimento
-
-Finalizar um mod envolve mais que código: documentação, notas de compatibilidade, *screenshots*, *metadata* e comunicação clara sobre requisitos.
-
-Essa camada reduz fricção e melhora a experiência de quem instala.
-
-## Links
+## Links 🔗
 
 - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3624617298)
 - [GitHub](https://github.com/Dihgg/naninhas)

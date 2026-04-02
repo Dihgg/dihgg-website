@@ -1,6 +1,6 @@
 ---
 title: "Naninhas: Zomboid mod about plushies with real gameplay impact"
-description: "My First Zomboid mod compatible with build 42"
+description: "My first Zomboid mod compatible with Build 42"
 featuredImage: "https://cdn.buymeacoffee.com/uploads/project_updates/10333055/2026/03/27/175221_1774633941479_pastedimage.jpg.png"
 featuredImageAlt: "Featured image for the Naninhas mod"
 date: 2026-03-29
@@ -14,59 +14,40 @@ locale: en
 translationKey: naninhas-launch
 ---
 
-[Naninhas](https://steamcommunity.com/sharedfiles/filedetails/?id=3624617298) was born from a simple question: if the attachable plushies from [AuthenticZ](https://steamcommunity.com/sharedfiles/filedetails/?id=2335368829) already add personality to **Project Zomboid**, why not also add a gameplay element?
+[Naninhas](https://steamcommunity.com/sharedfiles/filedetails/?id=3624617298) was born from a simple question: if the attachable plushies from [AuthenticZ](https://steamcommunity.com/sharedfiles/filedetails/?id=2335368829) add personality to **Project Zomboid**, why not use them to provide gameplay advantages too, giving players a reason to collect Naninhas.
 
-The goal was never to break game balance. The focus was always to build something small, thematic, and naturally integrated into the regular game flow.
+The proposal is not to break game balance. The focus has always been to create something small, thematic, and integrated into the normal gameplay loop.
 
-## The challenge was stability, not just effects
+## Stability beyond the effect 🤔
 
-Applying a bonus on equip sounds simple, but the hard part is keeping the system reliable over time.
-
-In **Naninhas**, that required strong attention to:
+Applying bonuses when equipping something sounds simple, but there are nuances I had to consider:
 
 - safe trait application and removal
-- explicit tracking of suppressed traits
-- prevention of unwanted XP multiplier stacking
-- idempotent periodic loops
+- tracking which traits were suppressed (so they can be restored)
+- preventing unintended XP multiplier stacking (to avoid exploits)
+- periodic effects beyond traits
 
-Most of this work is invisible while playing, but it is what sustains mod quality.
+Most of this work is invisible to players, but it is what sustains the quality of the mod.
 
-## Build 42 raised the technical bar
+## How Naninhas code works in practice 👩‍💻
 
-Supporting **Build 42** was not just about renaming things. Trait integration had to be revised, since this build introduced new **APIs** that broke the **mod**.
+Each plushie has effects that can be activated when attached, and some plushies can also have effects that must be handled periodically (reducing fatigue, for example).
 
-That made me rethink parts of the implementation and introduce:
+To make that happen, I chose an *[Observer pattern](https://refactoring.guru/design-patterns/observer)* where each Naninha object is responsible for its own behavior, and an observer handles activating, deactivating, and updating all attached Naninhas.
 
-- better typing for game APIs
-- more precise trait resolution logic
-- modeling that is closer to real runtime behavior
+This approach makes it easier to add new effects without rewriting everything.
 
-**Result:** cleaner code, higher stability, and easier evolution.
+## Publishing was also part of the work 📦
 
-## Why TypeScript-to-Lua + PipeWrench
+Finishing a mod involves more than writing code: documentation, release notes, screenshots, metadata, and clear communication about requirements.
 
-The mod uses a **TypeScript-to-Lua** workflow with [PipeWrench](https://github.com/asledgehammer/PipeWrench). For systems with temporary state, traits, XP bonuses, and an observer pattern, this stack provided:
+This reduces friction and improves the experience for people installing your mod.
 
-- modular architecture
-- safer refactoring
-- better testability
-- more sustainable maintenance
+The challenge now is to share the mod with as many people as possible!
 
-## Architecture and tests made the difference
+---
 
-The **Naninhas** foundation separates a core that scans equipped items from plush modules that own their own behavior.
-
-This approach makes it easier to add new effects without rewriting everything and cleanly separates gameplay rules from the game integration layer.
-
-Tests were also essential to prevent regressions in stateful behavior.
-
-## Publishing well is also development
-
-Finishing a mod involves more than code: documentation, compatibility notes, screenshots, metadata, and clear communication about requirements.
-
-This layer reduces friction and improves the installation experience.
-
-## Links
+## Links 🔗
 
 - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3624617298)
 - [GitHub](https://github.com/Dihgg/naninhas)

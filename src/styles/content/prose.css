@@ -79,6 +79,9 @@
 		}
 	}
 
+	.plantuml-diagram img, .mermaid svg{
+		@apply border border-blue-500 rounded-lg;
+	}
 	.plantuml-diagram img {
 		@apply mx-auto my-0;
 	}
