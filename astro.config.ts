@@ -3,9 +3,10 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import rehypeExternalLinks from 'rehype-external-links';
+import mermaid from 'astro-mermaid';
+import plantuml from 'astro-plantuml';
 
 import { DEFAULT_LOCALE, LOCALES, SITEMAP_LOCALES } from './src/i18n/config';
-import { codeBlock } from '@/lib/markdown/rehype';
 
 export default defineConfig({
   output: 'static',
@@ -24,7 +25,12 @@ export default defineConfig({
         defaultLocale: DEFAULT_LOCALE,
         locales: SITEMAP_LOCALES
       }
-    })
+    }),
+    mermaid({
+      theme: 'forest',
+      autoTheme: true
+    }),
+    plantuml()
   ],
   markdown: {
     rehypePlugins: [
@@ -35,7 +41,6 @@ export default defineConfig({
           rel: ['noopener', 'noreferrer']
         }
       ],
-      codeBlock
     ]
   },
   vite: {
