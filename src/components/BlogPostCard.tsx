@@ -17,18 +17,8 @@ export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertic
   
   const href = getBlogPostPath(post);
 
-  const cardClassName = classnames('blog-card', {
-    'blog-card--vertical': variant === 'vertical',
-    'blog-card--horizontal': variant === 'horizontal',
-  });
-
-  const titleClassName = classnames('blog-card__title', {
-    'blog-card__title--horizontal': variant === 'horizontal',
-    'blog-card__title--vertical': variant === 'vertical',
-  });
-
   return (
-    <li className={cardClassName}>
+    <li className={classnames('blog-card', `blog-card--${variant}`)}>
       <div className="blog-card__layout">
         {featuredImage && (
           <img
@@ -43,7 +33,7 @@ export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertic
           <time dateTime={date.toISOString().slice(0, 10)} className="blog-card__date">
             {formatPostDate(date, locale)}
           </time>
-          <a className={titleClassName} href={href}>
+          <a className={classnames('blog-card__title', `blog-card__title--${variant}`)} href={href}>
             {title}
           </a>
           <p className="blog-card__description">{description}</p>

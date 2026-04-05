@@ -12,11 +12,7 @@ type PillProps = {
 
 export default function Pill({ icon, href, onClick, variant = 'default', external = false, ...props }: PillProps) {
   const { className, children, ...restProps } = props;
-  const classess = classNames('pill', {
-    'pill--primary': variant === 'primary',
-    'pill--default': variant === 'default',
-    'pill--tag': variant === 'tag'
-  }, className);
+  const classess = classNames('pill', `pill--${variant}`, className);
 
   const content = (
     <>
