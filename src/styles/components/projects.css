@@ -1,27 +1,25 @@
 @layer components {
-  .project {
-    &-cards {
-      @apply grid gap-4 md:grid-cols-2;
-    }
+  .project-cards {
+    @apply grid gap-4 md:grid-cols-2;
+  }
 
-    &-card {
-      @apply flex h-full flex-col rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl;
+  .project-card {
+    @apply flex h-full flex-col rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl;
+  }
 
-      &__stack {
-        @apply font-mono text-xs uppercase tracking-wider text-orange-700;
-      }
+  .project-card__stack {
+    @apply font-mono text-xs uppercase tracking-wider text-orange-700;
+  }
 
-      &__title {
-        @apply mt-2 text-xl font-bold;
-      }
+  .project-card__title {
+    @apply mt-2 text-xl font-bold;
+  }
 
-      &__description {
-        @apply mt-2 text-sm text-black/70;
-      }
+  .project-card__description {
+    @apply mt-2 text-sm text-black/70;
+  }
 
-      &__links {
-        @apply mt-auto flex flex-wrap justify-end gap-2 pt-4;
-      }
-    }
+  .project-card__links {
+    @apply mt-auto flex flex-wrap justify-end gap-2 pt-4;
   }
 }

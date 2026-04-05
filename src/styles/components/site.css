@@ -1,15 +1,15 @@
 .hero-glow {
 	@apply absolute z-[-1] w-80 h-80 rounded-full blur-[70px] opacity-45;
 	animation: drift 9s ease-in-out infinite;
+}
 
-	&-left {
-		@apply -left-24 top-8 bg-blue-500;
-	}
+.hero-glow-left {
+	@apply -left-24 top-8 bg-blue-500;
+}
 
-	&-right {
-		@apply -right-28 top-40 bg-sky-500;
-		animation-delay: 1.4s;
-	}
+.hero-glow-right {
+	@apply -right-28 top-40 bg-sky-500;
+	animation-delay: 1.4s;
 }
 
 .section-title {
@@ -41,8 +41,6 @@
 	animation: spritesheet 1s steps(7) infinite;
 }
 
-.home-hero {
-	&__title {
-		@apply font-press-start text-[clamp(2rem,5vw,4.75rem)] leading-[1.15] tracking-[-0.04em] text-balance;
-	}
+.home-hero__title {
+	@apply font-press-start text-[clamp(2rem,5vw,4.75rem)] leading-[1.15] tracking-[-0.04em] text-balance;
 }
