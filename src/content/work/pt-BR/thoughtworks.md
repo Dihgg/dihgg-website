@@ -3,6 +3,6 @@ company: "Thoughtworks"
 logo: "thoughtworks.svg"
 role: "Lead Developer"
 yearIn: 2021
-summary: "Consultoria em produtos digitais com foco em qualidade, acessibilidade e colaboração."
+summary: "Criando impacto extraordinário no mundo por meio de nossa cultura e nossa excelência em tecnologia."
 locale: "pt-BR"
 ---
