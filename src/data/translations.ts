@@ -11,7 +11,7 @@ export const translations = {
       'Cientista da computação, adoro aprender novas tecnologias e tenho interesses em: desenvolvimento web, inteligência artificial, ciência de dados, internet das coisas e desenvolvimento de jogos.',
     aboutTitle: '{Sobre}',
     aboutText:
-      'Com mais de uma década de experiência em desenvolvimento de software, atuei em consultoria de desenvolvimento, aplicações web, aplicações desktop, aplicações móveis e jogos educativos. Minha experiência abrange: JavaScript, TypeScript, Node, Angular, HTML, CSS, SQL, PHP, Python, Java e muito mais.',
+      'Com mais de uma década de experiência em desenvolvimento de software, atuei em consultoria de desenvolvimento, criação de aplicações web, desktop, mobile e jogos. Minha experiência abrange: JavaScript, TypeScript, Node, Angular, HTML, CSS, SQL, PHP, Python, Java e muito mais!',
     latestPostsTitle: '{Últimos Posts}',
     latestPostsCta: 'Ver todos os posts',
     latestPostsEmptyLabel: 'Sem posts publicados ainda.',
@@ -56,7 +56,7 @@ export const translations = {
       'Computer scientist who loves learning new technologies, with interests in web development, artificial intelligence, data science, internet of things, and game development.',
     aboutTitle: '{About}',
     aboutText:
-      'With more than a decade of experience in software development, I have worked in consulting, web applications, and educational game development. I have delivered frontend and backend work with hands-on experience in Javascript, Node, Angular, HTML, CSS, SQL, PHP, Python, Java and more.',
+      'With over a decade of experience in software development, I have worked in development consulting, creating web, desktop, mobile, and game applications. My expertise includes: JavaScript, TypeScript, Node, Angular, HTML, CSS, SQL, PHP, Python, Java, and much more!',
     latestPostsTitle: '{Latest Posts}',
     latestPostsCta: 'View all posts',
     latestPostsEmptyLabel: 'No published posts yet.',
