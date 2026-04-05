@@ -6,6 +6,10 @@
 	--blue-secondary: #3b82f6;
 }
 
+@theme {
+	--font-press-start: 'Press Start 2P', monospace;
+}
+
 html,
 body {
 	min-height: 100%;

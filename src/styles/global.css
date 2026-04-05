@@ -11,6 +11,7 @@
 @import "./components/layout.css";
 @import "./components/pill.css";
 @import "./components/blog.css";
+@import "./components/locale-switcher.css";
 @import "./components/share.css";
 @import "./components/work.css";
 @import "./components/projects.css";

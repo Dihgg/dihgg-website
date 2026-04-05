@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import postcssNested from 'postcss-nested';
 import rehypeExternalLinks from 'rehype-external-links';
 import mermaid from 'astro-mermaid';
 import plantuml from 'astro-plantuml';
@@ -44,6 +45,11 @@ export default defineConfig({
     ]
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    css: {
+      postcss: {
+        plugins: [postcssNested()]
+      }
+    }
   }
 });

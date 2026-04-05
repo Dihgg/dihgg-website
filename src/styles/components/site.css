@@ -1,59 +1,19 @@
 .hero-glow {
-	position: absolute;
-	z-index: -1;
-	width: 20rem;
-	height: 20rem;
-	border-radius: 9999px;
-	filter: blur(70px);
-	opacity: 0.45;
+	@apply absolute z-[-1] w-80 h-80 rounded-full blur-[70px] opacity-45;
 	animation: drift 9s ease-in-out infinite;
-}
 
-.hero-glow-left {
-	left: -6rem;
-	top: 2rem;
-	background: #3b82f6;
-}
+	&-left {
+		@apply -left-24 top-8 bg-blue-500;
+	}
 
-.hero-glow-right {
-	right: -7rem;
-	top: 10rem;
-	background: #0ea5e9;
-	animation-delay: 1.4s;
+	&-right {
+		@apply -right-28 top-40 bg-sky-500;
+		animation-delay: 1.4s;
+	}
 }
 
 .section-title {
-	display: inline-flex;
-	border: 1px solid rgba(37, 99, 235, 0.2);
-	border-radius: 9999px;
-	padding: 0.35rem 0.8rem;
-	font-family: 'IBM Plex Mono', monospace;
-	font-size: 0.8rem;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: rgb(37, 99, 235);
-	font-weight: 600;
-}
-
-.chip {
-	border: 1px solid rgba(37, 99, 235, 0.2);
-	border-radius: 9999px;
-	background: rgba(255, 255, 255, 0.85);
-	padding: 0.65rem 1rem;
-	color: var(--ink);
-	font-weight: 700;
-	text-decoration: none;
-	transition: transform 180ms ease, background-color 180ms ease;
-}
-
-.chip:hover {
-	transform: translateY(-2px);
-	background: rgba(59, 130, 246, 0.1);
-}
-
-.chip-primary {
-	background: var(--accent);
-	color: white;
+	@apply inline-flex border border-blue-600/20 rounded-full py-[0.35rem] px-[0.8rem] font-mono text-[0.8rem] tracking-[0.08em] uppercase text-blue-600 font-semibold;
 }
 
 @keyframes drift {
@@ -76,20 +36,13 @@
 }
 
 .sprite-animation {
-	width: 185px;
-	height: 320px;
-	background-image: url('/images/dihgg-animation.png');
-	background-size: auto 100%;
-	background-position: 0 0;
-	background-repeat: no-repeat;
+	@apply w-46.25 h-80 bg-[url('/images/dihgg-animation.png')] bg-size-[auto_100%] bg-position-[0_0] bg-no-repeat;
 	-webkit-animation: spritesheet 1s steps(7) infinite;
 	animation: spritesheet 1s steps(7) infinite;
 }
 
-.home-hero__title {
-	font-family: 'Press Start 2P', monospace;
-	font-size: clamp(2rem, 5vw, 4.75rem);
-	line-height: 1.15;
-	letter-spacing: -0.04em;
-	text-wrap: balance;
+.home-hero {
+	&__title {
+		@apply font-press-start text-[clamp(2rem,5vw,4.75rem)] leading-[1.15] tracking-[-0.04em] text-balance;
+	}
 }

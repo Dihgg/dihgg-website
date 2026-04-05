@@ -44,6 +44,8 @@
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.2.0",
     "pagefind": "^1.4.0",
+    "postcss": "^8.5.8",
+    "postcss-nested": "^7.0.2",
     "ts-jest": "^29.4.6"
   }
 }

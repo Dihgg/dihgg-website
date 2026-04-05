@@ -8,20 +8,20 @@ type Props = {
   ariaLabel: string;
 };
 
-export default function LocaleSwitcher({ currentLocale, ptHref, enHref, ariaLabel }: Props) {
-  const linkClass = (locale: Locale) =>
-    classnames(
-      'inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] transition',
-      {
-        'border-transparent bg-(--accent) text-white': currentLocale === locale,
-        'border-blue-200 bg-white/80 text-slate-700 hover:bg-blue-50': currentLocale !== locale,
-      }
-    );
+const linkClasses = (current: Locale, target: Locale) =>
+  classnames(
+    'locale-switcher-link',
+    {
+      'locale-switcher-link--active': current === target,
+      'locale-switcher-link--inactive': current !== target,
+    }
+  );
 
+export default function LocaleSwitcher({ currentLocale, ptHref, enHref, ariaLabel }: Props) {
   return (
-    <nav aria-label={ariaLabel} className="flex items-center gap-2">
-      <a href={ptHref} className={linkClass('pt-BR')}>PT</a>
-      <a href={enHref} className={linkClass('en')}>EN</a>
+    <nav aria-label={ariaLabel} className="locale-switcher">
+      <a href={ptHref} className={linkClasses(currentLocale, 'pt-BR')}>PT</a>
+      <a href={enHref} className={linkClasses(currentLocale, 'en')}>EN</a>
     </nav>
   );
 }

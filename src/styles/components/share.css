@@ -2,15 +2,15 @@
     .share {
         @apply mt-10 border-t border-blue-100 pt-6;
 
-        .share__title {
+        &__title {
             @apply text-sm font-mono uppercase tracking-wide text-slate-500 text-right;
         }
 
-        .share__actions {
+        &__actions {
             @apply mt-3 flex flex-wrap gap-2 justify-end;
         }
 
-        .share__action {
+        &__action {
             @apply inline-flex items-center justify-center rounded-full border border-blue-100 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition-colors hover:border-blue-300 hover:text-blue-700;
         }
     }
