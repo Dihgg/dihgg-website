@@ -24,6 +24,7 @@ export default function ProjectCards({ projects, ctaLabel = 'View project' }: Pr
                     key={`${name}-${link.label}-${link.href}`}
                     icon={link.icon}
                     href={link.href}
+                    tinted
                     external
                   >
                     {link.label}

@@ -14,7 +14,7 @@ export default function StackIcons() {
     <ul className="group flex items-center gap-3" aria-label="Technology stack">
       {icons.map(({ name, icon }) => (
         <li key={name} title={name} className="h-4 w-4 text-slate-600 transition-colors group-hover:text-blue-700">
-          <Icon name={icon} />
+          <Icon name={icon} tinted />
         </li>
       ))}
     </ul>

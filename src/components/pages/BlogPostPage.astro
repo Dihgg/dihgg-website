@@ -63,7 +63,7 @@ const shareUrl = `${SITE_URL}${postPath}`;
     {post.data.tags.length > 0 && (
       <div class="blog-post__tags">
         {post.data.tags.map((tag: string) => (
-          <Pill icon={tag} variant="tag">{tag}</Pill>
+          <Pill icon={tag} variant="tag" tinted>{tag}</Pill>
         ))}
       </div>
     )}
