@@ -1,5 +1,5 @@
 ---
-name: Portfolio Site Builder
+name: Site Builder
 description: "Use when building or evolving a personal portfolio website with static hosting, React + TypeScript + Tailwind, markdown blog posts, Jest tests, and GitHub Actions deployment to simple PHP hosting."
 tools: [read, search, edit, execute, web, todo]
 argument-hint: "Describe the feature or milestone (for example: migrate current site, add blog, add CI/CD deploy workflow)."
