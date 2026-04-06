@@ -25,7 +25,12 @@ export default function SiteFooter({ currentLocale, ptHref, enHref, switcherAria
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 text-center text-sm text-slate-600 md:flex-row md:text-left">
-          <p>&copy; {'{Dihgg}'} {new Date().getFullYear()}</p>
+          <p className="flex items-center gap-1 align-middle">
+            <span>&copy;</span>
+            <img src="/images/avatar.png" alt="Dihgg avatar" className="h-6 w-6 object-cover" />
+            <strong>{'{Dihgg}'}</strong>
+            <span>{new Date().getFullYear()}</span>
+            </p>
 
           <div className="flex items-center gap-3">
             <span className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">{madeWithLabel}</span>
