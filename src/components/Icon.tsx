@@ -99,12 +99,7 @@ export default function Icon({ name, tinted = false }: Props): ReactNode | null 
     const { icon, tint = '' } = iconMap[iconName];
     if (!!iconMap[iconName]) {
         return (
-            <span
-                aria-hidden
-                className={classNames('pill__icon', { [tint]: tinted })}
-            >
-                {icon}
-            </span>
+            <span className={classNames('pill__icon', { [tint]: tinted })} aria-hidden>{icon}</span>
         );
     }
     return null;
