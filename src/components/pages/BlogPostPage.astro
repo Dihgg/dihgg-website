@@ -8,6 +8,7 @@ import { SITE_URL } from '@/lib/constants';
 import { formatPostDate } from '@/lib/date';
 import Pill from '@/components/Pill';
 import Share from '@/components/Share';
+import { Image } from 'astro:assets';
 
 interface Props {
   locale: Locale;
@@ -67,13 +68,14 @@ const shareUrl = `${SITE_URL}${postPath}`;
         ))}
       </div>
     )}
-
     {post.data.featuredImage && (
-      <img
+      <Image
         src={post.data.featuredImage}
+        width={800}
+        height={600}
         alt={post.data.featuredImageAlt ?? post.data.title}
         class="blog-post__image"
-        loading="eager"
+        loading="lazy"
       />
     )}
 
