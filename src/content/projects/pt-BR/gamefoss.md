@@ -3,6 +3,8 @@ name: "Gamefoss"
 description: "Portal sobre jogos, entretenimento e tecnologia de forma relevante, precisa e leve."
 stack:
   - "Podcasting"
+  - "Frontend"
+  - "backend"
 links:
     - label: "Ver"
       href: "https://gamefoss.com.br/"
