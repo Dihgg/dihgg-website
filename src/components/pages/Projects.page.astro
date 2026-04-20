@@ -23,6 +23,7 @@ const projects = await getProjects(locale);
     <ProjectCards
         projects={projects}
         classnames={["page__list", "project-cards--wide", "mt-8"]}
+        filtering
         loadMore
         loadMoreLabel={content.projectsLoadMoreLabel}
         client:load

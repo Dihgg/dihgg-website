@@ -9,6 +9,7 @@ type Props = {
   projects: ProjectItem[];
   classnames?: string[];
   loadMore?: boolean;
+  filtering?: boolean;
   loadMoreLabel?: string;
 };
 
@@ -19,16 +20,25 @@ type ProjectCardProps = ProjectItem["data"] & {
 export default function ProjectCards({
   projects,
   classnames = [],
+  filtering = false,
   loadMore = false,
   loadMoreLabel = "Load more",
 }: Props) {
   const [filteredProjects, setFilteredProjects] = useState<ProjectCardProps[]>(
-    [],
+    projects.map<ProjectCardProps>((project) => ({
+      ...project.data,
+    })),
   );
-  const [loaded, setLoaded] = useState(loadMore ? PROJECTS_PER_PAGE : projects.length);
+  const [loaded, setLoaded] = useState(
+    loadMore ? PROJECTS_PER_PAGE : projects.length,
+  );
 
   const tags = [
-    ...new Set(projects.flatMap((project) => project.data.stack.map((stack) => stack.toLowerCase()))),
+    ...new Set(
+      projects.flatMap((project) =>
+        project.data.stack.map((stack) => stack.toLowerCase()),
+      ),
+    ),
   ].sort();
 
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
@@ -48,7 +58,9 @@ export default function ProjectCards({
           ...project.data,
         }))
         .filter(({ stack }) =>
-          selectedTag ? stack.map((s) => s.toLowerCase()).includes(selectedTag) : true,
+          selectedTag
+            ? stack.map((s) => s.toLowerCase()).includes(selectedTag)
+            : true,
         ),
     );
   }, [selectedTag]);
@@ -59,20 +71,22 @@ export default function ProjectCards({
 
   return (
     <>
-      <nav className="my-6">
-        <ul className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <li key={tag}>
-              <Pill
-                variant={tag === selectedTag ? "primary" : "default"}
-                onClick={() => handleSelectTag(tag)}
-              >
-                {tag}
-              </Pill>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {filtering && (
+        <nav className="my-6">
+          <ul className="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <li key={tag}>
+                <Pill
+                  variant={tag === selectedTag ? "primary" : "default"}
+                  onClick={() => handleSelectTag(tag)}
+                >
+                  {tag}
+                </Pill>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       <ul className={classNames("project-cards", classnames)}>
         {filteredProjects
           .map((project, index) => ({ ...project, visible: index < loaded }))
