@@ -35,20 +35,6 @@ const shareUrl = `${SITE_URL}${postPath}`;
     { href: `${SITE_URL}${ptPostPath}`, hreflang: 'pt-BR' },
     { href: `${SITE_URL}${enPostPath}`, hreflang: 'en' }
   ]}
-  header={{
-    brandHref: homePath,
-    blogHref: blogPath,
-    contactHref: `${homePath}#contato`,
-    blogLabel: content.headerBlogLabel,
-    contactLabel: content.headerContactLabel
-  }}
-  footer={{
-    currentLocale: locale,
-    ptHref: ptPostPath,
-    enHref: enPostPath,
-    switcherAriaLabel: content.switcherAriaLabel,
-    madeWithLabel: content.madeWithLabel
-  }}
 >
   <main class="page-shell page-shell--narrow blog-post">
     <a href={blogPath} class="page-shell__back-link">{content.backBlogLabel}</a>

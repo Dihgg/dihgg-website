@@ -4,6 +4,9 @@ import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import { GTAG_ID } from '@/lib/constants';
 import type { Locale } from '@/types';
+import { DEFAULT_LOCALE, EN_LOCALE } from '@/i18n/config';
+import { translations } from '@/data/translations';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 type AlternateLink = {
   href: string;
@@ -31,8 +34,6 @@ interface Props {
   description?: string;
   lang?: string;
   alternates?: AlternateLink[];
-  header?: HeaderData;
-  footer?: FooterData;
 }
 
 const {
@@ -40,9 +41,27 @@ const {
   description = 'Portfolio de Diego Lopes: projetos, experiencia e artigos sobre desenvolvimento.',
   lang = 'pt-BR',
   alternates = [],
-  header,
-  footer
 } = Astro.props;
+
+const locale = DEFAULT_LOCALE;
+const content = translations[locale];
+const homePath = getRelativeLocaleUrl(locale);
+const blogPath = getRelativeLocaleUrl(locale, 'blog');
+
+const header: HeaderData = {
+  brandHref: homePath,
+  blogHref: blogPath,
+  contactHref: `${homePath}#contato`,
+  blogLabel: content.headerBlogLabel,
+  contactLabel: content.headerContactLabel
+};
+const footer: FooterData = {
+  currentLocale: locale,
+  ptHref: getRelativeLocaleUrl(DEFAULT_LOCALE),
+  enHref: getRelativeLocaleUrl(EN_LOCALE),
+  switcherAriaLabel: content.switcherAriaLabel,
+  madeWithLabel: content.madeWithLabel
+};
 ---
 
 <!doctype html>
@@ -79,8 +98,8 @@ const {
     <title>{title}</title>
   </head>
   <body>
-    {header && <SiteHeader {...header} />}
+    <SiteHeader {...header} />
     <slot />
-    {footer && <SiteFooter {...footer} />}
+    <SiteFooter {...footer} />
   </body>
 </html>
