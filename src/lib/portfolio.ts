@@ -26,5 +26,6 @@ export async function getSkills() {
  */
 export async function getProjects(locale: Locale) {
   const items = await getCollection('projects', ({ data }) => data.locale === locale);
+  console.log('Fetched projects:', items );
   return items.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 }

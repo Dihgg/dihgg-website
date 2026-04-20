@@ -1,0 +1,20 @@
+---
+import { getProjects } from "@/lib/portfolio";
+import { translations } from "@/data/translations";
+import { DEFAULT_LOCALE } from "@/i18n/config";
+import ProjectCards from "@/components/ProjectCards";
+import type { Locale } from "@/types";
+
+interface Props {
+    locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+
+const content = translations[locale ?? DEFAULT_LOCALE];
+const projects = await getProjects(locale);
+---
+<main class="page-shell">
+    <h1>{content.projectsTitle}</h1>
+    <ProjectCards projects={projects} ctaLabel={content.projectCta} />
+</main>

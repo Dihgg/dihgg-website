@@ -1,14 +1,12 @@
 ---
-import ProjectCards from "@/components/ProjectCards";
 import { translations } from "@/data/translations";
 import { DEFAULT_LOCALE, EN_LOCALE } from "@/i18n/config";
+import ProjectsPage from "@/components/pages/Projects.page.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getProjects } from "@/lib/portfolio";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-const { locale } = Astro.props;
-const content = translations[DEFAULT_LOCALE];
-const projects = await getProjects(locale);
+const locale = DEFAULT_LOCALE;
+const content = translations[locale];
 ---
 <Layout
   title={content.projectsTitle}
@@ -19,8 +17,5 @@ const projects = await getProjects(locale);
     { href: `${ getRelativeLocaleUrl(EN_LOCALE, 'projects')}`, hreflang: 'en' }
   ]}
 >
-<h1>Projects page here</h1>
-<pre>{JSON.stringify(projects)}</pre>
-<pre>{JSON.stringify(locale)}</pre>
-<ProjectCards projects={projects} ctaLabel={content.projectCta} />
+  <ProjectsPage locale={locale}/>
 </Layout>
