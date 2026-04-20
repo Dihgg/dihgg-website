@@ -1,6 +1,9 @@
 @layer components {
 	.pill {
 		@apply inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5;
+		&:is(button) {
+			@apply cursor-pointer;
+		}
 	}
 
 	.pill--default {

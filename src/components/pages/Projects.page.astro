@@ -20,5 +20,8 @@ const projects = await getProjects(locale);
     <ProjectCards
         projects={projects}
         classnames={["blog-index__list", "project-cards--wide"]}
+        dynamicLoaded
+        loadMoreLabel={content.projectsLoadMoreLabel}
+        client:load
     />
 </main>
