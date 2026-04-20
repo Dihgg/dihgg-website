@@ -52,7 +52,7 @@ const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
       <p class="blog-index__empty">{content.noPostsLabel}</p>
     ) : (
       <>
-        <ul class="blog-index__list">
+        <ul class="page__list">
           {posts.map((post) => (
             <BlogPostCard
               post={post}

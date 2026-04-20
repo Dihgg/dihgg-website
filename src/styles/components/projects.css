@@ -14,7 +14,7 @@
   }
 
   .project-card__stack {
-    @apply font-mono text-xs uppercase tracking-wider text-orange-700;
+    @apply lowercase flex gap-2;
   }
 
   .project-card__title {

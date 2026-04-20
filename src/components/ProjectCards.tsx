@@ -39,12 +39,18 @@ export default function ProjectCards({
             visible: (index + 1) <= visibleCount,
           }))
           .map((project) => {
-            const { name, description, links = [], stack } = project;
+            const { name, description, links = [], stack = [] } = project;
 
             return (
               <li className={classNames("project-card", { "project-card--hidden": !project.visible })} key={name}>
                 <article key={name}>
-                  <p className="project-card__stack">{stack}</p>
+                  <ul className="project-card__stack">
+                    {stack.map((item) => (
+                      <li key={item}>
+                        <Pill key={item} variant="tag">{item}</Pill>
+                      </li>
+                    ))}
+                  </ul>
                   <h3 className="project-card__title">{name}</h3>
                   <p className="project-card__description">{description}</p>
                   {links.length > 0 && (
