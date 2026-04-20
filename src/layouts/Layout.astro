@@ -21,14 +21,6 @@ type FooterData = {
   madeWithLabel: string;
 };
 
-type HeaderData = {
-  brandHref: string;
-  blogHref: string;
-  contactHref: string;
-  blogLabel: string;
-  contactLabel: string;
-};
-
 interface Props {
   title: string;
   description?: string;
@@ -47,6 +39,7 @@ const locale = lang;
 const content = translations[locale];
 const homePath = getRelativeLocaleUrl(locale);
 const blogPath = getRelativeLocaleUrl(locale, 'blog');
+const projectsPath = getRelativeLocaleUrl(locale, locale === EN_LOCALE ? 'projects' : 'projetos');
 const ptAlternate = alternates.find((alternate) => alternate.hreflang === DEFAULT_LOCALE)?.href;
 const enAlternate = alternates.find((alternate) => alternate.hreflang === EN_LOCALE)?.href;
 
@@ -63,12 +56,14 @@ function getSwitcherHref(href: string | undefined, fallback: string) {
   }
 }
 
-const header: HeaderData = {
+const header: HeaderProps = {
   brandHref: homePath,
   blogHref: blogPath,
-  contactHref: `${homePath}#contato`,
   blogLabel: content.headerBlogLabel,
-  contactLabel: content.headerContactLabel
+  contactHref: `${homePath}#contato`,
+  contactLabel: content.headerContactLabel,
+  projectsHref: projectsPath,
+  projectsLabel: content.projectsTitle
 };
 const footer: FooterData = {
   currentLocale: locale,
