@@ -1,8 +1,8 @@
 type Props = {
   brandHref: string;
   blogHref: string;
-  contactHref: string;
   blogLabel: string;
+  contactHref: string;
   contactLabel: string;
 };
 

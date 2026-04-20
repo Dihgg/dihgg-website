@@ -37,8 +37,10 @@ import { MdFindInPage, MdIosShare } from "react-icons/md";
 import { GiRaiseZombie, GiArtificialIntelligence } from "react-icons/gi";
 import { CgGames } from "react-icons/cg";
 import { FaGear } from "react-icons/fa6";
-import { TbBrandWhatsapp } from "react-icons/tb";
+import { TbBrandWhatsapp, TbWorldWww } from "react-icons/tb";
 import { IoIosCopy } from "react-icons/io";
+import { CiServer } from "react-icons/ci";
+import { HiMiniComputerDesktop } from "react-icons/hi2"
 
 type IconConfig = {
     icon: ReactNode;
@@ -103,6 +105,9 @@ const iconMap: Record<string, IconConfig> = {
     ...sharedIcons(['games', 'jogos'], { icon: <CgGames />, tint: 'text-purple-600' }),
     ...sharedIcons(['philosophy', 'filosofia'], { icon: <FaBrain />, tint: 'text-yellow-500' }),
     ...sharedIcons(['ai', 'artificial-intelligence', 'inteligencia-artificial'], { icon: <GiArtificialIntelligence />, tint: 'text-gray-700' }),
+    ...sharedIcons(['frontend'], { icon: <HiMiniComputerDesktop />, tint: 'text-red-500' }),
+    ...sharedIcons(['backend', 'server'], { icon: <CiServer />, tint: 'text-blue-500' }),
+    ...sharedIcons(['web-development', 'web'], { icon: <TbWorldWww />, tint: '' }),
 };
 
 type Props = {

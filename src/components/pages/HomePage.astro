@@ -59,6 +59,7 @@ const skillNames = skillItems.map(item => item.data.name);
         <div class="mt-10 flex flex-wrap gap-3">
           <Pill variant="primary" href="#contato">{content.contactCta}</Pill>
           <Pill href={blogPath}>{content.blogCta}</Pill>
+          <Pill href={projectsPath}>{content.projectsTitle}</Pill>
         </div>
       </div>
 
@@ -116,7 +117,12 @@ const skillNames = skillItems.map(item => item.data.name);
         >
           {content.latestProjectsCta}
         </a>
-      <ProjectCards projects={projectItems} classnames={["mt-8"]} />
+      <ProjectCards
+        projects={projectItems}
+        classnames={["mt-8"]}
+        projectsFilterLabel={content.projectsFilterLabel}
+        loadMoreLabel={content.projectsLoadMoreLabel}
+      />
     </div>
   </section>
 
