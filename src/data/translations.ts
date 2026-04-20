@@ -19,6 +19,8 @@ export const translations = {
     skillsTitle: 'Skills',
     workTitle: 'Trabalho',
     projectsTitle: 'Projetos',
+    projectsDescription: 'Aqui estão alguns dos meus projetos mais recentes. Para uma lista completa, visite meu repositório no GitHub.',
+    projectsIntro: 'Ao longo dos anos, tive a oportunidade de trabalhar em uma variedade de projetos, desde pequenos sites pessoais até aplicações web complexas e sistemas de backend. Cada projeto me permitiu aprender algo novo e aprimorar minhas habilidades como desenvolvedor. Abaixo estão alguns dos meus projetos mais recentes, que demonstram minha paixão por criar soluções inovadoras e eficientes.',
     contactTitle: 'Contato',
     contactLead: 'Envie um email para',
     contactCta: 'Entre em contato',
@@ -64,6 +66,8 @@ export const translations = {
     skillsTitle: 'Skills',
     workTitle: 'Work',
     projectsTitle: 'Projects',
+    projectsDescription: 'Here are some of my recent projects. For a full list, please visit my GitHub repository.',
+    projectsIntro: 'Over the years, I have had the opportunity to work on a variety of projects, ranging from small personal websites to complex web applications and backend systems. Each project has allowed me to learn something new and enhance my skills as a developer. Below are some of my recent projects that demonstrate my passion for creating innovative and efficient solutions.',
     contactTitle: 'Contact',
     contactLead: 'Send an email to',
     contactCta: 'Get in touch',
@@ -107,6 +111,8 @@ export const translations = {
   skillsTitle: string;
   workTitle: string;
   projectsTitle: string;
+  projectsDescription: string;
+  projectsIntro: string;
   contactTitle: string;
   contactLead: string;
   contactCta: string;

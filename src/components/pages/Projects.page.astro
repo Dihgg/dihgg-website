@@ -14,7 +14,11 @@ const { locale } = Astro.props as Props;
 const content = translations[locale ?? DEFAULT_LOCALE];
 const projects = await getProjects(locale);
 ---
-<main class="page-shell">
-    <h1>{content.projectsTitle}</h1>
-    <ProjectCards projects={projects} ctaLabel={content.projectCta} />
+<main class="page-shell page-shell--wide blog-index">
+    <h1 class="page__title">{content.projectsTitle}</h1>
+    <p class="page__intro">{content.projectsIntro}</p>
+    <ProjectCards
+        projects={projects}
+        classnames={["blog-index__list", "project-cards--wide"]}
+    />
 </main>

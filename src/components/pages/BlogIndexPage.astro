@@ -43,8 +43,8 @@ const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
 >
   <main class="page-shell page-shell--wide blog-index">
     <a href={homePath} class="page-shell__back-link">{content.backHomeLabel}</a>
-    <h1 class="blog-index__title">Blog</h1>
-    <p class="blog-index__intro">{content.blogIntro}</p>
+    <h1 class="page__title">Blog</h1>
+    <p class="page__intro">{content.blogIntro}</p>
 
     <BlogSearch placeholder={content.searchPlaceholder} />
 

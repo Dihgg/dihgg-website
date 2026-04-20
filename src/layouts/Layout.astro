@@ -32,21 +32,36 @@ type HeaderData = {
 interface Props {
   title: string;
   description?: string;
-  lang?: string;
+  lang?: Locale;
   alternates?: AlternateLink[];
 }
 
 const {
   title,
   description = 'Portfolio de Diego Lopes: projetos, experiencia e artigos sobre desenvolvimento.',
-  lang = 'pt-BR',
+  lang = DEFAULT_LOCALE,
   alternates = [],
-} = Astro.props;
+} = Astro.props as Props;
 
-const locale = DEFAULT_LOCALE;
+const locale = lang;
 const content = translations[locale];
 const homePath = getRelativeLocaleUrl(locale);
 const blogPath = getRelativeLocaleUrl(locale, 'blog');
+const ptAlternate = alternates.find((alternate) => alternate.hreflang === DEFAULT_LOCALE)?.href;
+const enAlternate = alternates.find((alternate) => alternate.hreflang === EN_LOCALE)?.href;
+
+function getSwitcherHref(href: string | undefined, fallback: string) {
+  if (!href) {
+    return fallback;
+  }
+
+  try {
+    const url = new URL(href, Astro.url);
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return href.startsWith('/') ? href : fallback;
+  }
+}
 
 const header: HeaderData = {
   brandHref: homePath,
@@ -57,8 +72,8 @@ const header: HeaderData = {
 };
 const footer: FooterData = {
   currentLocale: locale,
-  ptHref: getRelativeLocaleUrl(DEFAULT_LOCALE),
-  enHref: getRelativeLocaleUrl(EN_LOCALE),
+  ptHref: getSwitcherHref(ptAlternate, getRelativeLocaleUrl(DEFAULT_LOCALE)),
+  enHref: getSwitcherHref(enAlternate, getRelativeLocaleUrl(EN_LOCALE)),
   switcherAriaLabel: content.switcherAriaLabel,
   madeWithLabel: content.madeWithLabel
 };

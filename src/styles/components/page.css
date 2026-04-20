@@ -1,0 +1,9 @@
+@layer components {
+  .page__title {
+    @apply mt-6 text-4xl font-bold;
+  }
+
+  .page__intro {
+    @apply mt-3 max-w-2xl text-black/70;
+  }
+}
