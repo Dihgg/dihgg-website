@@ -1,7 +1,9 @@
 ---
 name: "Guaxinim Games"
 description: "Institutional website for an independent game studio."
-stack: "Web Development"
+stack:
+  - "Frontend"
+  - "Backend"
 links:
     - label: "View"
       href: "https://guaxinimgames.com/"

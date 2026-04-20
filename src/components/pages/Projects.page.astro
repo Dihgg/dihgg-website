@@ -1,0 +1,33 @@
+---
+import { getProjects } from "@/lib/portfolio";
+import { translations } from "@/data/translations";
+import { DEFAULT_LOCALE } from "@/i18n/config";
+import ProjectCards from "@/components/ProjectCards";
+import type { Locale } from "@/types";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+interface Props {
+    locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+const content = translations[locale ?? DEFAULT_LOCALE];
+
+const homePath = getRelativeLocaleUrl(locale);
+const projects = await getProjects(locale);
+---
+<main class="page-shell page-shell--wide blog-index">
+     <a href={homePath} class="page-shell__back-link">{content.backHomeLabel}</a>
+    <h1 class="page__title">{content.projectsTitle}</h1>
+    <p class="page__intro">{content.projectsIntro}</p>
+    <ProjectCards
+        projects={projects}
+        classnames={["page__list", "project-cards--wide", "mt-8"]}
+        filtering
+        loadMore
+        loadMoreLabel={content.projectsLoadMoreLabel}
+        projectsFilterLabel={content.projectsFilterLabel}
+        client:load
+    />
+    
+</main>

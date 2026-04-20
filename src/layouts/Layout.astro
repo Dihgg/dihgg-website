@@ -4,6 +4,9 @@ import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import { GTAG_ID } from '@/lib/constants';
 import type { Locale } from '@/types';
+import { DEFAULT_LOCALE, EN_LOCALE } from '@/i18n/config';
+import { translations } from '@/data/translations';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 type AlternateLink = {
   href: string;
@@ -18,31 +21,57 @@ type FooterData = {
   madeWithLabel: string;
 };
 
-type HeaderData = {
-  brandHref: string;
-  blogHref: string;
-  contactHref: string;
-  blogLabel: string;
-  contactLabel: string;
-};
-
 interface Props {
   title: string;
   description?: string;
-  lang?: string;
+  lang?: Locale;
   alternates?: AlternateLink[];
-  header?: HeaderData;
-  footer?: FooterData;
 }
 
 const {
   title,
   description = 'Portfolio de Diego Lopes: projetos, experiencia e artigos sobre desenvolvimento.',
-  lang = 'pt-BR',
+  lang = DEFAULT_LOCALE,
   alternates = [],
-  header,
-  footer
-} = Astro.props;
+} = Astro.props as Props;
+
+const locale = lang;
+const content = translations[locale];
+const homePath = getRelativeLocaleUrl(locale);
+const blogPath = getRelativeLocaleUrl(locale, 'blog');
+const projectsPath = getRelativeLocaleUrl(locale, locale === EN_LOCALE ? 'projects' : 'projetos');
+const ptAlternate = alternates.find((alternate) => alternate.hreflang === DEFAULT_LOCALE)?.href;
+const enAlternate = alternates.find((alternate) => alternate.hreflang === EN_LOCALE)?.href;
+
+function getSwitcherHref(href: string | undefined, fallback: string) {
+  if (!href) {
+    return fallback;
+  }
+
+  try {
+    const url = new URL(href, Astro.url);
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return href.startsWith('/') ? href : fallback;
+  }
+}
+
+const header: HeaderProps = {
+  brandHref: homePath,
+  blogHref: blogPath,
+  blogLabel: content.headerBlogLabel,
+  contactHref: `${homePath}#contato`,
+  contactLabel: content.headerContactLabel,
+  projectsHref: projectsPath,
+  projectsLabel: content.projectsTitle
+};
+const footer: FooterData = {
+  currentLocale: locale,
+  ptHref: getSwitcherHref(ptAlternate, getRelativeLocaleUrl(DEFAULT_LOCALE)),
+  enHref: getSwitcherHref(enAlternate, getRelativeLocaleUrl(EN_LOCALE)),
+  switcherAriaLabel: content.switcherAriaLabel,
+  madeWithLabel: content.madeWithLabel
+};
 ---
 
 <!doctype html>
@@ -79,8 +108,8 @@ const {
     <title>{title}</title>
   </head>
   <body>
-    {header && <SiteHeader {...header} />}
+    <SiteHeader {...header} />
     <slot />
-    {footer && <SiteFooter {...footer} />}
+    <SiteFooter {...footer} />
   </body>
 </html>

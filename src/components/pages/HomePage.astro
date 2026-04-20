@@ -11,9 +11,10 @@ import {
   translations,
 } from '@/data/translations';
 import { getBlogPosts } from '@/lib/blog';
-import { LATEST_POSTS_COUNT } from '@/lib/constants';
+import { LATEST_POSTS_COUNT, LATEST_PROJECTS_COUNT } from '@/lib/constants';
 import { getWorkItems, getSkills, getProjects } from '@/lib/portfolio';
 import type { Locale } from '@/types';
+import { EN_LOCALE } from '@/i18n/config';
 
 interface Props {
   locale: Locale;
@@ -22,9 +23,10 @@ interface Props {
 const { locale } = Astro.props;
 const content = translations[locale];
 const blogPath = getRelativeLocaleUrl(locale, 'blog');
+const projectsPath = getRelativeLocaleUrl(locale, locale === EN_LOCALE ? 'projects' : 'projetos');
 const workItems = await getWorkItems(locale);
 const skillItems = await getSkills();
-const projectItems = await getProjects(locale);
+const projectItems = (await getProjects(locale)).slice(0, LATEST_PROJECTS_COUNT);
 const latestPosts = (await getBlogPosts(locale)).slice(0, LATEST_POSTS_COUNT);
 
 // Transform data to match component expectations
@@ -57,6 +59,7 @@ const skillNames = skillItems.map(item => item.data.name);
         <div class="mt-10 flex flex-wrap gap-3">
           <Pill variant="primary" href="#contato">{content.contactCta}</Pill>
           <Pill href={blogPath}>{content.blogCta}</Pill>
+          <Pill href={projectsPath}>{content.projectsTitle}</Pill>
         </div>
       </div>
 
@@ -106,9 +109,20 @@ const skillNames = skillItems.map(item => item.data.name);
   </section>
 
   <section id="projetos" class="mx-auto max-w-6xl px-6 py-12">
-    <h2 class="section-title">{content.projectsTitle}</h2>
-    <div class="mt-8">
-      <ProjectCards projects={projectItems} ctaLabel={content.projectCta} />
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <h2 class="section-title">{content.projectsTitle}</h2>
+      <a
+          href={projectsPath}
+          class="text-sm font-semibold text-blue-700 underline decoration-blue-400 decoration-2 underline-offset-4 transition hover:text-blue-900"
+        >
+          {content.latestProjectsCta}
+        </a>
+      <ProjectCards
+        projects={projectItems}
+        classnames={["mt-8"]}
+        projectsFilterLabel={content.projectsFilterLabel}
+        loadMoreLabel={content.projectsLoadMoreLabel}
+      />
     </div>
   </section>
 

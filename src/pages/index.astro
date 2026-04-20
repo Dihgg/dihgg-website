@@ -1,5 +1,5 @@
 ---
-import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from 'astro:i18n';
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import Layout from '@/layouts/Layout.astro';
 import HomePage from '@/components/pages/HomePage.astro';
 import { translations } from '@/data/translations';
@@ -7,8 +7,6 @@ import { DEFAULT_LOCALE, EN_LOCALE } from '@/i18n/config';
 
 const locale = DEFAULT_LOCALE;
 const content = translations[locale];
-const homePath = getRelativeLocaleUrl(locale);
-const blogPath = getRelativeLocaleUrl(locale, 'blog');
 ---
 
 <Layout
@@ -19,20 +17,6 @@ const blogPath = getRelativeLocaleUrl(locale, 'blog');
 		{ href: getAbsoluteLocaleUrl(DEFAULT_LOCALE), hreflang: DEFAULT_LOCALE },
 		{ href: getAbsoluteLocaleUrl(EN_LOCALE), hreflang: EN_LOCALE }
 	]}
-	header={{
-		brandHref: homePath,
-		blogHref: blogPath,
-		contactHref: `${homePath}#contato`,
-		blogLabel: content.headerBlogLabel,
-		contactLabel: content.headerContactLabel
-	}}
-	footer={{
-		currentLocale: locale,
-		ptHref: getRelativeLocaleUrl(DEFAULT_LOCALE),
-		enHref: getRelativeLocaleUrl(EN_LOCALE),
-		switcherAriaLabel: content.switcherAriaLabel,
-		madeWithLabel: content.madeWithLabel
-	}}
 >
 	<HomePage locale={locale} />
 </Layout>

@@ -1,7 +1,9 @@
 ---
 name: "Bradesco Personalized Home"
 description: "Personalized home for the Bradesco app, with focus on performance."
-stack: "Frontend + Backend"
+stack:
+  - "Frontend"
+  - "Backend"
 links:
   - label: "Google Play"
     icon: "google-play"
