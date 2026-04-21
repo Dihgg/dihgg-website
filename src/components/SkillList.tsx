@@ -6,7 +6,7 @@ type Props = {
 
 export default function SkillList({ skills }: Props) {
   return (
-    <ul className="flex flex-wrap gap-3">
+    <ul className="flex flex-wrap gap-1 md:gap-2">
       {skills.map((skill) => (
         <li key={skill}>
           <Pill icon={skill} tinted>{skill}</Pill>

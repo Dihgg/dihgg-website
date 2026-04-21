@@ -77,7 +77,7 @@ export default function ProjectCards({
   return (
     <>
       {filtering && (
-        <nav className="my-6 flex flex-col text-center items-center gap-4 md:flex-row">
+        <nav className="text-center my-6 gap-4 flex flex-col items-center md:items-start">
           <span className="font-semibold text-black-60">
             {projectsFilterLabel}:
           </span>
@@ -102,8 +102,8 @@ export default function ProjectCards({
           const { name, description, links = [], stack = [] } = project;
 
           return (
-            <li className="project-card" key={name}>
-              <article>
+            <li key={name}>
+              <article className="project-card">
                 <ul className="project-card__stack">
                   {stack.map((item, index) => (
                     <li

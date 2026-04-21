@@ -45,7 +45,7 @@ const skillNames = skillItems.map(item => item.data.name);
           <p class="font-mono text-xs uppercase tracking-[0.2em] text-slate-600">{'{Dihgg}'}</p>
         </div>
 
-        <h1 class="home-hero__title mt-4 max-w-3xl text-5xl font-bold leading-[0.95] md:text-7xl">Diego Lopes</h1>
+        <h1 class="home-hero__title">Diego Lopes</h1>
         <p class="mt-4 max-w-2xl text-lg text-slate-700 md:text-xl">{content.heroLead}</p>
 
         <div class="mt-8">
@@ -56,7 +56,7 @@ const skillNames = skillItems.map(item => item.data.name);
           <div class="sprite-animation"></div>
         </div>
 
-        <div class="mt-10 flex flex-wrap gap-3">
+        <div class="mt-10 flex flex-wrap gap-2">
           <Pill variant="primary" href="#contato">{content.contactCta}</Pill>
           <Pill href={blogPath}>{content.blogCta}</Pill>
           <Pill href={projectsPath}>{content.projectsTitle}</Pill>
@@ -69,12 +69,12 @@ const skillNames = skillItems.map(item => item.data.name);
     </div>
   </section>
 
-  <section id="sobre" class="mx-auto max-w-6xl px-6 py-12">
+  <section id="sobre" class="mx-auto max-w-6xl px-6 py-8">
     <h2 class="section-title">{content.aboutTitle}</h2>
-    <p class="mt-8 max-w-3xl text-lg text-slate-700">{content.aboutText}</p>
+    <p class="mt-8 text-lg text-slate-700">{content.aboutText}</p>
   </section>
 
-  <section id="latest-posts" class="mx-auto max-w-6xl px-6 py-12">
+  <section id="latest-posts" class="mx-auto max-w-6xl px-6 py-8">
     <div class="flex flex-wrap items-center justify-between gap-4">
       <h2 class="section-title">{content.latestPostsTitle}</h2>
       <a
@@ -96,19 +96,19 @@ const skillNames = skillItems.map(item => item.data.name);
     )}
   </section>
 
-  <section id="skills" class="mx-auto max-w-6xl px-6 py-12">
+  <section id="skills" class="mx-auto max-w-6xl px-6 py-8">
     <h2 class="section-title">{content.skillsTitle}</h2>
     <div class="mt-6">
       <SkillList skills={skillNames} />
     </div>
   </section>
 
-  <section id="trabalho" class="mx-auto max-w-6xl px-6 py-12">
+  <section id="trabalho" class="mx-auto max-w-6xl px-6 py-8">
     <h2 class="section-title">{content.workTitle}</h2>
     <WorkCards items={workItems} />
   </section>
 
-  <section id="projetos" class="mx-auto max-w-6xl px-6 py-12">
+  <section id="projetos" class="mx-auto max-w-6xl px-6 py-8">
     <div class="flex flex-wrap items-center justify-between gap-4">
       <h2 class="section-title">{content.projectsTitle}</h2>
       <a

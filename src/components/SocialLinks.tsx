@@ -9,13 +9,14 @@ type Props = {
 
 export default function SocialLinks({ links, ariaLabel = 'Social links' }: Props) {
   return (
-    <ul className="flex flex-wrap gap-3" aria-label={ariaLabel}>
-      {links.map((link) => (
+    <ul className="flex flex-wrap gap-2" aria-label={ariaLabel}>
+      {links.map((link, index) => (
         <li key={link.href}>
           <Pill
             icon={link.icon}
             href={link.href}
             external
+            tinted
           >
             {link.label}
           </Pill>

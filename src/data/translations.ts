@@ -27,7 +27,7 @@ export const translations = {
     projectsLoadMoreLabel: 'Carregar mais',
     contactTitle: 'Contato',
     contactLead: 'Envie um email para',
-    contactCta: 'Entre em contato',
+    contactCta: 'Contato',
     blogCta: 'Ler blog',
     headerBlogLabel: 'Blog',
     headerContactLabel: 'Contato',
@@ -119,7 +119,7 @@ export const translations = {
   skillsTitle: string;
   workTitle: string;
   projectsTitle: string;
-  projectPageTitle: string;
+  projectsPageTitle: string;
   projectsFilterLabel: string;
   latestProjectsCta: string;
   projectsDescription: string;

@@ -48,5 +48,5 @@
 }
 
 .home-hero__title {
-	@apply font-press-start text-[clamp(2rem,5vw,4.75rem)] leading-[1.15] tracking-[-0.04em] text-balance;
+	@apply mt-3 font-semibold font-press-start text-[clamp(1.75rem,5vw,2.75rem)];
 }
