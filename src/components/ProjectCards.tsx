@@ -105,14 +105,26 @@ export default function ProjectCards({
             <li key={name}>
               <article className="project-card">
                 <ul className="project-card__stack">
-                  {stack.map((item, index) => (
+                  {[...stack].sort((a, b) => {
+                    const aNorm = normalize(a);
+                    const bNorm = normalize(b);
+                    if (aNorm === selectedTag) return -1;
+                    if (bNorm === selectedTag) return 1;
+                    return 0;
+                  }).map((item, index) => (
                     <li
                       key={item}
                       className={classNames({
                         "hidden sm:flex": index > 1,
                       })}
                     >
-                      <Pill variant="tag" icon={normalize(item)}>
+                      <Pill
+                        variant="tag"
+                        icon={normalize(item)}
+                        className={classNames({
+                          "pill--tag--active": normalize(item) === selectedTag,
+                        })}
+                      >
                         {item.toLocaleLowerCase()}
                       </Pill>
                     </li>
