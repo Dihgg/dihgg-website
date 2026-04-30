@@ -43,9 +43,10 @@ const shareUrl = `${SITE_URL}${postPath}`;
           src={post.data.featuredImage}
           width={800}
           height={600}
-        alt={post.data.featuredImageAlt ?? post.data.title}
-        class="blog-post__image"
-        loading="lazy"
+          alt={post.data.featuredImageAlt ?? post.data.title}
+          class="blog-post__image"
+          loading="lazy"
+          aria-hidden
       />
     )}
     <div class="page-shell page-shell--narrow blog-post__header__content">
