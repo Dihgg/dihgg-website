@@ -13,8 +13,6 @@ locale: pt-BR
 translationKey: turing-test-chinese-room
 ---
 
-## Introdução
-
 Com o avanço recente da inteligência artificial — especialmente com modelos generativos como GPT — antigas discussões filosóficas voltaram ao centro das atenções.
 
 Uma das formas mais interessantes de explorar essas ideias é através de jogos como **The Turing Test**, que mistura puzzles com questionamentos profundos sobre consciência, linguagem e inteligência.
