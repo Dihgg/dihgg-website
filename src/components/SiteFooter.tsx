@@ -4,7 +4,7 @@ import StackIcons from '@/components/StackIcons';
 import Logo from '@/components/Logo';
 import { useEffect, useState } from 'react';
 
-type Props = {
+export type FooterProps = {
   currentLocale: Locale;
   ptHref: string;
   enHref: string;
@@ -12,7 +12,7 @@ type Props = {
   madeWithLabel: string;
 };
 
-export default function SiteFooter({ currentLocale, ptHref, enHref, switcherAriaLabel, madeWithLabel }: Props) {
+export default function SiteFooter({ currentLocale, ptHref, enHref, switcherAriaLabel, madeWithLabel }: FooterProps) {
 
   const [ year, setYear ] = useState(new Date().getFullYear());
 

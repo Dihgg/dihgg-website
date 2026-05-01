@@ -1,17 +1,19 @@
 import Pill from "@/components/Pill";
 import Logo from "@/components/Logo";
 
+type CTA = {
+  href: string;
+  label: string;
+}
 export type HeaderProps = {
   brandHref: string;
-  blogHref: string;
-  blogLabel: string;
-  contactHref: string;
-  contactLabel: string;
-  projectsHref?: string;
-  projectsLabel?: string;
+  blog: CTA;
+  contact: CTA;
+  projects: CTA;
 };
 
-export default function SiteHeader({ brandHref, blogHref, contactHref, blogLabel, contactLabel, projectsHref, projectsLabel }: HeaderProps) {
+export default function SiteHeader(props: HeaderProps) {
+  const { brandHref, blog, contact, projects } = props;
   return (
     <header className="sticky top-0 z-50 border-b border-blue-100/80 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
@@ -21,17 +23,23 @@ export default function SiteHeader({ brandHref, blogHref, contactHref, blogLabel
 
         <nav className="flex items-center gap-2" aria-label="Main navigation">
           <Pill
-            href={blogHref}
-          >{blogLabel}</Pill>
+            href={blog.href}
+          >
+            {blog.label}
+          </Pill>
           <Pill
             variant="default"
-            href={projectsHref}
+            href={projects.href}
             className="hidden sm:flex"
-          >{projectsLabel}</Pill>
+          >
+            {projects.label}
+          </Pill>
           <Pill
             variant="primary"
-            href={contactHref}
-          >{contactLabel}</Pill>
+            href={contact.href}
+          >
+            {contact.label}
+          </Pill>
         </nav>
       </div>
     </header>

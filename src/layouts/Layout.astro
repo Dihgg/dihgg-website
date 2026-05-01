@@ -1,7 +1,7 @@
 ---
 import '@/styles/global.css';
-import SiteFooter from '@/components/SiteFooter';
-import SiteHeader from '@/components/SiteHeader';
+import SiteFooter, { type FooterProps } from '@/components/SiteFooter';
+import SiteHeader, { type HeaderProps } from '@/components/SiteHeader';
 import { GTAG_ID } from '@/lib/constants';
 import type { Locale } from '@/types';
 import { DEFAULT_LOCALE, EN_LOCALE } from '@/i18n/config';
@@ -11,14 +11,6 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 type AlternateLink = {
   href: string;
   hreflang: string;
-};
-
-type FooterData = {
-  currentLocale: Locale;
-  ptHref: string;
-  enHref: string;
-  switcherAriaLabel: string;
-  madeWithLabel: string;
 };
 
 interface Props {
@@ -58,14 +50,21 @@ function getSwitcherHref(href: string | undefined, fallback: string) {
 
 const header: HeaderProps = {
   brandHref: homePath,
-  blogHref: blogPath,
-  blogLabel: content.headerBlogLabel,
-  contactHref: `${homePath}#contato`,
-  contactLabel: content.headerContactLabel,
-  projectsHref: projectsPath,
-  projectsLabel: content.projectsTitle
+  blog: {
+    label: content.headerBlogLabel,
+    href: blogPath
+  },
+  contact: {
+    label: content.headerContactLabel,
+    href: `${homePath}#contato`
+  },
+  projects: {
+    label: content.projectsTitle,
+    href: projectsPath
+  }
 };
-const footer: FooterData = {
+
+const footer: FooterProps = {
   currentLocale: locale,
   ptHref: getSwitcherHref(ptAlternate, getRelativeLocaleUrl(DEFAULT_LOCALE)),
   enHref: getSwitcherHref(enAlternate, getRelativeLocaleUrl(EN_LOCALE)),
