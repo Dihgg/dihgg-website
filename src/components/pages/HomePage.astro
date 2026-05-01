@@ -7,6 +7,7 @@ import ProjectCards from '@/components/ProjectCards';
 import WorkCards from '@/components/WorkCards';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { socialLinks } from '@/data/portfolio';
+import Logo from '@/components/Logo';
 import {
   translations,
 } from '@/data/translations';
@@ -40,11 +41,7 @@ const skillNames = skillItems.map(item => item.data.name);
   <section class="mx-auto max-w-6xl px-6 pb-16 pt-14 md:pt-20">
     <div class="grid items-center gap-8 md:grid-cols-2">
       <div>
-        <div class="flex items-center gap-2">
-          <img src="/images/avatar.png" alt="Dihgg avatar" class="h-6 w-6 object-cover" />
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-slate-600">{'{Dihgg}'}</p>
-        </div>
-
+        <Logo className="text-slate-600" />
         <h1 class="home-hero__title">Diego Lopes</h1>
         <p class="mt-4 max-w-2xl text-lg text-slate-700 md:text-xl">{content.heroLead}</p>
 
@@ -57,9 +54,9 @@ const skillNames = skillItems.map(item => item.data.name);
         </div>
 
         <div class="mt-10 flex flex-wrap gap-2">
-          <Pill variant="primary" href="#contato">{content.contactCta}</Pill>
           <Pill href={blogPath}>{content.blogCta}</Pill>
           <Pill href={projectsPath}>{content.projectsTitle}</Pill>
+          <Pill variant="primary" href="#contato">{content.contactCta}</Pill>
         </div>
       </div>
 

@@ -1,0 +1,17 @@
+@layer components {
+    .logo {
+        @apply inline-flex items-center gap-2;
+    }
+    .logo__avatar {
+        @apply h-6 w-6 object-cover;
+    }
+    .logo__text {
+        @apply font-mono text-xs uppercase tracking-[0.2em] text-inherit;
+        &::before {
+            content: '{';
+        }
+        &::after {
+            content: '}';
+        }
+    }
+}
