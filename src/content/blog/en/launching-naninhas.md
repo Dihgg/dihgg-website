@@ -1,7 +1,7 @@
 ---
 title: "Naninhas: Zomboid mod about plushies with real gameplay impact"
 description: "My first Zomboid mod compatible with Build 42"
-featuredImage: "https://cdn.buymeacoffee.com/uploads/project_updates/10333055/2026/03/27/175221_1774633941479_pastedimage.jpg.png"
+featuredImage: "/content/naninhas.png"
 featuredImageAlt: "Featured image for the Naninhas mod"
 date: 2026-03-29
 tags:

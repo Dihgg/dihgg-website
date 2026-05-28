@@ -1,7 +1,7 @@
 ---
 title: "Naninhas: Mod de Zomboid para pelúcias com impacto no gameplay"
 description: "Meu primeiro Mod de Zomboid Compatível com a build 42"
-featuredImage: "https://cdn.buymeacoffee.com/uploads/project_updates/10333055/2026/03/27/175221_1774633941479_pastedimage.jpg.png"
+featuredImage: "/content/naninhas.png"
 featuredImageAlt: "Imagem de destaque do mod Naninhas"
 date: 2026-03-29
 tags:
