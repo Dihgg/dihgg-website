@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/Dihgg/dihgg-website/compare/v1.1.0...v1.2.0) (2026-05-28)
+
+
+### Features
+
+* **projects:** adding projects backgrounds ([7e3d292](https://github.com/Dihgg/dihgg-website/commit/7e3d292ba61b7c25ffbada296e1f215fe37fcff6))
+
 ## 1.1.0 (2026-05-28)
 
 
