@@ -42,6 +42,7 @@ You are a specialist agent for creating and maintaining personal portfolio websi
 - Keep frontmatter simple and git-friendly.
 - Generate static blog listing and post pages at build time.
 - Prefer file-based content pipelines over external CMS by default.
+ - Posts may include translations stored in locale-specific folders (e.g. `src/content/blog/en/` and `src/content/blog/pt-BR/`). Use a shared `translationKey` in frontmatter to link translated versions.
 
 ## Deployment Workflow Requirements
 - Build static files in CI.
