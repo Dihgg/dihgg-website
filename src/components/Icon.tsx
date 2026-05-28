@@ -32,7 +32,7 @@ import {
 } from 'react-icons/si';
 import { DiJava, DiPhotoshop } from 'react-icons/di';
 import { RiComputerLine, RiTwitterXFill } from 'react-icons/ri';
-import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaPodcast, FaBrain } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaPodcast, FaBrain, FaNetworkWired } from "react-icons/fa";
 import { MdFindInPage, MdIosShare } from "react-icons/md";
 import { GiRaiseZombie, GiArtificialIntelligence } from "react-icons/gi";
 import { CgGames } from "react-icons/cg";
@@ -65,7 +65,6 @@ const iconMap: Record<string, IconConfig> = {
     ['react']: { icon: <SiReact />, tint: 'text-cyan-500' },
     ['astro']: { icon: <SiAstro />, tint: 'text-orange-500' },
     ['tailwind']: { icon: <SiTailwindcss />, tint: 'text-teal-500' },
-    ['node.js']: { icon: <SiNodedotjs />, tint: 'text-lime-600' },
     ['jest']: { icon: <SiJest />, tint: 'text-rose-700' },
     ['php']: { icon: <SiPhp />, tint: 'text-indigo-500' },
     ['wordpress']: { icon: <SiWordpress />, tint: 'text-blue-700' },
@@ -101,6 +100,8 @@ const iconMap: Record<string, IconConfig> = {
     ['whatsapp']: { icon: <TbBrandWhatsapp />, tint: 'text-emerald-600' },
     ['share']: { icon: <MdIosShare />, tint: 'text-slate-600' },
     ['copy']: { icon: <IoIosCopy />, tint: 'text-slate-600' },
+    ['network']: { icon: <FaNetworkWired />, tint: 'text-slate-700' },
+    ...sharedIcons(['node', 'nodejs', 'node.js'], { icon: <SiNodedotjs />, tint: 'text-lime-600' }),
     ...sharedIcons(['computer', 'computador', 'computacao'], { icon: <RiComputerLine />, tint: 'text-slate-700' }),
     ...sharedIcons(['games', 'jogos'], { icon: <CgGames />, tint: 'text-purple-600' }),
     ...sharedIcons(['philosophy', 'filosofia'], { icon: <FaBrain />, tint: 'text-yellow-500' }),
