@@ -1,5 +1,5 @@
 ---
-name: "NextJoy"
+name: "nextJoy"
 description: "Aplicativo do banco Next (Bradesco) para menores de idade"
 stack:
   - "Frontend"

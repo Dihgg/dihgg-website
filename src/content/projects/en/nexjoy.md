@@ -1,5 +1,5 @@
 ---
-name: "NextJoy"
+name: "nextJoy"
 description: "Banking app (from Bradesco) for children with parental control"
 stack:
   - "Frontend"
