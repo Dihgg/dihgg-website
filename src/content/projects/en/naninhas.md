@@ -1,6 +1,7 @@
 ---
 name: "Naninhas"
 description: "A mod for the game Project Zomboid that creates buffs based on attachable teddy plushies"
+image: "/content/projects/naninhas.png"
 stack:
   - "Modding"
 links:

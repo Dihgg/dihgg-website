@@ -1,6 +1,7 @@
 ---
 name: "Gamefoss"
 description: "Portal sobre jogos, entretenimento e tecnologia de forma relevante, precisa e leve."
+image: "/content/projects/game-foss.svg"
 stack:
   - "Podcast"
   - "Frontend"

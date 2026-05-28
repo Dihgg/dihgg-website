@@ -2,12 +2,18 @@
   .project-cards {
     @apply grid gap-4 md:grid-cols-2;
   }
+
   .project-cards--wide {
     @apply grid-cols-1;
   }
 
   .project-card {
-    @apply flex h-full flex-col rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl;
+    @apply relative overflow-hidden flex h-full flex-col rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl z-0;
+    &:hover {
+      .project-card__background {
+        @apply -translate-y-10;
+      }
+    }
   }
   .project-card--hidden {
     @apply hidden;
@@ -22,10 +28,13 @@
   }
 
   .project-card__description {
-    @apply mt-2 text-sm text-black/70;
+    @apply mt-2 text-sm text-black/70 text-shadow-sm text-shadow-white/50;
   }
 
   .project-card__links {
     @apply mt-auto flex flex-wrap justify-end gap-2 pt-4;
+  }
+  .project-card__background {
+    @apply absolute transition-transform object-contain w-1/3 h-full -bottom-15 -right-10 -z-1 opacity-50;
   }
 }

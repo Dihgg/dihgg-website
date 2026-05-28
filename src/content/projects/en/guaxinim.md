@@ -1,6 +1,7 @@
 ---
 name: "Guaxinim Games"
 description: "Institutional website for an independent game studio."
+image: "/content/projects/guaxinim.png"
 stack:
   - "Frontend"
   - "Backend"

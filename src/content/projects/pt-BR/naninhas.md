@@ -1,6 +1,7 @@
 ---
 name: "Naninhas"
 description: "Mod para o jogo Project Zomboid que cria buffs baseados em bichinhos de pelúcia acopláveis"
+image: "/content/projects/naninhas.png"
 stack:
   - "Modding"
 links:

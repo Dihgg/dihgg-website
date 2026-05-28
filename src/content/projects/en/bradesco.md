@@ -1,6 +1,7 @@
 ---
 name: "Bradesco Personalized Home"
 description: "Personalized home for the Bradesco app, with focus on performance."
+image: "/content/projects/bradesco-app.png"
 stack:
   - "Frontend"
   - "Backend"
