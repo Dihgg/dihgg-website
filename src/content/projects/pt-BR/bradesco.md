@@ -12,5 +12,5 @@ links:
     icon: "app-store"
     href: "https://apps.apple.com/br/app/banco-bradesco/id336954985"
 locale: "pt-BR"
-sortOrder: 2
+sortOrder: 4
 ---

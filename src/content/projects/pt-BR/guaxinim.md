@@ -9,5 +9,5 @@ links:
       href: "https://guaxinimgames.com/"
       icon: "computer"
 locale: "pt-BR"
-sortOrder: 3
+sortOrder: 5
 ---

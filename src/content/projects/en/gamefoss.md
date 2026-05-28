@@ -10,5 +10,5 @@ links:
       href: "https://gamefoss.com.br/"
       icon: "podcast"
 locale: "en"
-sortOrder: 3
+sortOrder: 2
 ---

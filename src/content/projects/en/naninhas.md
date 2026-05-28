@@ -8,5 +8,5 @@ links:
       href: "https://steamcommunity.com/sharedfiles/filedetails/?id=3624617298"
       icon: "steam"
 locale: "en"
-sortOrder: 4
+sortOrder: 1
 ---
