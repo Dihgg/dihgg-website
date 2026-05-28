@@ -1,0 +1,38 @@
+name: Build & Attach Release ZIP
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Create release ZIP
+        run: |
+          mkdir -p release
+          cd dist
+          zip -r "../release/site-dist-${{ github.event.release.tag_name }}.zip" .
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: release/site-dist-${{ github.event.release.tag_name }}.zip
+          asset_name: site-dist-${{ github.event.release.tag_name }}.zip
+          asset_content_type: application/zip

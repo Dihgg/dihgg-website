@@ -8,7 +8,8 @@
     "postbuild": "pagefind --site dist",
     "preview": "astro preview",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "release": "standard-version --infile changelog.md"
   },
   "keywords": [],
   "author": "",
@@ -47,6 +48,7 @@
     "pagefind": "^1.4.0",
     "postcss": "^8.5.8",
     "postcss-nested": "^7.0.2",
+    "standard-version": "^9.5.0",
     "ts-jest": "^29.4.6"
   }
 }

@@ -25,8 +25,9 @@ Open `http://localhost:4321`.
 - `npm run dev`: local development server
 - `npm run build`: Astro production build + Pagefind indexing (`dist/pagefind`)
 - `npm run preview`: preview built output
-- `npm test`: run test suite
+- `npm run test`: run test suite
 - `npm run coverage`: test coverage report
+- `npm run release`: bump package version and update `changelog.md` using standard-version
 
 ## Project Structure
 
