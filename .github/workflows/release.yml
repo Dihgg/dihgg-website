@@ -1,20 +1,29 @@
-name: Build & Deploy
+name: Release, Build & Deploy
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build:
+    if: ${{ !contains(github.event.head_commit.message, 'chore(release):') }}
     runs-on: ubuntu-latest
     env:
       PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
       PUBLIC_GTAG_ID: ${{ vars.PUBLIC_GTAG_ID }}
+    outputs:
+      release_tag: ${{ steps.release-tag.outputs.tag }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -32,8 +41,29 @@ jobs:
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: Configure git for release commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Generate release changelog and tag
+        run: npm run release
+
+      - name: Get release tag
+        id: release-tag
+        run: echo "tag=v$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+
+      - name: Push release commit and tag
+        run: git push origin HEAD:main --follow-tags
+
       - name: Build static site
         run: npm run build
+
+      - name: Create backup ZIP
+        run: |
+          mkdir -p release
+          cd dist
+          zip -r ../site-dist-${{ steps.release-tag.outputs.tag }}.zip .
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -42,9 +72,37 @@ jobs:
           path: dist/
           if-no-files-found: error
 
-  deploy:
-    runs-on: ubuntu-latest
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist-${{ steps.release-tag.outputs.tag }}
+          path: release/site-dist-${{ steps.release-tag.outputs.tag }}.zip
+          if-no-files-found: error
+
+  create-release:
     needs: build
+    if: ${{ !contains(github.event.head_commit.message, 'chore(release):') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download release ZIP artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dist-${{ needs.build.outputs.release_tag }}
+          path: release/
+
+      - name: Create GitHub release and upload ZIP
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.build.outputs.release_tag }}
+          name: Release ${{ needs.build.outputs.release_tag }}
+          files: release/site-dist-${{ needs.build.outputs.release_tag }}.zip
+          draft: false
+          prerelease: false
+
+  deploy:
+    needs: create-release
+    runs-on: ubuntu-latest
 
     steps:
       - name: Download build artifact
