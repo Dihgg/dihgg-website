@@ -1,6 +1,7 @@
 ---
 name: "nextJoy"
 description: "Banking app (from Bradesco) for children with parental control"
+image: "/content/projects/nextjoy.png"
 stack:
   - "Frontend"
   - "Backend"

@@ -99,60 +99,65 @@ export default function ProjectCards({
       )}
       <ul className={classNames("project-cards", classnames)}>
         {visibleProjects.map((project) => {
-          const { name, description, links = [], stack = [] } = project;
+          const { name, description, image, links = [], stack = [] } = project;
 
           return (
             <li key={name}>
               <article className="project-card">
-                <ul className="project-card__stack">
-                  {[...stack].sort((a, b) => {
-                    const aNorm = normalize(a);
-                    const bNorm = normalize(b);
-                    if (aNorm === selectedTag) return -1;
-                    if (bNorm === selectedTag) return 1;
-                    return 0;
-                  }).map((item, index) => (
-                    <li
-                      key={item}
-                      className={classNames({
-                        "hidden sm:flex": index > 1,
-                      })}
-                    >
-                      <Pill
-                        variant="tag"
-                        icon={normalize(item)}
+                <div className="project-card__content">
+                  <ul className="project-card__stack">
+                    {[...stack].sort((a, b) => {
+                      const aNorm = normalize(a);
+                      const bNorm = normalize(b);
+                      if (aNorm === selectedTag) return -1;
+                      if (bNorm === selectedTag) return 1;
+                      return 0;
+                    }).map((item, index) => (
+                      <li
+                        key={item}
                         className={classNames({
-                          "pill--tag--active": normalize(item) === selectedTag,
+                          "hidden sm:flex": index > 1,
                         })}
                       >
-                        {item.toLocaleLowerCase()}
-                      </Pill>
-                    </li>
-                  ))}
-                  {stack.length > 2 && (
-                    <li>
-                      <Pill variant="tag" className="flex sm:hidden">
-                        ...
-                      </Pill>
-                    </li>
-                  )}
-                </ul>
-                <h3 className="project-card__title">{name}</h3>
-                <p className="project-card__description">{description}</p>
-                {links.length > 0 && (
-                  <div className="project-card__links">
-                    {links.map((link) => (
-                      <Pill
-                        key={`${name}-${link.label}-${link.href}`}
-                        icon={link.icon}
-                        href={link.href}
-                        tinted
-                        external
-                      >
-                        {link.label}
-                      </Pill>
+                        <Pill
+                          variant="tag"
+                          icon={normalize(item)}
+                          className={classNames({
+                            "pill--tag--active": normalize(item) === selectedTag,
+                          })}
+                        >
+                          {item.toLocaleLowerCase()}
+                        </Pill>
+                      </li>
                     ))}
-                  </div>
+                    {stack.length > 2 && (
+                      <li>
+                        <Pill variant="tag" className="flex sm:hidden">
+                          ...
+                        </Pill>
+                      </li>
+                    )}
+                  </ul>
+                  <h3 className="project-card__title">{name}</h3>
+                  <p className="project-card__description">{description}</p>
+                  {links.length > 0 && (
+                    <div className="project-card__links">
+                      {links.map((link) => (
+                        <Pill
+                          key={`${name}-${link.label}-${link.href}`}
+                          icon={link.icon}
+                          href={link.href}
+                          tinted
+                          external
+                        >
+                          {link.label}
+                        </Pill>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {image && (
+                  <img src={image} alt="" className="project-card__background" aria-hidden />
                 )}
               </article>
             </li>
