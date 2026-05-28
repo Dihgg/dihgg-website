@@ -3,7 +3,7 @@ title: "Playing with a Homelab"
 description: "Using an old laptop as a home server"
 featuredImage: "/content/homelab.jpg"
 featuredImageAlt: "Old laptop working as a homelab"
-date: 2026-05-22
+date: 2026-05-28
 tags:
   - server
   - docker

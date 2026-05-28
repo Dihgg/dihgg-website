@@ -3,7 +3,7 @@ title: "Homelab em um notebook antigo"
 description: "Usando um notebook velho como um servidor doméstico"
 featuredImage: "/content/homelab.jpg"
 featuredImageAlt: "Notebook antigo funcionando como homelab"
-date: 2026-05-22
+date: 2026-05-28
 tags:
   - server
   - docker
