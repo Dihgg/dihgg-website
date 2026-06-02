@@ -33,6 +33,8 @@ Then [PipeWrench](https://github.com/asledgehammer/PipeWrench) came in: a set of
 
 This changed my workflow significantly. Instead of debugging behavior live in-game, most domain logic can be tested locally with **Jest**. It is oddly satisfying to run `npm test` to validate zombie survival game mechanics before even opening the game.
 
+To make this easier, I put together a public template: [**zomboid-mod-template**](https://github.com/Dihgg/zomboid-mod-template). It comes with build and postbuild structure, **Jest** tests, organization for **Build 42** (with optional **Build 41** support when needed), and Steam packaging scripts. If you want to start creating **TypeScript** mods for Zomboid without configuring everything from scratch, this template covers most of the groundwork.
+
 ## The Build 42 nightmare (and solution)
 
 Migration to Build 42 introduced a folder structure change for mods that caught many people by surprise. It is no longer enough to drop files in the root `media/` folder - there is now a specific hierarchy:
