@@ -15,11 +15,16 @@
       }
     }
   }
+
   .project-card--hidden {
     @apply hidden;
   }
 
-  .project-card__stack {
+  .project-card__content {
+    @apply flex h-full flex-col;
+  }
+
+  .project-card__categories {
     @apply lowercase flex gap-2;
   }
 
@@ -29,6 +34,16 @@
 
   .project-card__description {
     @apply mt-2 text-sm text-black/70 text-shadow-sm text-shadow-white/50;
+  }
+
+  .project-card__stack {
+    @apply flex items-center w-fit my-4 px-3 py-2 gap-2 font-semibold text-black/70 text-xs border border-blue-200 rounded-lg backdrop-blur-sm shadow-sm;
+    .project-card__stack__label {
+      @apply uppercase;
+    }
+    .project-card__stack__list {
+      @apply flex gap-1 flex-wrap;
+    }
   }
 
   .project-card__links {
