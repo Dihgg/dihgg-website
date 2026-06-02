@@ -5,6 +5,11 @@ image: "/content/projects/guaxinim.png"
 categories:
   - "Frontend"
   - "Backend"
+stack:
+  - "php"
+  - "wordpress"
+  - "html"
+  - "css"
 links:
     - label: "Ver"
       href: "https://guaxinimgames.com/"

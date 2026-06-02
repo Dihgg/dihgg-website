@@ -45,6 +45,7 @@ const projects = defineCollection({
     description: z.string(),
     image: z.string().optional(),
     categories: z.array(z.string()).default([]),
+    stack: z.array(z.string()).default([]),
     links: z.array(z.object({
       label: z.string(),
       href: z.string().url(),

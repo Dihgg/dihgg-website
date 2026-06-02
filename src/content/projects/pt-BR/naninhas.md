@@ -5,6 +5,13 @@ image: "/content/projects/naninhas.png"
 categories:
   - "Games"
   - "Modding"
+stack:
+  - "typescript"
+  - "lua"
+  - "GitHub Actions"
+  - "git"
+  - "jest"
+  - "node"
 links:
     - label: "Steam"
       href: "https://steamcommunity.com/sharedfiles/filedetails/?id=3624617298"

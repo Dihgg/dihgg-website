@@ -5,6 +5,12 @@ image: "/content/projects/bradesco-app.png"
 categories:
   - "Frontend"
   - "Backend"
+stack:
+  - "java"
+  - "angular"
+  - "node"
+  - "html"
+  - "css"
 links:
   - label: "Google Play"
     icon: "google-play"

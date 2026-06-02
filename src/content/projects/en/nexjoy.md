@@ -5,6 +5,11 @@ image: "/content/projects/nextjoy.png"
 categories:
   - "Frontend"
   - "Backend"
+stack:
+  - "java"
+  - "spring boot"
+  - "SQL"
+  - "node"
 links:
   - label: "Google Play"
     icon: "google-play"

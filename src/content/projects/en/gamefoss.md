@@ -6,6 +6,13 @@ categories:
   - "Podcast"
   - "Frontend"
   - "Backend"
+stack:
+  - "php"
+  - "wordpress"
+  - "sass"
+  - "coffeescript"
+  - "audacity"
+  - "figma"
 links:
     - label: "View"
       href: "https://gamefoss.com.br/"
