@@ -1,7 +1,7 @@
 ---
 title: "The Turing Test, the Chinese Room, and modern AI"
 description: "From philosophical thought experiments to generative models like GPT"
-featuredImage: "/content/turing-test.jpg"
+featuredImage: "/content/posts/turing-test.jpg"
 featuredImageAlt: "The Turing Test game"
 date: 2026-04-06
 tags:

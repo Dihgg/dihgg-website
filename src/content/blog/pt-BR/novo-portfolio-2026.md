@@ -2,7 +2,7 @@
 title: "Novo portfolio! (Astro + React + Tailwind + Pagefind)"
 description: "Os Bastidores do meu novo site pessoal: arquitetura estática, conteúdo em markdown, busca local, paginação e deploy automatizado."
 date: 2026-03-31
-featuredImage: /content/astro.jpg
+featuredImage: /content/posts/astro.jpg
 featuredImageAlt: "Astro logo em gradiente"
 tags: [astro, react, tailwind, pagefind, typescript, github-actions]
 locale: pt-BR
