@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/Dihgg/dihgg-website/compare/v1.3.2...v1.4.0) (2026-06-02)
+
+
+### Features
+
+* **projects:** adding project stack to frontend ([6b5dd9b](https://github.com/Dihgg/dihgg-website/commit/6b5dd9bf2f134efaff193e0967afc7c3059ad032))
+* **projects:** adding stack support ([fcec1f1](https://github.com/Dihgg/dihgg-website/commit/fcec1f1cca61b8316f222399666c885212ce415f))
+* **projects:** including GitHub links into Naninhas ([770752d](https://github.com/Dihgg/dihgg-website/commit/770752d3720a7981e99d38f98fadfa65fbec47fa))
+* **projects:** rename stack to categories ([d01c8bf](https://github.com/Dihgg/dihgg-website/commit/d01c8bf0998c7a968420e87c99db6bcd2b5fc8da))
+
 ### [1.3.2](https://github.com/Dihgg/dihgg-website/compare/v1.3.1...v1.3.2) (2026-06-02)
 
 ### [1.3.1](https://github.com/Dihgg/dihgg-website/compare/v1.3.0...v1.3.1) (2026-06-02)

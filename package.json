@@ -1,6 +1,6 @@
 {
   "name": "dihgg",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Personal portfolio and blog built with Astro, React, Tailwind, and Jest.",
   "scripts": {
     "dev": "astro dev",
