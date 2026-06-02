@@ -9,6 +9,10 @@
 @import "tailwindcss";
 
 @import "./foundation/theme.css";
+@import "./foundation/header.css";
+@import "./foundation/footer.css";
+@import "./foundation/prose.css";
+
 @import "./components/layout.css";
 @import "./components/pill.css";
 @import "./components/blog.css";
@@ -20,4 +24,3 @@
 @import "./components/site.css";
 @import "./components/logo.css";
 
-@import "./content/prose.css";

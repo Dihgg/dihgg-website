@@ -1,0 +1,14 @@
+@layer components {
+    .header {
+        @apply sticky top-0 z-50 border-b border-blue-100/80 bg-white/80 backdrop-blur-md;
+        .header__content {
+            @apply mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3;
+            .header__content__logo {
+                @apply inline-flex items-center gap-2 text-slate-900 transition hover:text-blue-700;
+            }
+            .header__content__nav {
+                @apply flex items-center gap-2;
+            }
+        }
+    }
+}
