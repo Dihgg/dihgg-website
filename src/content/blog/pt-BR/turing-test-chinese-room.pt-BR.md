@@ -1,7 +1,7 @@
 ---
 title: "The Turing Test, a Sala Chinesa e as IAs modernas"
 description: "Do experimento filosófico à era dos modelos generativos como GPT"
-featuredImage: "/content/turing-test.jpg"
+featuredImage: "/content/posts/turing-test.jpg"
 featuredImageAlt: "Jogo The Turing Test"
 date: 2026-04-06
 tags:

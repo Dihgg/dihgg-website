@@ -1,7 +1,7 @@
 ---
 title: "Playing with a Homelab"
 description: "Using an old laptop as a home server"
-featuredImage: "/content/homelab.jpg"
+featuredImage: "/content/posts/homelab.jpg"
 featuredImageAlt: "Old laptop working as a homelab"
 date: 2026-05-28
 tags:

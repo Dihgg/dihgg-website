@@ -1,7 +1,7 @@
 ---
 title: "Naninhas: Mod de Zomboid para pelúcias com impacto no gameplay"
 description: "Meu primeiro Mod de Zomboid Compatível com a build 42"
-featuredImage: "/content/naninhas.png"
+featuredImage: "/content/posts/naninhas.png"
 featuredImageAlt: "Imagem de destaque do mod Naninhas"
 date: 2026-03-29
 tags:
