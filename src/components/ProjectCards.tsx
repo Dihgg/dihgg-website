@@ -36,7 +36,7 @@ export default function ProjectCards({
 
   const tags = Array.from(
     projects
-      .flatMap((project) => project.data.stack)
+      .flatMap((project) => project.data.categories)
       .reduce((map, tag) => {
         const normalizedTag = normalize(tag);
 
@@ -53,8 +53,8 @@ export default function ProjectCards({
 
   const filteredProjects: ProjectCardData[] = projects
     .map((project) => project.data)
-    .filter(({ stack }) =>
-      selectedTag ? stack.some((tag) => normalize(tag) === selectedTag) : true,
+    .filter(({ categories }) =>
+      selectedTag ? categories.some((tag) => normalize(tag) === selectedTag) : true,
     );
 
   const visibleProjects = filteredProjects.slice(0, loaded);
@@ -99,7 +99,7 @@ export default function ProjectCards({
       )}
       <ul className={classNames("project-cards", classnames)}>
         {visibleProjects.map((project) => {
-          const { name, description, image, links = [], stack = [] } = project;
+          const { name, description, image, links = [], categories: stack = [] } = project;
 
           return (
             <li key={name}>

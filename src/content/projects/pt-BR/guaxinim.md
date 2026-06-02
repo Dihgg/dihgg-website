@@ -2,7 +2,7 @@
 name: "Guaxinim Games"
 description: "Site institucional para estúdio de jogos independente."
 image: "/content/projects/guaxinim.png"
-stack:
+categories:
   - "Frontend"
   - "Backend"
 links:
