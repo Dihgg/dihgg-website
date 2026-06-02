@@ -2,9 +2,13 @@
 name: "nextJoy"
 description: "Aplicativo do banco Next (Bradesco) para menores de idade"
 image: "/content/projects/nextjoy.png"
-stack:
-  - "Frontend"
+categories:
   - "Backend"
+stack:
+  - "java"
+  - "spring boot"
+  - "SQL"
+  - "node"
 links:
   - label: "Google Play"
     icon: "google-play"

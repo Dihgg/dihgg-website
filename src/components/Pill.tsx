@@ -5,7 +5,7 @@ type PillProps = {
   icon?: string;
   href?: string;
   onClick?: () => void;
-  variant?: 'default' | 'primary' | 'tag';
+  variant?: 'default' | 'primary' | 'tag' | 'tag--small';
   external?: boolean;
   tinted?: boolean;
 } & React.HTMLAttributes<HTMLAnchorElement | HTMLSpanElement | HTMLButtonElement>;

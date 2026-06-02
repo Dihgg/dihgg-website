@@ -1,9 +1,9 @@
-import { PROJECTS_PER_PAGE } from "@/lib/constants";
+import { PROJECTS_PER_PAGE, STACK_ITEMS_MAX_COUNT } from "@/lib/constants";
 import { normalize } from "@/lib/utils";
 import Pill from "./Pill";
 import type { ProjectItem } from "@/types";
 import classNames from "classnames";
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type Props = {
   projects: ProjectItem[];
@@ -12,14 +12,137 @@ type Props = {
   filtering?: boolean;
   loadMoreLabel?: string;
   projectsFilterLabel?: string;
+  showFullStack?: boolean;
+};
+
+type ProjectTag = {
+  label: string;
+  normalized: string;
 };
 
 type ProjectCardData = ProjectItem["data"];
 
-type ProjectTag = {
-  label: string;
-  value: string;
-};
+const ProjectContext = createContext<{
+  selectedCategory?: string;
+  showFullStack?: boolean;
+  project?: ProjectCardData;
+}>({});
+
+function ProjectCategories() {
+  const { project, selectedCategory } = useContext(ProjectContext);
+  if (!project) {
+    return null;
+  }
+  const { categories } = project;
+
+  return (
+    <ul className="project-card__categories">
+      {[...categories].sort((a, b) => {
+        const aNorm = normalize(normalize(a));
+        const bNorm = normalize(normalize(b));
+        if (aNorm === selectedCategory) return -1;
+        if (bNorm === selectedCategory) return 1;
+        return 0;
+      }).map((item, index) => (
+        <li
+          key={normalize(item)}
+          className={classNames({
+            "hidden sm:flex": index > 1,
+          })}
+        >
+          <Pill
+            variant="tag"
+            icon={normalize(item)}
+            className={classNames({
+              "pill--tag--active": normalize(item) === selectedCategory,
+            })}
+          >
+            {item.toLocaleLowerCase()}
+          </Pill>
+        </li>
+      ))}
+      {categories.length > 2 && (
+        <li>
+          <Pill variant="tag" className="flex sm:hidden">
+            ...
+          </Pill>
+        </li>
+      )}
+    </ul>
+  );
+}
+
+function ProjectStack() {
+  const { project, showFullStack } = useContext(ProjectContext);
+  if (!project) {
+    return null;
+  }
+  
+  const { stack } = project;
+  
+  if (stack.length === 0) {
+    return null;
+  }
+  const visibleStack = showFullStack ? stack : stack.slice(0, STACK_ITEMS_MAX_COUNT);
+  return (
+    <div className="project-card__stack">
+      <span className="project-card__stack__label">Stack:</span>
+      <ul className="project-card__stack__list">
+        {visibleStack.map((item) => (
+          <li key={item}>
+            <Pill variant="tag--small" icon={normalize(item)} tinted>
+              {item.toLocaleLowerCase()}
+            </Pill>
+          </li>
+        ))}
+        {stack.length > 3 && !showFullStack && (
+          <li>
+            <Pill variant="tag--small" tinted>
+              +{stack.length - 3}
+            </Pill>
+          </li>
+        )}
+      </ul>
+    </div>
+  );
+}
+
+function ProjectCard() {
+  const { project } = useContext(ProjectContext);
+  if (!project) {
+    return null;
+  }
+  const { name, description, image, links = [] } = project;
+
+  return (
+    <article className="project-card">
+      <div className="project-card__content">
+        <ProjectCategories />
+        <h3 className="project-card__title">{name}</h3>
+        <p className="project-card__description">{description}</p>
+        <ProjectStack />
+        {links.length > 0 && (
+          <div className="project-card__links">
+            {links.map((link) => (
+              <Pill
+                key={`${name}-${link.label}-${link.href}`}
+                icon={link.icon}
+                href={link.href}
+                tinted
+                external
+              >
+                {link.label}
+              </Pill>
+            ))}
+          </div>
+        )}
+      </div>
+      {image && (
+        <img src={image} alt="" className="project-card__background" aria-hidden />
+      )}
+    </article>
+  );
+}
 
 export default function ProjectCards({
   projects,
@@ -28,20 +151,20 @@ export default function ProjectCards({
   loadMore = false,
   loadMoreLabel = "Load more",
   projectsFilterLabel = "Filter by category",
+  showFullStack = false
 }: Props) {
   const [loaded, setLoaded] = useState(
     loadMore ? PROJECTS_PER_PAGE : projects.length,
   );
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined);
 
-  const tags = Array.from(
+  const categories = Array.from(
     projects
-      .flatMap((project) => project.data.stack)
+      .flatMap((project) => project.data.categories)
       .reduce((map, tag) => {
         const normalizedTag = normalize(tag);
-
         if (!map.has(normalizedTag)) {
-          map.set(normalizedTag, { label: tag, value: normalizedTag });
+          map.set(normalizedTag, { label: tag, normalized: normalizedTag });
         }
 
         return map;
@@ -53,15 +176,15 @@ export default function ProjectCards({
 
   const filteredProjects: ProjectCardData[] = projects
     .map((project) => project.data)
-    .filter(({ stack }) =>
-      selectedTag ? stack.some((tag) => normalize(tag) === selectedTag) : true,
+    .filter(({ categories }) =>
+      selectedCategory ? categories.some((tag) => normalize(tag) === selectedCategory) : true,
     );
 
-  const visibleProjects = filteredProjects.slice(0, loaded);
+  const visibleProjects: ProjectCardData[] = filteredProjects.slice(0, loaded);
   const canLoadMore = loadMore && loaded < filteredProjects.length;
 
   function handleSelectTag(tag: string) {
-    setSelectedTag((prev) => (prev === tag ? null : tag));
+    setSelectedCategory((prev) => (prev === tag ? undefined : tag));
   }
 
   function handleLoadMoreProjects() {
@@ -72,7 +195,7 @@ export default function ProjectCards({
 
   useEffect(() => {
     setLoaded(loadMore ? PROJECTS_PER_PAGE : projects.length);
-  }, [selectedTag, loadMore, projects]);
+  }, [selectedCategory, loadMore, projects]);
 
   return (
     <>
@@ -82,13 +205,13 @@ export default function ProjectCards({
             {projectsFilterLabel}:
           </span>
           <ul className="flex flex-wrap gap-2 justify-center">
-            {tags.map((tag) => (
-              <li key={tag.value}>
+            {categories.map((tag) => (
+              <li key={tag.normalized}>
                 <Pill
-                  variant={tag.value === selectedTag ? "primary" : "default"}
-                  onClick={() => handleSelectTag(tag.value)}
-                  aria-pressed={tag.value === selectedTag}
-                  icon={tag.value}
+                  variant={tag.normalized === selectedCategory ? "primary" : "default"}
+                  onClick={() => handleSelectTag(tag.normalized)}
+                  aria-pressed={tag.normalized === selectedCategory}
+                  icon={tag.normalized}
                 >
                   {tag.label.toLocaleLowerCase()}
                 </Pill>
@@ -98,68 +221,20 @@ export default function ProjectCards({
         </nav>
       )}
       <ul className={classNames("project-cards", classnames)}>
-        {visibleProjects.map((project) => {
-          const { name, description, image, links = [], stack = [] } = project;
+        {visibleProjects.map((project: ProjectCardData) => {
+          const { name } = project;
 
           return (
             <li key={name}>
-              <article className="project-card">
-                <div className="project-card__content">
-                  <ul className="project-card__stack">
-                    {[...stack].sort((a, b) => {
-                      const aNorm = normalize(a);
-                      const bNorm = normalize(b);
-                      if (aNorm === selectedTag) return -1;
-                      if (bNorm === selectedTag) return 1;
-                      return 0;
-                    }).map((item, index) => (
-                      <li
-                        key={item}
-                        className={classNames({
-                          "hidden sm:flex": index > 1,
-                        })}
-                      >
-                        <Pill
-                          variant="tag"
-                          icon={normalize(item)}
-                          className={classNames({
-                            "pill--tag--active": normalize(item) === selectedTag,
-                          })}
-                        >
-                          {item.toLocaleLowerCase()}
-                        </Pill>
-                      </li>
-                    ))}
-                    {stack.length > 2 && (
-                      <li>
-                        <Pill variant="tag" className="flex sm:hidden">
-                          ...
-                        </Pill>
-                      </li>
-                    )}
-                  </ul>
-                  <h3 className="project-card__title">{name}</h3>
-                  <p className="project-card__description">{description}</p>
-                  {links.length > 0 && (
-                    <div className="project-card__links">
-                      {links.map((link) => (
-                        <Pill
-                          key={`${name}-${link.label}-${link.href}`}
-                          icon={link.icon}
-                          href={link.href}
-                          tinted
-                          external
-                        >
-                          {link.label}
-                        </Pill>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                {image && (
-                  <img src={image} alt="" className="project-card__background" aria-hidden />
-                )}
-              </article>
+              <ProjectContext.Provider
+                value={{
+                  selectedCategory,
+                  showFullStack,
+                  project
+                }}
+              >
+                <ProjectCard />
+              </ProjectContext.Provider>
             </li>
           );
         })}

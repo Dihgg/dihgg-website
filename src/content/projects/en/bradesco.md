@@ -2,9 +2,15 @@
 name: "Bradesco Personalized Home"
 description: "Personalized home for the Bradesco app, with focus on performance."
 image: "/content/projects/bradesco-app.png"
-stack:
+categories:
   - "Frontend"
   - "Backend"
+stack:
+  - "java"
+  - "angular"
+  - "node"
+  - "html"
+  - "css"
 links:
   - label: "Google Play"
     icon: "google-play"

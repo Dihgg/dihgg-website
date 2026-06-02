@@ -2,9 +2,14 @@
 name: "Guaxinim Games"
 description: "Institutional website for an independent game studio."
 image: "/content/projects/guaxinim.png"
-stack:
+categories:
   - "Frontend"
   - "Backend"
+stack:
+  - "php"
+  - "wordpress"
+  - "html"
+  - "css"
 links:
     - label: "View"
       href: "https://guaxinimgames.com/"

@@ -28,11 +28,13 @@ import {
     SiGoogleplay,
     SiAppstore,
     SiGithubactions,
-    SiLua
+    SiLua,
+    SiAudacity,
+    SiCoffeescript
 } from 'react-icons/si';
 import { DiJava, DiPhotoshop } from 'react-icons/di';
 import { RiComputerLine, RiTwitterXFill } from 'react-icons/ri';
-import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaPodcast, FaBrain, FaNetworkWired } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaPodcast, FaBrain, FaNetworkWired, FaFigma } from "react-icons/fa";
 import { MdFindInPage, MdIosShare } from "react-icons/md";
 import { GiRaiseZombie, GiArtificialIntelligence } from "react-icons/gi";
 import { CgGames } from "react-icons/cg";
@@ -41,6 +43,7 @@ import { TbBrandWhatsapp, TbWorldWww } from "react-icons/tb";
 import { IoIosCopy } from "react-icons/io";
 import { CiServer } from "react-icons/ci";
 import { HiMiniComputerDesktop } from "react-icons/hi2"
+import { PiFileSqlFill } from "react-icons/pi";
 
 type IconConfig = {
     icon: ReactNode;
@@ -76,8 +79,9 @@ const iconMap: Record<string, IconConfig> = {
     ['sass']: { icon: <SiSass />, tint: 'text-pink-500' },
     ['photoshop']: { icon: <DiPhotoshop />, tint: 'text-sky-500' },
     ['javascript']: { icon: <SiJavascript />, tint: 'text-amber-500' },
-    ['html5']: { icon: <SiHtml5 />, tint: 'text-orange-600' },
-    ['css']: { icon: <SiCss />, tint: 'text-sky-600' },
+    ['coffeescript']: { icon: <SiCoffeescript />, tint: 'text-brown-500' },
+    ...sharedIcons(['html', 'html5'], { icon: <SiHtml5 />, tint: 'text-orange-600' }),
+    ...sharedIcons(['css', 'css3'], { icon: <SiCss />, tint: 'text-sky-600' }),
     ['git']: { icon: <SiGit />, tint: 'text-orange-600' },
     ['express.js']: { icon: <SiExpress />, tint: 'text-slate-700' },
     ['docker']: { icon: <SiDocker />, tint: 'text-blue-600' },
@@ -95,12 +99,15 @@ const iconMap: Record<string, IconConfig> = {
     ['github-actions']: { icon: <SiGithubactions />, tint: 'text-blue-600' },
     ['project-zomboid']: { icon: <GiRaiseZombie />, tint: 'text-emerald-700' },
     ['lua']: { icon: <SiLua />, tint: 'text-indigo-600' },
+    ['sql']: { icon: <PiFileSqlFill />, tint: 'text-cyan-700' },
     ['modding']: { icon: <FaGear />, tint: 'text-fuchsia-600' },
     ['twitter']: { icon: <RiTwitterXFill />, tint: 'text-slate-900' },
     ['whatsapp']: { icon: <TbBrandWhatsapp />, tint: 'text-emerald-600' },
     ['share']: { icon: <MdIosShare />, tint: 'text-slate-600' },
     ['copy']: { icon: <IoIosCopy />, tint: 'text-slate-600' },
     ['network']: { icon: <FaNetworkWired />, tint: 'text-slate-700' },
+    ['figma']: { icon: <FaFigma />, tint: 'text-fuchsia-600' },
+    ['audacity']: { icon: <SiAudacity />, tint: 'text-violet-600' },
     ...sharedIcons(['node', 'nodejs', 'node.js'], { icon: <SiNodedotjs />, tint: 'text-lime-600' }),
     ...sharedIcons(['computer', 'computador', 'computacao'], { icon: <RiComputerLine />, tint: 'text-slate-700' }),
     ...sharedIcons(['games', 'jogos'], { icon: <CgGames />, tint: 'text-purple-600' }),

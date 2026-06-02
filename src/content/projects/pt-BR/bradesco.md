@@ -2,9 +2,15 @@
 name: "Bradesco Home Personalizada"
 description: "Home personalizada do app Bradesco, com foco em performance."
 image: "/content/projects/bradesco-app.png"
-stack:
+categories:
   - "Frontend"
   - "Backend"
+stack:
+  - "java"
+  - "angular"
+  - "node"
+  - "html"
+  - "css"
 links:
   - label: "Google Play"
     icon: "google-play"
