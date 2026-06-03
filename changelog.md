@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/Dihgg/dihgg-website/compare/v1.4.1...v1.5.0) (2026-06-03)
+
+
+### Features
+
+* **styles:** changing stack styles ([39800b2](https://github.com/Dihgg/dihgg-website/commit/39800b2d222b9ef535130ba612b8009bc2710fff))
+
 ### [1.4.1](https://github.com/Dihgg/dihgg-website/compare/v1.4.0...v1.4.1) (2026-06-03)
 
 
