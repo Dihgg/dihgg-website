@@ -5,7 +5,7 @@ import SkillList from "@/components/SkillList";
 import SocialLinks from "@/components/SocialLinks";
 import ProjectCards from "@/components/ProjectCards";
 import WorkCards from "@/components/WorkCards";
-import BlogPostCarousel from "@/components/BlogPostCarousel";
+import Carousel from "@/components/Carousel";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { socialLinks } from "@/data/portfolio";
 import Logo from "@/components/Logo";
@@ -108,7 +108,7 @@ const postsWithHref = latestPosts.map((post) => ({
         <>
           {/* Mobile carousel */}
           <div class="md:hidden mt-6">
-            <BlogPostCarousel
+            <Carousel
               client:only="react"
               posts={postsWithHref}
               locale={locale}
