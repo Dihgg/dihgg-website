@@ -1,7 +1,7 @@
 @layer components {
-    .blog-carousel {
-        .blog-carousel__slide {
-            @apply px-2;
+    .carousel {
+        .carousel__slide {
+            @apply p-2;
         }
         .slick-track {
             @apply flex!;
@@ -14,10 +14,10 @@
         }
 
         /* Dots styling */
-        .blog-carousel__dots {
+        .carousel__dots {
             @apply flex! justify-center gap-2 transform;
 
-            .blog-carousel__dot {
+            .carousel__dot {
                 @apply h-3 w-3 rounded-full border-2 border-slate-300 bg-transparent transition-colors duration-300 cursor-pointer;
 
                 &:hover {
@@ -26,7 +26,7 @@
             }
 
             .slick-active {
-                .blog-carousel__dot {
+                .carousel__dot {
                     @apply border-blue-600 bg-blue-600;
                 }
             }

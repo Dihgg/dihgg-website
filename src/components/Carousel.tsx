@@ -12,7 +12,7 @@ interface Props {
   settings?: Settings;
 }
 
-export default function BlogPostCarousel({ posts, locale, ctaLabel, settings = {} }: Props) {
+export default function Carousel({ posts, locale, ctaLabel, settings = {} }: Props) {
   const sliderRef = useRef<Slider>(null);
 
   // Carousel configuration
@@ -26,18 +26,18 @@ export default function BlogPostCarousel({ posts, locale, ctaLabel, settings = {
     arrows: false,
     centerMode: true,
     centerPadding: '16px',
-    dotsClass: 'blog-carousel__dots',
+    dotsClass: 'carousel__dots',
     customPaging: (index: number) => (
-      <button className="blog-carousel__dot" aria-label={`Go to slide ${index + 1}`} />
+      <button className="carousel__dot" aria-label={`Go to slide ${index + 1}`} />
     ),
     ...settings,
   };
 
   return (
-    <div className="blog-carousel">
+    <div className="carousel">
       <Slider ref={sliderRef} {...sliderSettings}>
         {posts.map((post, index) => (
-          <div key={post.slug} className="blog-carousel__slide">
+          <div key={post.slug} className="carousel__slide">
             <BlogPostCard
                 post={post} 
                 locale={locale} 
