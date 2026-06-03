@@ -86,7 +86,7 @@ function ProjectStack() {
   const visibleStack = showFullStack ? stack : stack.slice(0, STACK_ITEMS_MAX_COUNT);
   return (
     <div className="project-card__stack">
-      <span className="project-card__stack__label">Stack:</span>
+      <span className="project-card__stack__label">Stack</span>
       <ul className="project-card__stack__list">
         {visibleStack.map((item) => (
           <li key={item}>
@@ -95,10 +95,10 @@ function ProjectStack() {
             </Pill>
           </li>
         ))}
-        {stack.length > 3 && !showFullStack && (
-          <li>
+        {stack.length > STACK_ITEMS_MAX_COUNT && !showFullStack && (
+          <li title={stack.slice(STACK_ITEMS_MAX_COUNT).join(", ")}>
             <Pill variant="tag--small" tinted>
-              +{stack.length - 3}
+              +{stack.length - STACK_ITEMS_MAX_COUNT}
             </Pill>
           </li>
         )}

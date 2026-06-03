@@ -25,7 +25,7 @@
   }
 
   .project-card__categories {
-    @apply lowercase flex gap-2;
+    @apply lowercase flex flex-wrap gap-2;
   }
 
   .project-card__title {
@@ -37,12 +37,12 @@
   }
 
   .project-card__stack {
-    @apply flex items-center w-fit my-4 px-3 py-2 gap-2 font-semibold text-black/70 text-xs border border-blue-200 rounded-lg backdrop-blur-sm shadow-sm;
+    @apply my-4 gap-2 font-semibold text-black/70 text-sm;
     .project-card__stack__label {
-      @apply uppercase;
+      @apply uppercase text-xs text-blue-500;
     }
     .project-card__stack__list {
-      @apply flex gap-1 flex-wrap;
+      @apply flex flex-wrap gap-1 w-fit px-3 py-2 border border-blue-200 rounded-lg backdrop-blur-sm shadow-sm;
     }
   }
 
