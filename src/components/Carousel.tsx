@@ -1,18 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, type ReactNode } from 'react';
 import Slider, {type Settings} from 'react-slick';
 import type { BlogPost, Locale } from '@/types';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import BlogPostCard from './BlogPostCard';
 
 interface Props {
-  posts: (BlogPost & { href: string })[];
   locale: Locale;
   ctaLabel: string;
   settings?: Settings;
+  children: ReactNode;
 }
 
-export default function Carousel({ posts, locale, ctaLabel, settings = {} }: Props) {
+export default function Carousel({ children, locale, ctaLabel, settings = {} }: Props) {
   const sliderRef = useRef<Slider>(null);
 
   // Carousel configuration
@@ -36,16 +35,7 @@ export default function Carousel({ posts, locale, ctaLabel, settings = {} }: Pro
   return (
     <div className="carousel">
       <Slider ref={sliderRef} {...sliderSettings}>
-        {posts.map((post, index) => (
-          <div key={post.slug} className="carousel__slide">
-            <BlogPostCard
-                post={post} 
-                locale={locale} 
-                ctaLabel={ctaLabel}
-                href={post.href}
-            />
-          </div>
-        ))}
+        {children}
       </Slider>
     </div>
   );
