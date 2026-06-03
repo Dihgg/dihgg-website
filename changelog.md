@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/Dihgg/dihgg-website/compare/v1.4.0...v1.4.1) (2026-06-03)
+
+
+### Bug Fixes
+
+* **footer:** fixing footer small style ([5b7d882](https://github.com/Dihgg/dihgg-website/commit/5b7d882d514000c99697db62784478976cf77d22))
+
 ## [1.4.0](https://github.com/Dihgg/dihgg-website/compare/v1.3.2...v1.4.0) (2026-06-02)
 
 
