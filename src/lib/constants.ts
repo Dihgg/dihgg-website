@@ -7,4 +7,4 @@ export const LATEST_POSTS_COUNT = 3;
 export const PROJECTS_PER_PAGE = 6;
 export const LATEST_PROJECTS_COUNT = 4;
 
-export const STACK_ITEMS_MAX_COUNT = 3;
+export const STACK_ITEMS_MAX_COUNT = 2;
