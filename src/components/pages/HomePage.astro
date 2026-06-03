@@ -110,20 +110,31 @@ const postsWithHref = latestPosts.map((post) => ({
           <div class="md:hidden mt-6">
             <Carousel
               client:only="react"
-              posts={postsWithHref}
               locale={locale}
               ctaLabel={content.latestPostsCardCta}
-            />
+            >
+             {postsWithHref.map((post) => (
+                <BlogPostCard
+                  post={post}
+                  locale={locale}
+                  ctaLabel={content.latestPostsCardCta}
+                  href={post.href}
+                  className="carousel__slide"
+                />
+              ))}
+            </Carousel>
           </div>
           {/* Desktop grid */}
           <ul class="hidden md:grid mt-6 gap-4 md:grid-cols-3">
             {postsWithHref.map((post) => (
-              <BlogPostCard
-                post={post}
-                locale={locale}
-                ctaLabel={content.latestPostsCardCta}
-                href={post.href}
-              />
+              <li>
+                <BlogPostCard
+                  post={post}
+                  locale={locale}
+                  ctaLabel={content.latestPostsCardCta}
+                  href={post.href}
+                />
+              </li>
             ))}
           </ul>
         </>
