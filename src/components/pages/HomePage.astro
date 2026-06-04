@@ -5,7 +5,7 @@ import SkillList from "@/components/SkillList";
 import SocialLinks from "@/components/SocialLinks";
 import ProjectCards from "@/components/ProjectCards";
 import WorkCards from "@/components/WorkCards";
-import Carousel from "@/components/Carousel";
+import BlogPostsCarousel from "@/components/BlogPostsCarousel";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { socialLinks } from "@/data/portfolio";
 import Logo from "@/components/Logo";
@@ -105,39 +105,14 @@ const postsWithHref = latestPosts.map((post) => ({
     }
     {
       postsWithHref.length > 0 && (
-        <>
-          {/* Mobile carousel */}
-          <div class="md:hidden mt-6">
-            <Carousel
-              client:only="react"
-              locale={locale}
-              ctaLabel={content.latestPostsCardCta}
-            >
-             {postsWithHref.map((post) => (
-                <BlogPostCard
-                  post={post}
-                  locale={locale}
-                  ctaLabel={content.latestPostsCardCta}
-                  href={post.href}
-                  className="carousel__slide"
-                />
-              ))}
-            </Carousel>
-          </div>
-          {/* Desktop grid */}
-          <ul class="hidden md:grid mt-6 gap-4 md:grid-cols-3">
-            {postsWithHref.map((post) => (
-              <li>
-                <BlogPostCard
-                  post={post}
-                  locale={locale}
-                  ctaLabel={content.latestPostsCardCta}
-                  href={post.href}
-                />
-              </li>
-            ))}
-          </ul>
-        </>
+        <div class="mt-6">
+          <BlogPostsCarousel
+            client:only="react"
+            posts={postsWithHref}
+            locale={locale}
+            ctaLabel={content.latestPostsCardCta}
+          />
+        </div>
       )
     }
   </section>
