@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/Dihgg/dihgg-website/compare/v1.5.0...v1.5.1) (2026-06-05)
+
+
+### Bug Fixes
+
+* **styles:** making sure project cards list takes full witdh on homepage ([1283170](https://github.com/Dihgg/dihgg-website/commit/1283170e65107a0904d7024025896b59bc69be58))
+
 ## [1.5.0](https://github.com/Dihgg/dihgg-website/compare/v1.4.1...v1.5.0) (2026-06-03)
 
 
