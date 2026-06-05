@@ -6,6 +6,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { translations } from '@/data/translations';
 import type { BlogPost, Locale } from '@/types';
 import classNames from 'classnames';
+import { getBlogPostPath } from '@/lib/blog';
 
 interface Props {
   locale: Locale;
@@ -59,6 +60,7 @@ const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
               locale={locale}
               ctaLabel={content.latestPostsCardCta}
               variant="horizontal"
+              href={getBlogPostPath(post)}
             />
           ))}
         </ul>

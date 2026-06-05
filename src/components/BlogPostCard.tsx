@@ -1,24 +1,24 @@
 import classnames from 'classnames';
 import Pill from '@/components/Pill';
-import { getBlogPostPath } from '@/lib/blog';
 import { formatPostDate } from '@/lib/date';
 import type { BlogPost, Locale } from '@/types';
 
 type Props = {
   post: BlogPost;
+  className?: string;
   locale: Locale;
   ctaLabel: string;
   variant?: 'vertical' | 'horizontal';
+  href: string;
 };
 
-export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertical' }: Props) {
+export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertical', href, className }: Props) {
   
   const { title, description, featuredImage, featuredImageAlt, date } = post.data;
-  
-  const href = getBlogPostPath(post);
+
 
   return (
-    <li className={classnames('blog-card', `blog-card--${variant}`)}>
+    <div className={classnames('blog-card', `blog-card--${variant}`, className)}>
       <div className="blog-card__layout">
         {featuredImage && (
           <img
@@ -42,6 +42,6 @@ export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertic
           </div>
         </div>
       </div>
-    </li>
+    </div>
   );
 }

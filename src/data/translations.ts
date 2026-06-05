@@ -49,6 +49,7 @@ export const translations = {
     shareXLabel: 'X',
     shareLinkedInLabel: 'LinkedIn',
     shareWhatsappLabel: 'WhatsApp',
+    carouselGoToSlide: 'Ir para o item',
     paginationAriaLabel: 'Paginação do blog',
     paginationPreviousLabel: 'Anterior',
     paginationNextLabel: 'Próxima',
@@ -100,6 +101,7 @@ export const translations = {
     shareXLabel: 'X',
     shareLinkedInLabel: 'LinkedIn',
     shareWhatsappLabel: 'WhatsApp',
+    carouselGoToSlide: 'Go to slide',
     paginationAriaLabel: 'Blog pagination',
     paginationPreviousLabel: 'Previous',
     paginationNextLabel: 'Next',
@@ -149,6 +151,7 @@ export const translations = {
   shareXLabel: string;
   shareLinkedInLabel: string;
   shareWhatsappLabel: string;
+  carouselGoToSlide: string;
   paginationAriaLabel: string;
   paginationPreviousLabel: string;
   paginationNextLabel: string;
