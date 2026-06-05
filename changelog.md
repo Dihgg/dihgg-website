@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/Dihgg/dihgg-website/compare/v1.5.1...v1.6.0) (2026-06-05)
+
+
+### Features
+
+* **carousel:** adding blog carousel support ([11b056b](https://github.com/Dihgg/dihgg-website/commit/11b056befe0be794ad715096c0c955d58546f352))
+* **carousel:** changing do embla carousel ([0fffce0](https://github.com/Dihgg/dihgg-website/commit/0fffce08a532e01fc41125bcb6b43d1216c90da7))
+* **carousel:** creating a reausable carousel components ([7131be5](https://github.com/Dihgg/dihgg-website/commit/7131be5b2597056ccf0612d50d85e70346bc70c8))
+* **carousel:** fixing blog carousel ([029ade8](https://github.com/Dihgg/dihgg-website/commit/029ade8a65364a2e11927cb52997d555085bdf22))
+* **carousel:** styling a embla carousel ([2948536](https://github.com/Dihgg/dihgg-website/commit/2948536657f0566a71a4e4019e08957c211d2bcd))
+
 ### [1.5.1](https://github.com/Dihgg/dihgg-website/compare/v1.5.0...v1.5.1) (2026-06-05)
 
 
