@@ -9,12 +9,13 @@ type Props = {
   posts: BlogPostWithHref[];
   locale: Locale;
   ctaLabel: string;
+  goToSlideLabel?: string;
   options?: EmblaOptionsType;
 };
 
-export default function BlogPostsCarousel({ posts, locale, ctaLabel, options }: Props) {
+export default function BlogPostsCarousel({ posts, locale, ctaLabel, goToSlideLabel, options }: Props) {
   return (
-    <Carousel options={options}>
+    <Carousel options={options} goToSlideLabel={goToSlideLabel}>
       {posts.map((post) => (
         <BlogPostCard
           key={post.id}
