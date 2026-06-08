@@ -63,7 +63,7 @@ function sharedIcons(keys: string[], config: IconConfig): Record<string, IconCon
     }, {});
 }
 
-const iconMap: Record<string, IconConfig> = {
+export const ICON_MAP: Record<string, IconConfig> = {
     ['typescript']: { icon: <SiTypescript />, tint: 'text-blue-600' },
     ['react']: { icon: <SiReact />, tint: 'text-cyan-500' },
     ['astro']: { icon: <SiAstro />, tint: 'text-orange-500' },
@@ -115,7 +115,7 @@ const iconMap: Record<string, IconConfig> = {
     ...sharedIcons(['ai', 'artificial-intelligence', 'inteligencia-artificial'], { icon: <GiArtificialIntelligence />, tint: 'text-gray-700' }),
     ...sharedIcons(['frontend'], { icon: <HiMiniComputerDesktop />, tint: 'text-red-500' }),
     ...sharedIcons(['backend', 'server'], { icon: <CiServer />, tint: 'text-blue-500' }),
-    ...sharedIcons(['web-development', 'web'], { icon: <TbWorldWww />, tint: '' }),
+    ...sharedIcons(['web-development', 'web'], { icon: <TbWorldWww />, tint: 'text-green-500' }),
 };
 
 type Props = {
@@ -124,10 +124,10 @@ type Props = {
 };
 export default function Icon({ name, tinted = false }: Props): ReactNode | null {
     const iconName = normalize(name);
-    if (!!iconMap[iconName]) {
-        const { icon, tint = '' } = iconMap[iconName];
+    if (!!ICON_MAP[iconName]) {
+        const { icon, tint = '' } = ICON_MAP[iconName];
         return (
-            <span className={classNames('pill__icon', { [tint]: tinted })} aria-hidden>{icon}</span>
+            <span data-testid="icon" className={classNames('pill__icon', { [tint]: tinted })} aria-hidden>{icon}</span>
         );
     }
     return null;
