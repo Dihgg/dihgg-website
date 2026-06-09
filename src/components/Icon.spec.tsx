@@ -3,11 +3,11 @@ import Icon, { ICON_MAP } from "./Icon";
 
 describe("Icon", () => {
     beforeEach(() => {
-        ICON_MAP["tintet-icon"] = {
+        ICON_MAP["tinted-icon"] = {
             icon: <div/>,
-            tint: "red"
+            tint: "tinted-class"
         };
-        ICON_MAP["no-tint-icon"] = {
+        ICON_MAP["no-tinted-icon"] = {
             icon: <div/>
         };
     });
@@ -16,11 +16,11 @@ describe("Icon", () => {
         expect(queryByTestId("icon")).toBeNull();
     });
     it("should render with the correct tint class when tint is provided", () => {
-        const { getByTestId } = render(<Icon name="tintet-icon" tinted />);
-        expect(getByTestId("icon")).toHaveClass("red");
+        const { getByTestId } = render(<Icon name="tinted-icon" tinted />);
+        expect(getByTestId("icon")).toHaveClass("tinted-class");
     });
     it("should render without tinted if no tint is provided", () => {
-        const { getByTestId } = render(<Icon name="no-tint-icon" />);
-        expect(getByTestId("icon")).toBeInTheDocument();
+        const { getByTestId } = render(<Icon name="no-tinted-icon" />);
+        expect(getByTestId("icon")).not.toHaveClass("tinted-class");
     });
 });
