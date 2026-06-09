@@ -4,6 +4,7 @@ import Pill from "./Pill";
 import type { ProjectItem } from "@/types";
 import classNames from "classnames";
 import { createContext, useContext, useEffect, useState } from "react";
+import PillStack from "./PillStack";
 
 type Props = {
   projects: ProjectItem[];
@@ -83,26 +84,15 @@ function ProjectStack() {
   if (stack.length === 0) {
     return null;
   }
-  const visibleStack = showFullStack ? stack : stack.slice(0, STACK_ITEMS_MAX_COUNT);
   return (
     <div className="project-card__stack">
       <span className="project-card__stack__label">Stack</span>
-      <ul className="project-card__stack__list">
-        {visibleStack.map((item) => (
-          <li key={item}>
-            <Pill variant="tag--small" icon={normalize(item)} tinted>
-              {item.toLocaleLowerCase()}
-            </Pill>
-          </li>
-        ))}
-        {stack.length > STACK_ITEMS_MAX_COUNT && !showFullStack && (
-          <li title={stack.slice(STACK_ITEMS_MAX_COUNT).join(", ")}>
-            <Pill variant="tag--small" tinted>
-              +{stack.length - STACK_ITEMS_MAX_COUNT}
-            </Pill>
-          </li>
-        )}
-      </ul>
+      <PillStack
+        items={stack.sort()}
+        maxCount={showFullStack ? stack.length : STACK_ITEMS_MAX_COUNT}
+        tinted
+        className="project-card__stack__list"
+        />
     </div>
   );
 }

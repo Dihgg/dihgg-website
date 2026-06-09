@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import BlogPostCard from './BlogPostCard';
+import BlogPostCard, { type BlogPostCardProps } from './BlogPostCard';
 import type { BlogPost } from '@/types';
 
 function makePost(overrides: Partial<BlogPost['data']> = {}): BlogPost {
@@ -10,6 +10,7 @@ function makePost(overrides: Partial<BlogPost['data']> = {}): BlogPost {
     data: {
       title: 'Test Post Title',
       description: 'A short description of the post.',
+      tags: ['Tag1', 'Tag2'],
       date: new Date(Date.UTC(2024, 5, 15)), // June 15, 2024
       locale: 'en',
       draft: false,
@@ -21,11 +22,12 @@ function makePost(overrides: Partial<BlogPost['data']> = {}): BlogPost {
   } as unknown as BlogPost;
 }
 
-const defaultProps = {
+const defaultProps: BlogPostCardProps = {
   post: makePost(),
   locale: 'en' as const,
   ctaLabel: 'Read more',
   href: '/en/blog/test-post/',
+  showTags: true,
 };
 
 describe('BlogPostCard', () => {
