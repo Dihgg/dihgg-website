@@ -30,7 +30,8 @@ import {
     SiGithubactions,
     SiLua,
     SiAudacity,
-    SiCoffeescript
+    SiCoffeescript,
+    SiNexusmods,
 } from 'react-icons/si';
 import { DiJava, DiPhotoshop } from 'react-icons/di';
 import { RiComputerLine, RiTwitterXFill } from 'react-icons/ri';
@@ -108,6 +109,7 @@ export const ICON_MAP: Record<string, IconConfig> = {
     ['network']: { icon: <FaNetworkWired />, tint: 'text-slate-700' },
     ['figma']: { icon: <FaFigma />, tint: 'text-fuchsia-600' },
     ['audacity']: { icon: <SiAudacity />, tint: 'text-violet-600' },
+    ['nexusmods']: { icon: <SiNexusmods />, tint: 'text-yellow-800' },
     ...sharedIcons(['node', 'nodejs', 'node.js'], { icon: <SiNodedotjs />, tint: 'text-lime-600' }),
     ...sharedIcons(['computer', 'computador', 'computacao'], { icon: <RiComputerLine />, tint: 'text-slate-700' }),
     ...sharedIcons(['games', 'jogos'], { icon: <CgGames />, tint: 'text-purple-600' }),
