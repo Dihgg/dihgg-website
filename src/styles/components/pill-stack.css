@@ -1,0 +1,7 @@
+	.pill-stack {
+		@apply my-2 flex flex-wrap gap-1;
+	}
+
+	.pill-stack__item {
+		@apply inline-flex;
+	}
