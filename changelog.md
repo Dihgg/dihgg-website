@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/Dihgg/dihgg-website/compare/v1.6.1...v1.7.0) (2026-06-09)
+
+
+### Features
+
+* **tests:** adding coverage to ignore ([28397d6](https://github.com/Dihgg/dihgg-website/commit/28397d60f61b9fe1abd1094d907a03bfeb352d96))
+* **tests:** adding first tests ([683ab7d](https://github.com/Dihgg/dihgg-website/commit/683ab7dadb5a1a9e3cf52d035a49df500c4232aa))
+
 ### [1.6.1](https://github.com/Dihgg/dihgg-website/compare/v1.6.0...v1.6.1) (2026-06-09)
 
 ## [1.6.0](https://github.com/Dihgg/dihgg-website/compare/v1.5.1...v1.6.0) (2026-06-05)
