@@ -71,6 +71,13 @@ describe('BlogPostCard', () => {
     expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
+  it('renders title as alt text for the image when featuredImageAlt is not provided', () => {
+    const post = makePost({ featuredImage: '/images/cover.jpg', featuredImageAlt: undefined });
+    render(<BlogPostCard {...defaultProps} post={post} />);
+    const img = screen.getByRole('img', { name: 'Test Post Title' });
+    expect(img).toHaveAttribute('src', '/images/cover.jpg');
+  });
+
   it('applies the horizontal variant class', () => {
     const { container } = render(<BlogPostCard {...defaultProps} variant="horizontal" />);
     expect(container.firstChild).toHaveClass('blog-card--horizontal');
