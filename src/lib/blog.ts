@@ -2,8 +2,6 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { BLOG_POSTS_PER_PAGE } from '@/lib/constants';
 import type { BlogPost, Locale } from '@/types';
 
-export { BLOG_POSTS_PER_PAGE };
-
 // Extract filename from nested slug (e.g., "pt-BR/primeiro-post" -> "primeiro-post")
 function getSlugName(slug: string): string {
   const parts = slug.split('/');

@@ -18,7 +18,10 @@ export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertic
 
 
   return (
-    <div className={classnames('blog-card', `blog-card--${variant}`, className)}>
+    <div className={classnames(className, 'blog-card', {
+      'blog-card--horizontal': variant === 'horizontal',
+      'blog-card--vertical': variant === 'vertical',
+    })}>
       <div className="blog-card__layout">
         {featuredImage && (
           <img
@@ -33,7 +36,10 @@ export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertic
           <time dateTime={date.toISOString().slice(0, 10)} className="blog-card__date">
             {formatPostDate(date, locale)}
           </time>
-          <a className={classnames('blog-card__title', `blog-card__title--${variant}`)} href={href}>
+          <a className={classnames('blog-card__title', {
+            'blog-card__title--horizontal': variant === 'horizontal',
+            'blog-card__title--vertical': variant === 'vertical',
+          })} href={href}>
             {title}
           </a>
           <p className="blog-card__description">{description}</p>
