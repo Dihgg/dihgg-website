@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/Dihgg/dihgg-website/compare/v1.7.0...v1.8.0) (2026-06-09)
+
+
+### Features
+
+* **components:** apply pill stack component to post tags ([e932263](https://github.com/Dihgg/dihgg-website/commit/e9322632dc1a4e3c5c64da0822e4a5f802f50d0e))
+* **components:** creating a pill stack component ([70d3e56](https://github.com/Dihgg/dihgg-website/commit/70d3e5665ea2847c50ad0c3379be117073659bea))
+* **components:** expand pill stack component to use it as post tags on post page ([60d0672](https://github.com/Dihgg/dihgg-website/commit/60d0672f467376b7ebb42a6917a9e3cc686473c2))
+
+
+### Bug Fixes
+
+* **styles:** fix layer of pill stack component css ([0ec228d](https://github.com/Dihgg/dihgg-website/commit/0ec228d6885580145ca8f1bc0a7f165a34789a09))
+
 ## [1.7.0](https://github.com/Dihgg/dihgg-website/compare/v1.6.1...v1.7.0) (2026-06-09)
 
 
