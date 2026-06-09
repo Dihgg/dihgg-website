@@ -2,19 +2,25 @@ import classnames from 'classnames';
 import Pill from '@/components/Pill';
 import { formatPostDate } from '@/lib/date';
 import type { BlogPost, Locale } from '@/types';
+import { normalize } from '@/lib/utils';
+import { STACK_ITEMS_MAX_COUNT } from '@/test/mocks/constants';
+import PillStack from './PillStack';
 
-type Props = {
+export type BlogPostCardProps = {
   post: BlogPost;
   className?: string;
   locale: Locale;
   ctaLabel: string;
   variant?: 'vertical' | 'horizontal';
+  showTags?: boolean;
   href: string;
 };
 
-export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertical', href, className }: Props) {
+export default function BlogPostCard(props: BlogPostCardProps) {
+
+  const { post, locale, ctaLabel, variant = 'vertical', href, className, showTags } = props;
   
-  const { title, description, featuredImage, featuredImageAlt, date } = post.data;
+  const { title, description, featuredImage, featuredImageAlt, date, tags } = post.data;
 
 
   return (
@@ -42,6 +48,9 @@ export default function BlogPostCard({ post, locale, ctaLabel, variant = 'vertic
           })} href={href}>
             {title}
           </a>
+          {showTags && (
+            <PillStack items={tags} tinted />
+          )}          
           <p className="blog-card__description">{description}</p>
           <div className="blog-card__cta">
             <Pill href={href}>{ctaLabel}</Pill>

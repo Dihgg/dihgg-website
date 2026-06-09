@@ -40,7 +40,10 @@
 	}
 
 	.blog-post__tags {
-		@apply mt-6 flex flex-wrap gap-2;
+		@apply mt-6;
+		.pill-stack {
+			@apply gap-2 my-0;
+		}
 	}
 
 	.blog-post__header {

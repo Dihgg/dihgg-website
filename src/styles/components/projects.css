@@ -42,7 +42,7 @@
       @apply uppercase text-xs text-blue-500;
     }
     .project-card__stack__list {
-      @apply flex flex-wrap gap-1 w-fit px-3 py-2 border border-blue-200 rounded-lg backdrop-blur-sm shadow-sm;
+      @apply w-fit px-3 py-2 border border-blue-200 rounded-lg backdrop-blur-sm shadow-sm;
     }
   }
 

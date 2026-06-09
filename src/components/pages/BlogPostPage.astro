@@ -6,9 +6,9 @@ import { translations } from '@/data/translations';
 import type { BlogPost, Locale } from '@/types';
 import { SITE_URL } from '@/lib/constants';
 import { formatPostDate } from '@/lib/date';
-import Pill from '@/components/Pill';
 import Share from '@/components/Share';
 import { Image } from 'astro:assets';
+import PillStack from '../PillStack';
 
 interface Props {
   locale: Locale;
@@ -58,12 +58,14 @@ const shareUrl = `${SITE_URL}${postPath}`;
       >
         {formatPostDate(post.data.date, locale)}
       </time>
-
       {post.data.tags.length > 0 && (
         <div class="blog-post__tags">
-          {post.data.tags.map((tag: string) => (
-            <Pill icon={tag} variant="tag" tinted>{tag}</Pill>
-          ))}
+          <PillStack
+            items={post.data.tags}
+            maxCount={post.data.tags.length}
+            variant="tag"
+            tinted
+          />
         </div>
       )}
     </div>

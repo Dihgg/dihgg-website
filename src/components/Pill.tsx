@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import Icon from '@/components/Icon';
 
-type PillProps = {
+export type PillProps = {
   icon?: string;
   href?: string;
   onClick?: () => void;
