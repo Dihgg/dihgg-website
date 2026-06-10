@@ -17,9 +17,9 @@ translationKey: naninhas-multiplayer
 
 ## O ponto de partida
 
-Quando comecei o mod das Naninhas, tudo parecia estável no *singleplayer*. O *loop* principal funcionava, os *buffs* eram aplicados, os eventos disparavam e a experiência estava redonda. O problema apareceu quando essa mesma lógica foi para o *multiplayer*: de repente, aquilo que funcionava perfeitamente, simplesmente não fazia nada.
+Quando comecei o mod das [Naninhas](https://steamcommunity.com/sharedfiles/filedetails/?id=3624617298), tudo estava estável no *singleplayer*. O *loop* principal funcionava, os *buffs* eram aplicados, os eventos disparavam e a experiência estava redonda. O problema apareceu quando essa mesma lógica foi para o *multiplayer*: de repente, aquilo que funcionava perfeitamente, simplesmente não fazia nada.
 
-Aí caiu a ficha: "Quer dizer então que jogos *Multiplayer* precisam funcionar para todos os *players*".
+Aí caiu a ficha: "Quer dizer então que jogos *Multiplayer* precisam funcionar para todos os *players*, quem poderia imaginar!".
 
 ![Confusão inicial](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWd3aGY2M2Q2amFhajVscHJ3b2l6azYwMGczYWtseXU4YzZjeWhudiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/SqmkZ5IdwzTP2/giphy.gif)
 
@@ -29,9 +29,8 @@ Ficou claro que eu precisaria repensar como o mod das *Naninhas* funcionava e ad
 
 No **Naninhas**, a aplicação de *traits* e bônus de XP precisa ser **autoritativa** no servidor. O cliente detecta mudanças de *attachment* e publica o estado desejado, mas quem decide o estado final é o servidor.
 
-Para ficar menos abstrato, aqui vai o fluxo em linguagem direta:
-
-O fluxo final do *mod* ficou assim: 
+Para ficar menos abstrato, vamos ao fluxo do *mod*:
+ 
 1. o **Cliente** envia o conjunto desejado de *plushies*
 2. o **Servidor** valida o *payload*, confirma o que está de fato anexado no inventário
 3. o **Servidor** reconcilia efeitos
@@ -59,7 +58,9 @@ Em resumo: o cliente pede, mas quem decide e aplica é sempre o servidor.
 
 ## O contrato de rede que fez diferença
 
-No plano de *multiplayer*, duas escolhas foram fundamentais: usar *schemaVersion* no protocolo e uma *revision* monotônica por cliente. Parece detalhe, mas não é. Em ambiente real de jogo, mensagem atrasada chega, mensagem fora de ordem chega, reconexão acontece. Sem versionamento e sem controle de revisão, o servidor pode aplicar estado velho por engano.
+Ao planejar como o *multiplayer* funcionaria, o maior problema é como evitar que o servidor aplique estados por engano, caso contrário, os *buffs* poderiam ser aplicados em duplicidade, ou continuar aplicados mesmo sem a naninha estar na mochila. 
+
+Para solucionar este problema, duas escolhas foram fundamentais: usar um *schemaVersion* no protocolo e um número de *revision* monotônico por cliente. Em ambiente real de jogo, mensagem atrasada chega, mensagem fora de ordem chega, reconexão acontece. Sem esse versionamento (*schemaVersion*) e sem controle de revisão (*revision*), o servidor pode aplicar um estado velho por engano.
 
 ![Servidor no controle](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTBqcHluNDZyMHphYjkwbzltMnhwNm5lMnZ6eXB6MzB1c2Y1aHlmNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/eRKDMSarMgSWXGag9Z/giphy.gif)
 
@@ -100,7 +101,7 @@ private send(names: Set<string>): void {
 }
 ```
 
-Repare que o cliente não aplica *trait* nem bônus de XP por conta própria nesse fluxo. Ele só publica intenção.
+Repare que o cliente não aplica *trait* nem bônus de XP por conta própria nesse fluxo. Ele só publica intenção para o servidor.
 
 ### Exemplo real: servidor validando e rejeitando estado antigo
 
@@ -125,7 +126,7 @@ Outro aprendizado importante foi adotar *recompute* completo do *snapshot* autor
 
 Se isso parece grego, calma que eu explico: em vez de ficar "remendando" o que mudou, o servidor olha para o estado atual e recalcula tudo do zero, como tirar uma foto nova da situação naquele momento. Isso evita herdar erro antigo, evita bônus duplicado e deixa o resultado final mais previsível.
 
-Em termos simples: menos remendo incremental, mais estado final consistente.
+Em termos simples: menos remendo incremental, e estado final consistente.
 
 ![Guaxinim recalculando](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzdtdGxrcHd1czJ5YjJ3dDlpdXI4eG43YWJ4Z2F1enMyamsyeWF6aCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3tEFVAbfzzcwo/giphy.gif)
 
@@ -153,7 +154,7 @@ return {
 };
 ```
 
-Esse formato deixa os testes mais diretos: dado um estado A e um estado desejado B, você valida se o plano retornado é exatamente o esperado.
+Esse formato deixa os testes mais diretos: dado um estado **A** e um estado desejado **B**, você valida se o plano retornado é exatamente o esperado.
 
 Isso também melhora manutenção: quando algo quebra, fica mais fácil localizar se o problema está na entrada, no cálculo ou na aplicação.
 

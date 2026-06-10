@@ -59,7 +59,9 @@ In short: the client asks, but the server always decides and applies.
 
 ## The network contract that made a difference
 
-In the *multiplayer* plan, two choices were fundamental: using *schemaVersion* in the protocol and a monotonic *revision* per client. It sounds like a detail, but it is not. In a real game environment, delayed messages arrive, out-of-order messages arrive, reconnections happen. Without versioning and revision control, the server can mistakenly apply old state.
+In the *multiplayer* plan, the biggest problem was preventing the server from accidentally applying stale state — otherwise *buffs* could be applied multiple times, or continue being applied even without the plushie in the inventory.
+
+To solve this, two choices were fundamental: using *schemaVersion* in the protocol and a monotonic *revision* per client. In a real game environment, delayed messages arrive, out-of-order messages arrive, reconnections happen. Without versioning and revision control, the server can mistakenly apply old state.
 
 ![Server in control](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTBqcHluNDZyMHphYjkwbzltMnhwNm5lMnZ6eXB6MzB1c2Y1aHlmNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/eRKDMSarMgSWXGag9Z/giphy.gif)
 
@@ -133,7 +135,7 @@ In practice, this approach was easier to test, safer for *overlap* cases between
 
 ### Real example: pure and predictable *reconcile*
 
-To make it visual, this snippet shows the part of the *reconciler* that computes the difference between what is active and what should be active.
+To visualize better, this snippet shows the part of the *reconciler* that computes the difference between what is active and what should be active.
 
 ```typescript
 const currentAddedTraits = new Set(currentState.addedTraits);
@@ -165,7 +167,7 @@ Even with the right architecture, *timing* remains a critical part of the experi
 
 ![Waiting for state to load](https://media.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif)
 
-To keep this concrete, here are three real adjustments made in the code.
+To keep this concrete, here are two real adjustments made in the code.
 
 ### Real example: fixed order in the client cycle
 
