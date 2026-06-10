@@ -29,9 +29,8 @@ Ficou claro que eu precisaria repensar como o mod das *Naninhas* funcionava e ad
 
 No **Naninhas**, a aplicação de *traits* e bônus de XP precisa ser **autoritativa** no servidor. O cliente detecta mudanças de *attachment* e publica o estado desejado, mas quem decide o estado final é o servidor.
 
-Para ficar menos abstrato, aqui vai o fluxo em linguagem direta:
-
-O fluxo final do *mod* ficou assim: 
+Para ficar menos abstrato, vamos ao fluxo do *mod*:
+ 
 1. o **Cliente** envia o conjunto desejado de *plushies*
 2. o **Servidor** valida o *payload*, confirma o que está de fato anexado no inventário
 3. o **Servidor** reconcilia efeitos
@@ -59,7 +58,7 @@ Em resumo: o cliente pede, mas quem decide e aplica é sempre o servidor.
 
 ## O contrato de rede que fez diferença
 
-No plano de *multiplayer*, duas escolhas foram fundamentais: usar *schemaVersion* no protocolo e uma *revision* monotônica por cliente. Parece detalhe, mas não é. Em ambiente real de jogo, mensagem atrasada chega, mensagem fora de ordem chega, reconexão acontece. Sem versionamento e sem controle de revisão, o servidor pode aplicar estado velho por engano.
+Ao planejar como o *multiplayer* funcionaria, duas escolhas foram fundamentais: usar *schemaVersion* no protocolo e uma *revision* monotônica por cliente. Parece detalhe, mas não é. Em ambiente real de jogo, mensagem atrasada chega, mensagem fora de ordem chega, reconexão acontece. Sem esse versionamento e sem controle de revisão, o servidor pode aplicar um estado velho por engano.
 
 ![Servidor no controle](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTBqcHluNDZyMHphYjkwbzltMnhwNm5lMnZ6eXB6MzB1c2Y1aHlmNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/eRKDMSarMgSWXGag9Z/giphy.gif)
 
