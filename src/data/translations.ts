@@ -7,7 +7,7 @@ export const translations = {
   'pt-BR': {
     homeTitle: 'Dihgg | Diego Lopes',
     homeDescription: 'Portfolio de Diego Lopes, desenvolvedor web e de aplicacoes.',
-    heroLead:
+    heroDescription:
       'Cientista da computação, adoro aprender novas tecnologias e tenho interesses em: desenvolvimento web, inteligência artificial, ciência de dados, internet das coisas e desenvolvimento de jogos.',
     aboutTitle: 'Sobre',
     aboutText:
@@ -38,8 +38,8 @@ export const translations = {
     blogDescription: 'Artigos e notas técnicas de Diego Lopes.',
     blogIntro: 'Bem-vindo(a) ao meu blog pessoal! Aqui compartilho artigos, notas técnicas e insights sobre desenvolvimento web, programação e tecnologia. Fique ligado(a) para atualizações regulares e sinta-se à vontade para entrar em contato caso tenha alguma dúvida ou sugestão de temas que gostaria que eu abordasse.',
     noPostsLabel: 'Ainda sem posts.',
-    backHomeLabel: '← Voltar para home',
-    backBlogLabel: '← Blog',
+    backHomeLabel: 'Voltar para home',
+    backBlogLabel: 'Blog',
     madeWithLabel: 'feito com',
     searchPlaceholder: 'Buscar posts...',
     shareTitle: 'Compartilhar post',
@@ -59,7 +59,7 @@ export const translations = {
   en: {
     homeTitle: 'Dihgg | Diego Lopes',
     homeDescription: 'Diego Lopes portfolio, web developer and product engineer.',
-    heroLead:
+    heroDescription:
       'Computer scientist who loves learning new technologies, with interests in web development, artificial intelligence, data science, internet of things, and game development.',
     aboutTitle: 'About',
     aboutText:
@@ -90,8 +90,8 @@ export const translations = {
     blogDescription: 'Articles and engineering notes by Diego Lopes.',
     blogIntro: 'Welcome to my personal blog! Here I share articles, technical notes, and insights on web development, programming, and technology. Stay tuned for regular updates and feel free to reach out if you have any questions or topics you would like me to cover.',
     noPostsLabel: 'No posts yet.',
-    backHomeLabel: '← Back to home',
-    backBlogLabel: '← Blog',
+    backHomeLabel: 'Back to home',
+    backBlogLabel: 'Blog',
     madeWithLabel: 'made with',
     searchPlaceholder: 'Search posts...',
     shareTitle: 'Share post',
@@ -111,7 +111,7 @@ export const translations = {
 } as const satisfies Record<Locale, {
   homeTitle: string;
   homeDescription: string;
-  heroLead: string;
+  heroDescription: string;
   aboutTitle: string;
   aboutText: string;
   latestPostsTitle: string;

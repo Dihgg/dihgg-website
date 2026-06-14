@@ -1,6 +1,8 @@
 import classNames from "classnames";
 import type { HTMLAttributes } from "react";
 
+import "@styles/components/logo.css";
+
 const Logo = (props: HTMLAttributes<HTMLDivElement>) => {
     const { className, ...rest } = props;
     return (

@@ -2,9 +2,9 @@ import classnames from 'classnames';
 import Pill from '@/components/Pill';
 import { formatPostDate } from '@/lib/date';
 import type { BlogPost, Locale } from '@/types';
-import { normalize } from '@/lib/utils';
-import { STACK_ITEMS_MAX_COUNT } from '@/test/mocks/constants';
 import PillStack from './PillStack';
+
+import "@styles/components/blog-post-card.css";
 
 export type BlogPostCardProps = {
   post: BlogPost;

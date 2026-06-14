@@ -7,6 +7,7 @@ import { translations } from '@/data/translations';
 import type { BlogPost, Locale } from '@/types';
 import classNames from 'classnames';
 import { getBlogPostPath } from '@/lib/blog';
+import Icon from '@/components/Icon';
 
 interface Props {
   locale: Locale;
@@ -31,6 +32,8 @@ const pagePaths = (new Array(lastPage)).fill(null).map((_, index) =>
 
 const previousHref = currentPage > 1 ? pagePaths[currentPage - 2] : null;
 const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
+
+import "@styles/pages/blog.css";
 ---
 
 <Layout
@@ -42,8 +45,11 @@ const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
     { href: `${enHref}`, hreflang: 'en' }
   ]}
 >
-  <main class="page-shell page-shell--wide blog-index">
-    <a href={homePath} class="page-shell__back-link">{content.backHomeLabel}</a>
+  <main id="blog" class="page-shell page-shell--wide blog-index">
+    <a href={homePath} class="page-shell__back-link">
+      <Icon name="arrow-left" />
+      <span>{content.backHomeLabel}</span>
+    </a>
     <h1 class="page__title">Blog</h1>
     <p class="page__intro">{content.blogIntro}</p>
 

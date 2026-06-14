@@ -1,0 +1,109 @@
+@reference "tailwindcss";
+
+@layer components {
+    #blog {
+        .blog-index__empty {
+            @apply mt-10 rounded-xl border border-blue-100 bg-white/80 p-5 text-slate-600;
+        }
+
+        .blog-pagination {
+            @apply mt-10 flex flex-col gap-4 border-t border-blue-100 pt-6;
+        }
+
+        .blog-pagination__summary {
+            @apply font-mono text-xs uppercase tracking-wide text-slate-500;
+        }
+
+        .blog-pagination__links {
+            @apply flex flex-wrap items-center gap-3;
+        }
+
+        .blog-pagination__list {
+            @apply flex flex-wrap items-center gap-2;
+        }
+
+        .blog-pagination__link {
+            @apply inline-flex min-w-10 items-center justify-center rounded-full border border-blue-100 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-blue-300 hover:text-blue-700;
+        }
+
+        .blog-pagination__link--direction {
+            @apply px-4;
+        }
+
+        .blog-pagination__link--active {
+            @apply border-blue-600 bg-blue-600 text-white hover:border-blue-600 hover:text-white;
+        }
+
+        .blog-search {
+            @apply mt-8;
+
+            .pagefind-ui {
+                --pagefind-ui-scale: 0.9;
+                --pagefind-ui-border-width: 1px;
+                --pagefind-ui-border-radius: 0.75rem;
+                --pagefind-ui-border: #e2e8f0;
+                --pagefind-ui-background: #ffffff;
+                --pagefind-ui-text: #1e293b;
+                --pagefind-ui-font: inherit;
+                --pagefind-ui-primary: #2563eb;
+                --pagefind-ui-tag-background: #eff6ff;
+                --pagefind-ui-tag-border: #bfdbfe;
+            }
+
+            .pagefind-ui__search-input {
+                @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-[0.9rem] text-slate-800 outline-none transition;
+            }
+
+            .pagefind-ui__search-input:focus {
+                border-color: #2563eb;
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            }
+
+            .pagefind-ui__form {
+                @apply relative flex items-center flex-col;
+            }
+
+            .pagefind-ui__results {
+                @apply mt-4 flex flex-col gap-3;
+            }
+
+            .pagefind-ui__result {
+                @apply rounded-xl border border-slate-200 bg-white px-5 py-4 transition-colors;
+                &::hover,
+                &::first-of-type:hover {
+                    border-color: #2563eb !important;
+                }
+            }
+
+            .pagefind-ui__result-inner {
+                @apply px-4;
+            }
+
+            .pagefind-ui__result-title {
+                @apply font-semibold text-slate-800 no-underline hover:text-blue-600;
+            }
+
+            .pagefind-ui__result-excerpt {
+                @apply mt-1 text-[0.85rem] text-slate-500;
+            }
+
+            .pagefind-ui__message {
+                @apply mt-2 text-[0.85rem] text-slate-500;
+            }
+
+            .pagefind-ui__button {
+                @apply mt-3 cursor-pointer rounded-lg border border-blue-200 bg-blue-50 px-3.5 py-1.5 text-[0.85rem] text-blue-600 transition;
+            }
+
+            .pagefind-ui__button:hover {
+                @apply bg-blue-100;
+            }
+
+            mark {
+                @apply rounded-xs px-0.5;
+                background: #fef9c3;
+                color: inherit;
+            }
+        }
+    }
+}

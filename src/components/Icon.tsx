@@ -35,16 +35,16 @@ import {
 } from 'react-icons/si';
 import { DiJava, DiPhotoshop } from 'react-icons/di';
 import { RiComputerLine, RiTwitterXFill } from 'react-icons/ri';
-import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaPodcast, FaBrain, FaNetworkWired, FaFigma } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaPodcast, FaBrain, FaNetworkWired, FaFigma, FaBookDead } from "react-icons/fa";
 import { MdFindInPage, MdIosShare } from "react-icons/md";
 import { GiRaiseZombie, GiArtificialIntelligence } from "react-icons/gi";
 import { CgGames } from "react-icons/cg";
-import { FaGear } from "react-icons/fa6";
+import { FaArrowLeft, FaGear } from "react-icons/fa6";
 import { TbBrandWhatsapp, TbWorldWww } from "react-icons/tb";
 import { IoIosCopy } from "react-icons/io";
 import { CiServer } from "react-icons/ci";
 import { HiMiniComputerDesktop } from "react-icons/hi2"
-import { PiFileSqlFill } from "react-icons/pi";
+import { PiFileSqlFill, PiMailboxBold } from "react-icons/pi";
 
 type IconConfig = {
     icon: ReactNode;
@@ -65,6 +65,7 @@ function sharedIcons(keys: string[], config: IconConfig): Record<string, IconCon
 }
 
 export const ICON_MAP: Record<string, IconConfig> = {
+    ['arrow-left']: { icon: <FaArrowLeft />, tint: 'text-slate-600' },
     ['typescript']: { icon: <SiTypescript />, tint: 'text-blue-600' },
     ['react']: { icon: <SiReact />, tint: 'text-cyan-500' },
     ['astro']: { icon: <SiAstro />, tint: 'text-orange-500' },
@@ -118,6 +119,8 @@ export const ICON_MAP: Record<string, IconConfig> = {
     ...sharedIcons(['frontend'], { icon: <HiMiniComputerDesktop />, tint: 'text-red-500' }),
     ...sharedIcons(['backend', 'server'], { icon: <CiServer />, tint: 'text-blue-500' }),
     ...sharedIcons(['web-development', 'web'], { icon: <TbWorldWww />, tint: 'text-green-500' }),
+    ['book-dead']: { icon: <FaBookDead />, tint: 'text-red-700' },
+    ['mailbox']: { icon: <PiMailboxBold />, tint: 'text-blue-500' }, 
 };
 
 type Props = {

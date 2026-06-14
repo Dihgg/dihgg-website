@@ -3,6 +3,8 @@ import { normalize } from "@/lib/utils";
 import Pill, { type PillProps } from "@/components/Pill";
 import classnames from "classnames";
 
+import "@styles/components/pill-stack.css";
+
 export type PillStackProps = {
     items: string[];
     maxCount?: number;

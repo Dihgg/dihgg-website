@@ -1,4 +1,4 @@
-import { normalize, replacePlaceholders } from '@/lib/utils';
+import { normalize, replaceTokens } from '@/lib/utils';
 
 describe('normalize', () => {
   it('lowercases the string', () => {
@@ -33,27 +33,27 @@ describe('normalize', () => {
 
 describe('replacePlaceholders', () => {
   it('replaces a single placeholder', () => {
-    expect(replacePlaceholders('Hello, {name}!', { name: 'World' })).toBe('Hello, World!');
+    expect(replaceTokens('Hello, {name}!', { name: 'World' })).toBe('Hello, World!');
   });
 
   it('replaces multiple placeholders', () => {
     expect(
-      replacePlaceholders('{count} posts on page {page}', { count: 5, page: 2 })
+      replaceTokens('{count} posts on page {page}', { count: 5, page: 2 })
     ).toBe('5 posts on page 2');
   });
 
   it('leaves unknown placeholders unchanged', () => {
-    expect(replacePlaceholders('Hello, {name}!', {})).toBe('Hello, {name}!');
+    expect(replaceTokens('Hello, {name}!', {})).toBe('Hello, {name}!');
   });
 
   it('handles a template with no placeholders', () => {
-    expect(replacePlaceholders('No placeholders here', { foo: 'bar' })).toBe(
+    expect(replaceTokens('No placeholders here', { foo: 'bar' })).toBe(
       'No placeholders here'
     );
   });
 
   it('replaces numeric values', () => {
-    expect(replacePlaceholders('Page {page} of {total}', { page: 1, total: 10 })).toBe(
+    expect(replaceTokens('Page {page} of {total}', { page: 1, total: 10 })).toBe(
       'Page 1 of 10'
     );
   });

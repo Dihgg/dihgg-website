@@ -3,6 +3,8 @@ import type { Locale } from '@/types';
 import Pill from '@/components/Pill';
 import { useState } from 'react';
 
+import "@styles/components/share.css";
+
 type Props = {
     locale: Locale
     title: string;

@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 @layer components {
     .share {
         @apply mt-10 border-t border-blue-100 pt-6;

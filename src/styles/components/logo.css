@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 @layer components {
     .logo {
         @apply inline-flex items-center gap-2;

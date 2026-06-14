@@ -1,0 +1,57 @@
+@reference "tailwindcss";
+
+@layer components {
+    .blog-card {
+        @apply flex h-full rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md;
+
+        .blog-card__layout {
+            @apply flex w-full flex-col gap-4;
+        }
+
+        .blog-card__image {
+            @apply w-full rounded-lg border border-blue-100 object-cover;
+        }
+
+        .blog-card__content {
+            @apply flex min-w-0 flex-1 flex-col;
+        }
+
+        .blog-card__date {
+            @apply font-mono text-xs text-slate-500;
+        }
+
+        .blog-card__title {
+            @apply mt-2 block font-bold text-slate-900 transition-colors hover:text-blue-700;
+        }
+
+        .blog-card__title--horizontal {
+            @apply text-2xl;
+        }
+
+        .blog-card__title--vertical {
+            @apply text-lg;
+        }
+
+        .blog-card__description {
+            @apply mt-2 text-sm text-slate-700;
+        }
+
+        .blog-card__cta {
+            @apply mt-auto flex justify-end pt-4;
+        }
+
+        &.blog-card--vertical .blog-card__image {
+            @apply h-36;
+        }
+
+        &.blog-card--horizontal {
+            .blog-card__layout {
+                @apply md:flex-row;
+            }
+
+            .blog-card__image {
+                @apply h-40 md:h-auto md:w-72 md:flex-none md:aspect-video;
+            }
+        }
+    }
+}

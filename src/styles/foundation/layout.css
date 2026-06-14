@@ -1,3 +1,9 @@
+@reference "tailwindcss";
+
+@import "@styles/foundation/header.css";
+@import "@styles/foundation/footer.css";
+@import "@styles/foundation/page.css";
+
 @layer components {
 	.page-shell {
 		@apply mx-auto min-h-screen px-6 py-16;
@@ -12,7 +18,7 @@
 	}
 
 	.page-shell__back-link {
-		@apply font-mono text-sm text-black/60 transition-colors hover:text-black;
+		@apply inline-flex items-center gap-2 font-mono text-sm text-black/60 transition-colors hover:text-black;
 	}
 
 	.page-shell__return-link {

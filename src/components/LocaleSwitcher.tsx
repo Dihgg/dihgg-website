@@ -1,6 +1,8 @@
 import classnames from 'classnames';
 import type { Locale } from '@/types';
 
+import "@styles/components/locale-switcher.css";
+
 type Props = {
   currentLocale: Locale;
   ptHref: string;

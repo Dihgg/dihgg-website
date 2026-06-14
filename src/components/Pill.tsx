@@ -1,5 +1,7 @@
 import classNames from 'classnames';
-import Icon from '@/components/Icon';
+import Icon, { ICON_MAP } from '@/components/Icon';
+
+import "@styles/components/pill.css";
 
 export type PillProps = {
   icon?: string;

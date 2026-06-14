@@ -25,6 +25,8 @@ const homePath = getRelativeLocaleUrl(locale);
 const blogPath = getRelativeLocaleUrl(locale, 'blog');
 const postPath = locale === 'pt-BR' ? ptPostPath : enPostPath;
 const shareUrl = `${SITE_URL}${postPath}`;
+
+import "@styles/pages/post.css";
 ---
 
 <Layout
@@ -36,7 +38,7 @@ const shareUrl = `${SITE_URL}${postPath}`;
     { href: `${SITE_URL}${enPostPath}`, hreflang: 'en' }
   ]}
 >
-  <main>
+  <main id="post">
     <div class="blog-post__header">
       {post.data.featuredImage && (
         <Image

@@ -20,12 +20,12 @@ export function normalize(name: string): string {
  * Placeholders in the template should be in the format {key}, where "key" corresponds to a property in the values object.
  * If a placeholder does not have a corresponding value, it will remain unchanged in the output string.
  * @param template The string containing placeholders to be replaced.
- * @param values An object where keys correspond to placeholder names and values are the strings or numbers to replace them with.
+ * @param tokens An object where keys correspond to placeholder names and values are the strings or numbers to replace them with.
  * @returns A new string with all placeholders replaced by their corresponding values.
  */
-export function replacePlaceholders(template: string, values: Record<string, string | number>): string {
+export function replaceTokens(template: string, tokens: Record<string, string | number>): string {
     return template.replace(/\{([^}]+)\}/g, (match, key) => {
-        const value = values[key];
+        const value = tokens[key];
         return typeof value === 'string' || typeof value === 'number' ? String(value) : match;
     });
 }

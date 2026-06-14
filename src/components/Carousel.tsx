@@ -3,6 +3,8 @@ import useEmblaCarousel from 'embla-carousel-react';
 import type { EmblaOptionsType } from 'embla-carousel';
 import { useBreakpoint } from '@/hooks/breakpoints';
 
+import "@styles/components/carousel.css";
+
 /**
  * Generic carousel wrapper powered by Embla.
  *
