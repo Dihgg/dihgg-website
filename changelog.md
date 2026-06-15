@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/Dihgg/dihgg-website/compare/v1.8.2...v1.9.0) (2026-06-15)
+
+
+### Features
+
+* **layouts:** revamping layout config ([0ece618](https://github.com/Dihgg/dihgg-website/commit/0ece618fe97aa4301e100476edd637abeca1b166))
+* **styles:** locale switcher style ([8041c8c](https://github.com/Dihgg/dihgg-website/commit/8041c8ccce554df6cb7feb9bb288a5e78bc5f342))
+* **styles:** refactoring css files ([d7a9dc2](https://github.com/Dihgg/dihgg-website/commit/d7a9dc2c8b4fbf3e5f7c6ce144d65b97fb20ecd6))
+
 ### [1.8.2](https://github.com/Dihgg/dihgg-website/compare/v1.8.1...v1.8.2) (2026-06-10)
 
 ### [1.8.1](https://github.com/Dihgg/dihgg-website/compare/v1.8.0...v1.8.1) (2026-06-09)
