@@ -1,7 +1,5 @@
 import type { Locale } from '@/types';
 
-import classnames from 'classnames';
-
 import Pill from '@/components/Pill';
 
 import "@styles/components/locale-switcher.css";
@@ -16,8 +14,28 @@ type Props = {
 export default function LocaleSwitcher({ currentLocale, ptHref, enHref, ariaLabel }: Props) {
   return (
     <nav aria-label={ariaLabel} className="locale-switcher">
-      <Pill variant={currentLocale === 'pt-BR' ? 'primary' : 'default'} href={ptHref} icon="brazil" title="Português (Brasil)" background>PT</Pill>
-      <Pill variant={currentLocale === 'en' ? 'primary' : 'default'} href={enHref} icon="usa" title="English (US)" background>EN</Pill>
+      <Pill
+        variant={currentLocale === 'pt-BR' ? 'primary' : 'default'}
+        href={ptHref}
+        icon="brazil"
+        title="Português (Brasil)"
+        background={currentLocale !== 'pt-BR'}
+        tinted={currentLocale !== 'pt-BR'}
+        className="locale-switcher__item"
+      >
+        PT
+      </Pill>
+      <Pill
+        variant={currentLocale === 'en' ? 'primary' : 'default'}
+        href={enHref}
+        icon="usa"
+        title="English (US)"
+        background={currentLocale !== 'en'}
+        tinted={currentLocale !== 'en'}
+        className="locale-switcher__item"
+      >
+        EN
+      </Pill>
     </nav>
   );
 }
