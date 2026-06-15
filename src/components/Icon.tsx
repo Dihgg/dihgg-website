@@ -45,6 +45,8 @@ import { IoIosCopy } from "react-icons/io";
 import { CiServer } from "react-icons/ci";
 import { HiMiniComputerDesktop } from "react-icons/hi2"
 import { PiFileSqlFill, PiMailboxBold } from "react-icons/pi";
+import { LiaFlagUsaSolid } from "react-icons/lia";
+import { GiBrazilFlag } from "react-icons/gi";
 
 type IconConfig = {
     icon: ReactNode;
@@ -122,6 +124,8 @@ export const ICON_MAP: Record<string, IconConfig> = {
     ...sharedIcons(['web-development', 'web'], { icon: <TbWorldWww />, tint: 'text-green-500', background: 'rgb(34 197 94)' }),
     ['book-dead']: { icon: <FaBookDead />, tint: 'text-red-700', background: 'rgb(185 28 28)' },
     ['mailbox']: { icon: <PiMailboxBold />, tint: 'text-blue-500', background: 'rgb(59 130 246)' },
+    ['usa']: { icon: <LiaFlagUsaSolid />, tint: 'text-blue-500', background: 'rgb(59 130 246)' },
+    ['brazil']: { icon: <GiBrazilFlag />, tint: 'text-green-500', background: 'rgb(34 197 94)' },
 };
 
 export function getIconConfig(name: string | undefined ): IconConfig | undefined {
