@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import Icon, { ICON_MAP } from '@/components/Icon';
+import Icon, { getIconConfig } from '@/components/Icon';
 
 import "@styles/components/pill.css";
 
@@ -10,11 +10,25 @@ export type PillProps = {
   variant?: 'default' | 'primary' | 'tag' | 'tag--small';
   external?: boolean;
   tinted?: boolean;
+  background?: boolean;
 } & React.HTMLAttributes<HTMLAnchorElement | HTMLSpanElement | HTMLButtonElement>;
 
-export default function Pill({ icon, href, onClick, variant = 'default', external = false, tinted = false, ...props }: PillProps) {
-  const { className, children, ...restProps } = props;
-  const classess = classNames('pill', `pill--${variant}`, className);
+export default function Pill({ icon, href, onClick, variant = 'default', external = false, tinted = false, background = false, ...props }: PillProps) {
+  const { className, children, style, ...restProps } = props;
+  const classess = classNames(
+    'pill',
+    `pill--${variant}`,
+    {
+      'pill--background': background,
+    },
+    className
+  );
+  const iconConfig = getIconConfig(icon);
+
+  const mergedStyle = {
+    ...style,
+    ...(background && iconConfig && iconConfig.background ? { '--pill-background': iconConfig.background } : undefined),
+  } as React.CSSProperties;
 
   const content = (
     <>
@@ -28,6 +42,7 @@ export default function Pill({ icon, href, onClick, variant = 'default', externa
       <button
         className={classess}
         onClick={onClick}
+        style={mergedStyle}
         {...restProps}
       >
         {content}
@@ -39,6 +54,7 @@ export default function Pill({ icon, href, onClick, variant = 'default', externa
       <a
         className={classess}
         href={href}
+        style={mergedStyle}
         {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
         {...restProps}
       >
@@ -47,5 +63,5 @@ export default function Pill({ icon, href, onClick, variant = 'default', externa
     );
   }
 
-  return <span className={classess} {...restProps}>{content}</span>;
+  return <span className={classess} style={mergedStyle} {...restProps}>{content}</span>;
 }

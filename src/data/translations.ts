@@ -20,6 +20,7 @@ export const translations = {
     workTitle: 'Trabalho',
     projectsTitle: 'Projetos',
     projectsPageTitle: 'Projetos | Dihgg',
+    projectsPageDescription: 'Aqui estão alguns dos meus projetos mais recentes.',
     projectsFilterLabel: 'Filtrar por categoria',
     latestProjectsCta: 'Ver todos os {x} projetos',
     projectsDescription: 'Aqui estão alguns dos meus projetos mais recentes. Para uma lista completa, visite meu repositório no GitHub.',
@@ -72,6 +73,7 @@ export const translations = {
     workTitle: 'Work',
     projectsTitle: 'Projects',
     projectsPageTitle: 'Projects | Dihgg',
+    projectsPageDescription: 'Here are some of my recent projects.',
     latestProjectsCta: 'View all {x} projects',
     projectsFilterLabel: 'Filter by category',
     projectsDescription: 'Here are some of my recent projects. For a full list, please visit my GitHub repository.',
@@ -79,10 +81,10 @@ export const translations = {
     projectsLoadMoreLabel: 'Load more',
     contactTitle: 'Contact',
     contactLead: 'Send an email to',
-    contactCta: 'Get in touch',
+    contactCta: 'Contact',
     blogCta: 'Blog',
     headerBlogLabel: 'Blog',
-    headerContactLabel: 'Get in touch',
+    headerContactLabel: 'Contact',
     projectCta: 'View project',
     socialAriaLabel: 'Social links',
     switcherAriaLabel: 'Choose language',
@@ -122,6 +124,7 @@ export const translations = {
   workTitle: string;
   projectsTitle: string;
   projectsPageTitle: string;
+  projectsPageDescription: string;
   projectsFilterLabel: string;
   latestProjectsCta: string;
   projectsDescription: string;

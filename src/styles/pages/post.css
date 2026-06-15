@@ -41,7 +41,7 @@
         }
 
         .blog-post__header__content {
-            @apply min-h-0 mx-auto mt-15 py-10 md:py-20 z-1;
+            @apply w-full min-h-0 mx-auto mt-15 py-10 md:py-20 z-1;
         }
 
         .blog-post__header__back-link {

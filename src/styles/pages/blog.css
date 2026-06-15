@@ -69,8 +69,8 @@
 
             .pagefind-ui__result {
                 @apply rounded-xl border border-slate-200 bg-white px-5 py-4 transition-colors;
-                &::hover,
-                &::first-of-type:hover {
+                &:hover,
+                &:first-of-type:hover {
                     border-color: #2563eb !important;
                 }
             }

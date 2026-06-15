@@ -13,7 +13,7 @@ export default function SkillList({ skills, className, ...props }: SkillListProp
       >
       {skills.map((skill) => (
         <li key={skill}>
-          <Pill icon={skill} tinted>{skill}</Pill>
+          <Pill icon={skill} tinted background>{skill}</Pill>
         </li>
       ))}
     </ul>

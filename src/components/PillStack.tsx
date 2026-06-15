@@ -30,7 +30,7 @@ export default function PillStack(props: PillStackProps) {
         <ul className={classnames("pill-stack", className)}>
             {items.slice(0, maxCount).map((item) => (
                 <li key={item} className="pill-stack__item">
-                    <Pill icon={normalize(item)} variant={variant} tinted={tinted}>{item}</Pill>
+                    <Pill icon={normalize(item)} variant={variant} tinted={tinted} background>{item}</Pill>
                 </li>
             ))}
             {items.length > maxCount && (

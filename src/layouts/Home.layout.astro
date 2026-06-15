@@ -1,4 +1,6 @@
 ---
+import Base from "@/layouts/Base.layout.astro";
+
 import Pill from "@/components/Pill";
 import SkillList from "@/components/SkillList";
 import SocialLinks from "@/components/SocialLinks";
@@ -46,7 +48,16 @@ const postsWithHref = latestPosts.map((post) => ({
 }));
 ---
 
-<main id="homepage" class="relative overflow-hidden">
+<Base
+  title={content.homeTitle}
+  description={content.homeDescription}
+  lang={locale}
+  alternates={[
+    { href: getRelativeLocaleUrl(locale), hreflang: locale },
+    { href: getRelativeLocaleUrl(EN_LOCALE), hreflang: EN_LOCALE }
+  ]}
+>
+  <main id="homepage" class="relative overflow-hidden">
   <div class="hero-glow hero-glow__left"></div>
   <div class="hero-glow hero-glow__right"></div>
 
@@ -68,8 +79,8 @@ const postsWithHref = latestPosts.map((post) => ({
         </div>
 
         <div class="justify-center md:justify-start mt-10 flex flex-wrap gap-2">
-          <Pill href={blogPath} icon="book-dead">{content.blogCta}</Pill>
-          <Pill href={projectsPath} icon="computer">{content.projectsTitle}</Pill>
+          <Pill href={blogPath} icon="book-dead" background>{content.blogCta}</Pill>
+          <Pill href={projectsPath} icon="computer" background>{content.projectsTitle}</Pill>
           <Pill variant="primary" href="#contato" icon="mail">{content.contactCta}</Pill>
         </div>
       </div>
@@ -166,3 +177,4 @@ const postsWithHref = latestPosts.map((post) => ({
     />
   </section>
 </main>
+</Base>

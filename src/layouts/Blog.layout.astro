@@ -1,7 +1,7 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import Base from '@/layouts/Base.layout.astro';
 import BlogPostCard from '@/components/BlogPostCard';
-import BlogSearch from '@/components/pages/BlogSearch.astro';
+import BlogSearch from '@/components/astro/BlogSearch.component.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { translations } from '@/data/translations';
 import type { BlogPost, Locale } from '@/types';
@@ -36,7 +36,7 @@ const nextHref = currentPage < lastPage ? pagePaths[currentPage] : null;
 import "@styles/pages/blog.css";
 ---
 
-<Layout
+<Base
   title={pageTitle}
   description={content.blogDescription}
   lang={locale}
@@ -113,4 +113,4 @@ import "@styles/pages/blog.css";
       </>
     )}
   </main>
-</Layout>
+</Base>

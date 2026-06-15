@@ -99,7 +99,7 @@ Page size is controlled by:
 
 ## Blog Search (Pagefind)
 
-- Search UI is rendered by `src/components/BlogSearch.astro`
+- Search UI is rendered by `src/components/astro/BlogSearch.component.astro`
 - Index is generated during `npm run build`
 - Search assets are output to `dist/pagefind`
 
