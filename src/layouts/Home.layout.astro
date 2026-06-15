@@ -1,6 +1,7 @@
 ---
+import Base from "@/layouts/Base.layout.astro";
+
 import Pill from "@/components/Pill";
-import BlogPostCard from "@/components/BlogPostCard";
 import SkillList from "@/components/SkillList";
 import SocialLinks from "@/components/SocialLinks";
 import ProjectCards from "@/components/ProjectCards";
@@ -9,14 +10,17 @@ import BlogPostsCarousel from "@/components/BlogPostsCarousel";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { socialLinks } from "@/data/portfolio";
 import Logo from "@/components/Logo";
+import Icon from "@/components/Icon";
 import { translations } from "@/data/translations";
 import { getBlogPosts } from "@/lib/blog";
 import { getBlogPostPath } from "@/lib/blog";
 import { LATEST_POSTS_COUNT, LATEST_PROJECTS_COUNT } from "@/lib/constants";
 import { getWorkItems, getSkills, getProjects } from "@/lib/portfolio";
-import { replacePlaceholders } from "@/lib/utils";
+import { replaceTokens } from "@/lib/utils";
 import type { Locale } from "@/types";
 import { EN_LOCALE } from "@/i18n/config";
+
+import "@styles/pages/homepage.css";
 
 interface Props {
   locale: Locale;
@@ -44,34 +48,40 @@ const postsWithHref = latestPosts.map((post) => ({
 }));
 ---
 
-<main class="relative overflow-hidden">
-  <div class="hero-glow hero-glow-left"></div>
-  <div class="hero-glow hero-glow-right"></div>
+<Base
+  title={content.homeTitle}
+  description={content.homeDescription}
+  lang={locale}
+  alternates={[
+    { href: getRelativeLocaleUrl(locale), hreflang: locale },
+    { href: getRelativeLocaleUrl(EN_LOCALE), hreflang: EN_LOCALE }
+  ]}
+>
+  <main id="homepage" class="relative overflow-hidden">
+  <div class="hero-glow hero-glow__left"></div>
+  <div class="hero-glow hero-glow__right"></div>
 
   <section class="mx-auto max-w-6xl px-6 pb-16 pt-14 md:pt-20">
     <div class="grid items-center gap-8 md:grid-cols-2">
-      <div>
+      <div class="home-hero">
         <Logo className="text-slate-600" />
         <h1 class="home-hero__title">Diego Lopes</h1>
-        <p class="mt-4 max-w-2xl text-lg text-slate-700 md:text-xl">
-          {content.heroLead}
+        <p class="home-hero__description">
+          {content.heroDescription}
         </p>
-
-        <div class="mt-8">
-          <SocialLinks
-            links={socialLinks}
-            ariaLabel={content.socialAriaLabel}
-          />
-        </div>
-
+        <SocialLinks
+          links={socialLinks}
+          aria-label={content.socialAriaLabel}
+          className="mt-8"
+        />
         <div class="flex md:hidden items-center justify-center mt-10">
           <div class="sprite-animation"></div>
         </div>
 
-        <div class="mt-10 flex flex-wrap gap-2">
-          <Pill href={blogPath}>{content.blogCta}</Pill>
-          <Pill href={projectsPath}>{content.projectsTitle}</Pill>
-          <Pill variant="primary" href="#contato">{content.contactCta}</Pill>
+        <div class="justify-center md:justify-start mt-10 flex flex-wrap gap-2">
+          <Pill href={blogPath} icon="book-dead" background>{content.blogCta}</Pill>
+          <Pill href={projectsPath} icon="computer" background>{content.projectsTitle}</Pill>
+          <Pill variant="primary" href="#contato" icon="mail">{content.contactCta}</Pill>
         </div>
       </div>
 
@@ -81,19 +91,20 @@ const postsWithHref = latestPosts.map((post) => ({
     </div>
   </section>
 
-  <section id="sobre" class="mx-auto max-w-6xl px-6 py-8">
+  <section id="sobre" class="home-section">
     <h2 class="section-title">{content.aboutTitle}</h2>
     <p class="mt-8 text-lg text-slate-700">{content.aboutText}</p>
   </section>
 
-  <section id="latest-posts" class="mx-auto max-w-6xl md:px-6 py-8">
-    <div class="flex flex-wrap items-center justify-between gap-4 px-6 md:px-0">
+  <section id="latest-posts" class="home-section home-section--carousel">
+    <div class="home-section__content">
       <h2 class="section-title">{content.latestPostsTitle}</h2>
       <a
         href={blogPath}
-        class="text-sm font-semibold text-blue-700 underline decoration-blue-400 decoration-2 underline-offset-4 transition hover:text-blue-900"
+        class="read-more-link"
       >
-        {replacePlaceholders(content.latestPostsCta, { x: posts.length })}
+        <span class="underline">{replaceTokens(content.latestPostsCta, { x: posts.length })}</span>
+        <Icon name="book-dead" />
       </a>
     </div>
     {
@@ -105,7 +116,7 @@ const postsWithHref = latestPosts.map((post) => ({
     }
     {
       postsWithHref.length > 0 && (
-        <div class="mt-6">
+        <div class="mt-6 home-section__carousel-wrapper">
           <BlogPostsCarousel
             client:only="react"
             posts={postsWithHref}
@@ -118,50 +129,52 @@ const postsWithHref = latestPosts.map((post) => ({
     }
   </section>
 
-  <section id="skills" class="mx-auto max-w-6xl px-6 py-8">
+  <section id="skills" class="home-section">
     <h2 class="section-title">{content.skillsTitle}</h2>
-    <div class="mt-6">
-      <SkillList skills={skillNames} />
-    </div>
+    <SkillList skills={skillNames} className="home-section__content--skills" />
   </section>
 
-  <section id="trabalho" class="mx-auto max-w-6xl px-6 py-8">
+  <section id="trabalho" class="home-section">
     <h2 class="section-title">{content.workTitle}</h2>
     <WorkCards items={workItems} />
   </section>
 
-  <section id="projetos" class="mx-auto max-w-6xl px-6 py-8">
-    <div class="flex flex-wrap items-center justify-between gap-4">
+  <section id="projetos" class="home-section">
+    <div class="home-section__content">
       <h2 class="section-title">{content.projectsTitle}</h2>
       <a
         href={projectsPath}
-        class="text-sm font-semibold text-blue-700 underline decoration-blue-400 decoration-2 underline-offset-4 transition hover:text-blue-900"
+        class="read-more-link"
       >
-        {replacePlaceholders(content.latestProjectsCta, { x: projects.length })}
+        <span class="underline">{replaceTokens(content.latestProjectsCta, { x: projects.length })}</span>
+        <Icon name="computer" />
       </a>
       <ProjectCards
         projects={projectItems}
-        classnames={["mt-8"]}
+        classNames={["mt-8"]}
         projectsFilterLabel={content.projectsFilterLabel}
         loadMoreLabel={content.projectsLoadMoreLabel}
       />
     </div>
   </section>
 
-  <section id="contato" class="mx-auto max-w-6xl px-6 py-16">
+  <section id="contato" class="home-section py-16">
     <h2 class="section-title">{content.contactTitle}</h2>
     <p class="mt-4 text-slate-700">
       {content.contactLead}
       <a
-        class="ml-1 underline decoration-blue-500 decoration-2 transition-colors hover:text-blue-600"
+        class="email-link"
         href="mailto:dihgg@dihgg.com"
       >
         dihgg@dihgg.com
       </a>
       .
     </p>
-    <div class="mt-6">
-      <SocialLinks links={socialLinks} ariaLabel={content.socialAriaLabel} />
-    </div>
+    <SocialLinks
+      links={socialLinks}
+      aria-label={content.socialAriaLabel}
+      className="mt-8"
+    />
   </section>
 </main>
+</Base>

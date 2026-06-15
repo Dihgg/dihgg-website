@@ -1,4 +1,7 @@
-.work-grid {
+@reference "tailwindcss";
+
+@layer components {
+	.work-grid {
 	@apply mt-8 grid gap-4 md:grid-cols-2;
 }
 
@@ -36,4 +39,5 @@
 
 .work-card__summary {
 	@apply mt-3 text-sm text-slate-700;
+}
 }

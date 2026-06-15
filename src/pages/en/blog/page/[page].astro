@@ -1,5 +1,6 @@
 ---
-import BlogIndexPage from '@/components/pages/BlogIndexPage.astro';
+import BlogLayout from '@/layouts/Blog.layout.astro';
+
 import type { Locale } from '@/types';
 import { getLocalizedBlogIndexHrefs, getLocalizedBlogPaginationStaticPaths } from '@/lib/blog';
 import { EN_LOCALE, getAlternateLocale } from '@/i18n/config';
@@ -18,7 +19,7 @@ const { page, locale, alternatePageCount }: Props = Astro.props;
 const { ptHref, enHref } = getLocalizedBlogIndexHrefs(locale, page.currentPage, alternatePageCount);
 ---
 
-<BlogIndexPage
+<BlogLayout
   locale={locale}
   posts={page.data}
   currentPage={page.currentPage}

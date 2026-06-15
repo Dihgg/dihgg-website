@@ -1,6 +1,8 @@
 import type { WorkItem } from "@/types";
 import { translations } from "@/data/translations";
 
+import "@styles/components/work-cards.css";
+
 type Props = {
   items: WorkItem[];
 };

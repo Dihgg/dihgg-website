@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @import "@fontsource/bricolage-grotesque/400.css";
 @import "@fontsource/bricolage-grotesque/600.css";
 @import "@fontsource/bricolage-grotesque/700.css";
@@ -6,23 +8,5 @@
 @import "@fontsource/press-start-2p";
 @import "@fortawesome/fontawesome-free/css/all.css";
 
-@import "tailwindcss";
 
-@import "./foundation/theme.css";
-@import "./foundation/header.css";
-@import "./foundation/footer.css";
-@import "./foundation/prose.css";
-
-@import "./components/layout.css";
-@import "./components/pill.css";
-@import "./components/pill-stack.css";
-@import "./components/blog.css";
-@import "./components/page.css";
-@import "./components/locale-switcher.css";
-@import "./components/share.css";
-@import "./components/work.css";
-@import "./components/projects.css";
-@import "./components/site.css";
-@import "./components/logo.css";
-
-@import "./components/carousel.css";
+@import "@styles/foundation/theme.css";

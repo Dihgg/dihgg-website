@@ -1,14 +1,14 @@
 ---
 import { render } from 'astro:content';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import Layout from '@/layouts/Layout.astro';
+import Base from '@/layouts/Base.layout.astro';
 import { translations } from '@/data/translations';
 import type { BlogPost, Locale } from '@/types';
 import { SITE_URL } from '@/lib/constants';
 import { formatPostDate } from '@/lib/date';
 import Share from '@/components/Share';
 import { Image } from 'astro:assets';
-import PillStack from '../PillStack';
+import PillStack from '@/components/PillStack';
 
 interface Props {
   locale: Locale;
@@ -25,9 +25,12 @@ const homePath = getRelativeLocaleUrl(locale);
 const blogPath = getRelativeLocaleUrl(locale, 'blog');
 const postPath = locale === 'pt-BR' ? ptPostPath : enPostPath;
 const shareUrl = `${SITE_URL}${postPath}`;
+
+import "@styles/pages/post.css";
+import Icon from '@/components/Icon';
 ---
 
-<Layout
+<Base
   title={`${post.data.title} | Blog Dihgg`}
   description={post.data.description}
   lang={locale}
@@ -36,7 +39,7 @@ const shareUrl = `${SITE_URL}${postPath}`;
     { href: `${SITE_URL}${enPostPath}`, hreflang: 'en' }
   ]}
 >
-  <main>
+  <main id="post">
     <div class="blog-post__header">
       {post.data.featuredImage && (
         <Image
@@ -50,7 +53,10 @@ const shareUrl = `${SITE_URL}${postPath}`;
       />
     )}
     <div class="page-shell page-shell--narrow blog-post__header__content">
-      <a href={blogPath} class="page-shell__back-link blog-post__header__back-link">{content.backBlogLabel}</a>
+      <a href={blogPath} class="page-shell__back-link blog-post__header__back-link">
+        <Icon name="arrow-left" />
+        <span>{content.backBlogLabel}</span>
+      </a>
       <h1 data-pagefind-meta="title" class="blog-post__title">{post.data.title}</h1>
       <time
         datetime={post.data.date.toISOString().slice(0, 10)}
@@ -94,4 +100,4 @@ const shareUrl = `${SITE_URL}${postPath}`;
       </p>
     </div>
   </main>
-</Layout>
+</Base>

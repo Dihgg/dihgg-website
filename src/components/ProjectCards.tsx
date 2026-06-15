@@ -2,13 +2,15 @@ import { PROJECTS_PER_PAGE, STACK_ITEMS_MAX_COUNT } from "@/lib/constants";
 import { normalize } from "@/lib/utils";
 import Pill from "./Pill";
 import type { ProjectItem } from "@/types";
-import classNames from "classnames";
+import classnames from "classnames";
 import { createContext, useContext, useEffect, useState } from "react";
 import PillStack from "./PillStack";
 
+import "@styles/components/project-cards.css"
+
 type Props = {
   projects: ProjectItem[];
-  classnames?: string[];
+  classNames?: string[];
   loadMore?: boolean;
   filtering?: boolean;
   loadMoreLabel?: string;
@@ -47,14 +49,14 @@ function ProjectCategories() {
       }).map((item, index) => (
         <li
           key={normalize(item)}
-          className={classNames({
+          className={classnames({
             "hidden sm:flex": index > 1,
           })}
         >
           <Pill
             variant="tag"
             icon={normalize(item)}
-            className={classNames({
+            className={classnames({
               "pill--tag--active": normalize(item) === selectedCategory,
             })}
           >
@@ -136,7 +138,7 @@ function ProjectCard() {
 
 export default function ProjectCards({
   projects,
-  classnames = [],
+  classNames = [],
   filtering = false,
   loadMore = false,
   loadMoreLabel = "Load more",
@@ -210,7 +212,7 @@ export default function ProjectCards({
           </ul>
         </nav>
       )}
-      <ul className={classNames("project-cards", classnames)}>
+      <ul className={classnames("project-cards", classNames)}>
         {visibleProjects.map((project: ProjectCardData) => {
           const { name } = project;
 

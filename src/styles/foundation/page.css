@@ -1,6 +1,15 @@
 @layer components {
   .page__title {
     @apply mt-6 text-4xl font-bold;
+    &::before, &::after {
+      @apply text-blue-900/30;
+    }
+    &::before {
+      content: "{ ";
+    }
+    &::after {
+      content: " }";
+    }
   }
 
   .page__intro {

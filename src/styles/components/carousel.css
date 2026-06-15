@@ -1,3 +1,4 @@
+@reference "tailwindcss";
 @layer components {
     .carousel {
         --slide-size: calc(100%);
