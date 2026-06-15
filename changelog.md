@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/Dihgg/dihgg-website/compare/v1.9.0...v1.10.0) (2026-06-15)
+
+
+### Features
+
+* **styles:** language switcher styles ([d64c1e4](https://github.com/Dihgg/dihgg-website/commit/d64c1e4da18624f6705c5e9a0ad8267f9151400a))
+
 ## [1.9.0](https://github.com/Dihgg/dihgg-website/compare/v1.8.2...v1.9.0) (2026-06-15)
 
 
