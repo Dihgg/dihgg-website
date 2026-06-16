@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/Dihgg/dihgg-website/compare/v1.10.0...v1.11.0) (2026-06-16)
+
+
+### Features
+
+* **styles:** adding background color to contact buttons ([4af6ec0](https://github.com/Dihgg/dihgg-website/commit/4af6ec03525aa731d4a0b21263da9d27e9c1af54))
+
 ## [1.10.0](https://github.com/Dihgg/dihgg-website/compare/v1.9.0...v1.10.0) (2026-06-15)
 
 
