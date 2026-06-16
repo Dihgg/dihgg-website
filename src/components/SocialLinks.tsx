@@ -20,6 +20,7 @@ export default function SocialLinks({ links, className, ...props }: Props) {
             href={link.href}
             external
             tinted
+            background
           >
             {link.label}
           </Pill>
