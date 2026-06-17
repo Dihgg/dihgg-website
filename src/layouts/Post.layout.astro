@@ -96,7 +96,10 @@ import Icon from '@/components/Icon';
       />
 
       <p class="page-shell__return-link">
-        <a href={homePath} class="page-shell__return-link-anchor">{content.backHomeLabel}</a>
+        <a href={homePath} class="page-shell__return-link-anchor">
+          <Icon name="arrow-left" />
+          <span>{content.backHomeLabel}</span>
+        </a>
       </p>
     </div>
   </main>

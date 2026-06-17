@@ -66,6 +66,8 @@ export default function Share({
                             onClick={onClick}
                             className="share__action"
                             external
+                            tinted
+                            background
                         >
                             {label}
                         </Pill>

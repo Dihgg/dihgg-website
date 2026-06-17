@@ -26,6 +26,6 @@
 	}
 
 	.page-shell__return-link-anchor {
-		@apply transition-colors hover:text-black;
+		@apply inline-flex items-center gap-2 transition-colors hover:text-black;
 	}
 }
