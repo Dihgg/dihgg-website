@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/Dihgg/dihgg-website/compare/v1.11.0...v1.12.0) (2026-06-17)
+
+
+### Features
+
+* **styles:** updating post share and back style ([82bb0fe](https://github.com/Dihgg/dihgg-website/commit/82bb0fe91fd27bd005ef5904bcaa99325c55a3ce))
+
 ## [1.11.0](https://github.com/Dihgg/dihgg-website/compare/v1.10.0...v1.11.0) (2026-06-16)
 
 
