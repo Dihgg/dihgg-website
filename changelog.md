@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/Dihgg/dihgg-website/compare/v1.12.0...v1.13.0) (2026-06-26)
+
+
+### Features
+
+* **analytics:** adding data-ga events ([642786b](https://github.com/Dihgg/dihgg-website/commit/642786baea3c9d29914d0cba18c9989326b6296b))
+
 ## [1.12.0](https://github.com/Dihgg/dihgg-website/compare/v1.11.0...v1.12.0) (2026-06-17)
 
 
