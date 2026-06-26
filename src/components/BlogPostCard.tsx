@@ -53,7 +53,10 @@ export default function BlogPostCard(props: BlogPostCardProps) {
           )}          
           <p className="blog-card__description">{description}</p>
           <div className="blog-card__cta">
-            <Pill href={href}>{ctaLabel}</Pill>
+            <Pill
+              href={href}
+              data-ga={`blog-post-card-cta`}
+            >{ctaLabel}</Pill>
           </div>
         </div>
       </div>

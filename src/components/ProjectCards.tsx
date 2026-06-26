@@ -122,6 +122,7 @@ function ProjectCard() {
                 href={link.href}
                 tinted
                 external
+                data-ga={`project-card-link-${normalize(link.label)}`}
               >
                 {link.label}
               </Pill>
@@ -204,6 +205,7 @@ export default function ProjectCards({
                   onClick={() => handleSelectTag(tag.normalized)}
                   aria-pressed={tag.normalized === selectedCategory}
                   icon={tag.normalized}
+                  data-ga={`project-card-filter-${tag.normalized}`}
                 >
                   {tag.label.toLocaleLowerCase()}
                 </Pill>
