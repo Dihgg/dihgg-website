@@ -102,6 +102,7 @@ const postsWithHref = latestPosts.map((post) => ({
       <a
         href={blogPath}
         class="read-more-link"
+        data-ga="blog-home"
       >
         <span class="underline">{replaceTokens(content.latestPostsCta, { x: posts.length })}</span>
         <Icon name="book-dead" />
@@ -145,6 +146,7 @@ const postsWithHref = latestPosts.map((post) => ({
       <a
         href={projectsPath}
         class="read-more-link"
+        data-ga="projects-home"
       >
         <span class="underline">{replaceTokens(content.latestProjectsCta, { x: projects.length })}</span>
         <Icon name="computer" />

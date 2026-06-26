@@ -22,6 +22,7 @@ export default function LocaleSwitcher({ currentLocale, ptHref, enHref, ariaLabe
         background={currentLocale !== 'pt-BR'}
         tinted={currentLocale !== 'pt-BR'}
         className="locale-switcher__item"
+        data-ga="locale-switcher-pt-br"
       >
         PT
       </Pill>
@@ -33,6 +34,7 @@ export default function LocaleSwitcher({ currentLocale, ptHref, enHref, ariaLabe
         background={currentLocale !== 'en'}
         tinted={currentLocale !== 'en'}
         className="locale-switcher__item"
+        data-ga="locale-switcher-en"
       >
         EN
       </Pill>

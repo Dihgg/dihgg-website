@@ -23,6 +23,7 @@ export default function SiteHeader(props: HeaderProps) {
         <nav className="header__content__nav" aria-label="Main navigation">
           <Pill
             href={blog.href}
+            data-ga="blog-header"
           >
             {blog.label}
           </Pill>
@@ -30,12 +31,14 @@ export default function SiteHeader(props: HeaderProps) {
             variant="default"
             href={projects.href}
             className="hidden sm:flex"
+            data-ga="projects-header"
           >
             {projects.label}
           </Pill>
           <Pill
             variant="primary"
             href={contact.href}
+            data-ga="contact-header"
           >
             {contact.label}
           </Pill>
