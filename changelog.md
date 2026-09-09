@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/Dihgg/dihgg-website/compare/v1.13.1...v1.14.0) (2026-09-09)
+
+
+### Features
+
+* **analytics:** adding analytics click handler ([1e2adc9](https://github.com/Dihgg/dihgg-website/commit/1e2adc941df7bc7f33eff1e39da1f556e0f85636))
+* **tooling:** adding astro check to CI ([7213247](https://github.com/Dihgg/dihgg-website/commit/7213247d5a7c6de5e7f91d4a94f45c5860a1e1df))
+
+
+### Bug Fixes
+
+* astro check cleanup ([22d7634](https://github.com/Dihgg/dihgg-website/commit/22d7634725d5953e849c5b383617230fe3844f9b))
+* **content:** updating turing test path ([37ba483](https://github.com/Dihgg/dihgg-website/commit/37ba4836fffaa435115c33bc1868f990f850153d))
+* **logs:** remove noisy logs ([e2b15de](https://github.com/Dihgg/dihgg-website/commit/e2b15ded1917f6f5e7561af1b28f2136e1d87aa1))
+* **share:** hardening share component ([f597079](https://github.com/Dihgg/dihgg-website/commit/f5970796f8b8a3bd2f5ccb4646b5bf368e7b3b12))
+
 ### [1.13.1](https://github.com/Dihgg/dihgg-website/compare/v1.13.0...v1.13.1) (2026-06-26)
 
 ## [1.13.0](https://github.com/Dihgg/dihgg-website/compare/v1.12.0...v1.13.0) (2026-06-26)

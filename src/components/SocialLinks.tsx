@@ -13,7 +13,7 @@ export default function SocialLinks({ links, className, ...props }: Props) {
       {...props}
       className={classnames(className, "flex flex-wrap gap-2")}
     >
-      {links.map((link, index) => (
+      {links.map((link) => (
         <li key={link.href}>
           <Pill
             icon={link.icon}

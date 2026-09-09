@@ -95,7 +95,7 @@ const footer: FooterProps = {
     {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
     {GTAG_ID && (
       <>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
         <script is:inline define:vars={{ GTAG_ID }}>
           window.dataLayer = window.dataLayer || [];
           function gtag() {

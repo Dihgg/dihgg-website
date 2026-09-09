@@ -1,4 +1,4 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { BLOG_POSTS_PER_PAGE } from '@/lib/constants';
 import type { BlogPost, Locale } from '@/types';
 
