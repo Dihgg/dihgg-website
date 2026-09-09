@@ -112,5 +112,10 @@ const footer: FooterProps = {
     <SiteHeader {...header} />
     <slot />
     <SiteFooter {...footer} />
+    <script>
+      import { initAnalyticsTracking } from '@/lib/analytics';
+
+      initAnalyticsTracking();
+    </script>
   </body>
 </html>
