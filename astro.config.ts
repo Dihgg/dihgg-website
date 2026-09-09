@@ -12,6 +12,10 @@ import { DEFAULT_LOCALE, LOCALES, SITEMAP_LOCALES } from './src/i18n/config';
 export default defineConfig({
   output: 'static',
   site: process.env.PUBLIC_SITE_URL || 'https://dihgg.com',
+  redirects: {
+    '/blog/turing-test-chinese-roompt-br': '/blog/turing-test-chinese-room',
+    '/en/blog/turing-test-chinese-roomen': '/en/blog/turing-test-chinese-room'
+  },
   i18n: {
     locales: [...LOCALES],
     defaultLocale: DEFAULT_LOCALE,
