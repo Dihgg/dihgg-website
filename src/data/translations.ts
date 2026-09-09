@@ -47,9 +47,8 @@ export const translations = {
     shareNativeLabel: 'Compartilhar',
     shareCopyLabel: 'Copiar link',
     shareCopiedLabel: 'Link copiado',
-    shareXLabel: 'X',
-    shareLinkedInLabel: 'LinkedIn',
-    shareWhatsappLabel: 'WhatsApp',
+    shareCopyErrorLabel: 'Não foi possível copiar o link',
+    shareNativeErrorLabel: 'Não foi possível compartilhar o post',
     carouselGoToSlide: 'Ir para o item',
     paginationAriaLabel: 'Paginação do blog',
     paginationPreviousLabel: 'Anterior',
@@ -100,9 +99,8 @@ export const translations = {
     shareNativeLabel: 'Share',
     shareCopyLabel: 'Copy link',
     shareCopiedLabel: 'Copied',
-    shareXLabel: 'X',
-    shareLinkedInLabel: 'LinkedIn',
-    shareWhatsappLabel: 'WhatsApp',
+    shareCopyErrorLabel: 'Could not copy the link',
+    shareNativeErrorLabel: 'Could not share the post',
     carouselGoToSlide: 'Go to slide',
     paginationAriaLabel: 'Blog pagination',
     paginationPreviousLabel: 'Previous',
@@ -151,9 +149,8 @@ export const translations = {
   shareNativeLabel: string;
   shareCopyLabel: string;
   shareCopiedLabel: string;
-  shareXLabel: string;
-  shareLinkedInLabel: string;
-  shareWhatsappLabel: string;
+  shareCopyErrorLabel: string;
+  shareNativeErrorLabel: string;
   carouselGoToSlide: string;
   paginationAriaLabel: string;
   paginationPreviousLabel: string;
@@ -161,4 +158,3 @@ export const translations = {
   dateLocale: string;
   today: string;
 }>;
-
