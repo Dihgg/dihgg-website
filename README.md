@@ -114,6 +114,11 @@ Copy `.env.example` to `.env` for local configuration when needed.
 - `PUBLIC_SITE_URL`: canonical production URL used by Astro, the sitemap, and share links
 - `PUBLIC_GTAG_ID`: optional Google Analytics measurement ID; analytics are omitted when empty
 
+Elements with a `data-ga` attribute are tracked through one delegated click
+listener. They emit a GA4 `ui_interaction` event whose `interaction_name`
+parameter contains the attribute value and whose `link_url` identifies link
+destinations when applicable.
+
 ## Styling Approach
 
 - Global entrypoint: `src/styles/global.css`
