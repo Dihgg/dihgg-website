@@ -7,6 +7,7 @@
     "build": "astro build",
     "postbuild": "pagefind --site dist",
     "preview": "astro preview",
+    "check": "astro check",
     "test": "jest",
     "coverage": "jest --coverage",
     "release": "standard-version --infile changelog.md"
@@ -36,6 +37,7 @@
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -51,6 +53,7 @@
     "postcss": "^8.5.8",
     "postcss-nested": "^7.0.2",
     "standard-version": "^9.5.0",
-    "ts-jest": "^29.4.6"
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3"
   }
 }

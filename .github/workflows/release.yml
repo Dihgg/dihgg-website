@@ -42,6 +42,12 @@ jobs:
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: Run tests
+        run: npm test -- --runInBand
+
+      - name: Check types and content
+        run: npm run check
+
       - name: Configure git for release commit
         run: |
           git config user.name "github-actions[bot]"
