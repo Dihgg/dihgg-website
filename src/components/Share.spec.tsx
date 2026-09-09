@@ -28,7 +28,7 @@ describe('Share', () => {
 
     expect(screen.queryByRole('button', { name: 'Copy link' })).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: 'Share' })).not.toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'X' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Twitter' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'LinkedIn' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'WhatsApp' })).toBeInTheDocument();
   });
