@@ -17,6 +17,12 @@ jest.mock('astro:content', () => ({
 
 const mockGetCollection = getCollection as jest.MockedFunction<typeof getCollection>;
 
+function applyBlogFilter(posts: BlogPost[], filter: unknown): BlogPost[] {
+  return typeof filter === 'function'
+    ? posts.filter(filter as (post: BlogPost) => boolean)
+    : posts;
+}
+
 function makePost(
   slug: string,
   locale: 'en' | 'pt-BR',
@@ -193,7 +199,7 @@ describe('getBlogPosts', () => {
 
     mockGetCollection.mockImplementation(async (_collection, filter) => {
       const posts = [olderEnPost, newerEnPost, ptPost, draftEnPost];
-      return filter ? posts.filter((post) => filter(post)) : posts;
+      return applyBlogFilter(posts, filter);
     });
 
     await expect(getBlogPosts('en')).resolves.toEqual([newerEnPost, olderEnPost]);
@@ -214,7 +220,7 @@ describe('getLocalizedBlogPaginationStaticPaths', () => {
 
     mockGetCollection.mockImplementation(async (_collection, filter) => {
       const posts = [...enPosts, ...ptPosts];
-      return filter ? posts.filter((post) => filter(post)) : posts;
+      return applyBlogFilter(posts, filter);
     });
 
     const paginate = jest.fn((posts, options) => {
@@ -253,7 +259,7 @@ describe('getLocalizedBlogStaticPaths', () => {
 
     mockGetCollection.mockImplementation(async (_collection, filter) => {
       const posts = [enFirst, enSecond, ptFirst];
-      return filter ? posts.filter((post) => filter(post)) : posts;
+      return applyBlogFilter(posts, filter);
     });
 
     await expect(getLocalizedBlogStaticPaths('en', 'pt-BR')).resolves.toEqual([

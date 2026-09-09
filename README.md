@@ -25,6 +25,7 @@ Open `http://localhost:4321`.
 - `npm run dev`: local development server
 - `npm run build`: Astro production build + Pagefind indexing (`dist/pagefind`)
 - `npm run preview`: preview built output
+- `npm run check`: validate Astro, TypeScript, and content collection types
 - `npm run test`: run test suite
 - `npm run coverage`: test coverage report
 - `npm run release`: bump package version and update `changelog.md` using standard-version
@@ -34,13 +35,14 @@ Open `http://localhost:4321`.
 ```text
 src/
 	components/
-		pages/            # shared page components (home/blog)
+		astro/            # Astro-only components such as blog search
+		*.tsx             # reusable React UI components
 	content/
 		blog/             # markdown posts
 		work/             # markdown timeline entries
 		projects/         # markdown projects
 		skills/           # markdown skills
-	data/               # localized UI copy + helpers
+	data/               # localized UI copy + portfolio data
 	layouts/            # shared layout shell
 	lib/                # constants + blog/date/content helpers
 	pages/              # route wrappers (pt-BR and /en)
@@ -56,7 +58,7 @@ The project uses the alias below (configured in `tsconfig.json`):
 Example:
 
 ```ts
-import Layout from '@/layouts/Layout.astro';
+import Base from '@/layouts/Base.layout.astro';
 ```
 
 ## Content Model
@@ -84,7 +86,8 @@ featuredImageAlt: Example image      # optional
 - Blog listing: `/blog/` and `/en/blog/`
 - Blog posts: `/blog/[slug]/` and `/en/blog/[slug]/`
 
-Localized labels and path helpers are in `src/data/siteContent.ts`.
+Localized labels are in `src/data/translations.ts`; locale constants and helpers
+are in `src/i18n/config.ts`.
 
 ## Blog Pagination
 
@@ -105,6 +108,18 @@ Page size is controlled by:
 
 Note: search requires built output (`build` + `preview`).
 
+## Environment Variables
+
+Copy `.env.example` to `.env` for local configuration when needed.
+
+- `PUBLIC_SITE_URL`: canonical production URL used by Astro, the sitemap, and share links
+- `PUBLIC_GTAG_ID`: optional Google Analytics measurement ID; analytics are omitted when empty
+
+Elements with a `data-ga` attribute are tracked through one delegated click
+listener. They emit a GA4 `ui_interaction` event whose `interaction_name`
+parameter contains the attribute value and whose `link_url` identifies link
+destinations when applicable.
+
 ## Styling Approach
 
 - Global entrypoint: `src/styles/global.css`
@@ -123,3 +138,9 @@ Fonts are self-hosted via `@fontsource` imports in `src/styles/global.css`:
 
 The project builds to static files only (`dist/`).
 It can be deployed on any static hosting/CDN setup.
+
+The GitHub Actions workflow runs on non-bot pushes to `main`. It creates a
+`standard-version` release commit and tag, builds the site, publishes a GitHub
+Release containing the static output, and deploys `dist/` over FTP. Configure
+the repository variables `PUBLIC_SITE_URL`, `PUBLIC_GTAG_ID`, `FTP_SERVER`, and
+`FTP_USERNAME`, plus the `FTP_PASSWORD` secret, before using this workflow.

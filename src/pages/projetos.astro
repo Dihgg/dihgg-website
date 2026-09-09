@@ -1,11 +1,7 @@
 ---
-import { translations } from "@/data/translations";
-import { DEFAULT_LOCALE, EN_LOCALE } from "@/i18n/config";
+import { DEFAULT_LOCALE } from "@/i18n/config";
 import ProjectsLayout from "@/layouts/Projects.layout.astro";
-import Base from "@/layouts/Base.layout.astro";
-import { getRelativeLocaleUrl } from "astro:i18n";
 
 const locale = DEFAULT_LOCALE;
-const content = translations[locale];
 ---
 <ProjectsLayout locale={locale}/>
