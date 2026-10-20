@@ -14,7 +14,7 @@ locale: en
 translationKey: gamefoss-revamp-2026
 ---
 
-**[Gamefoss is back from the dead!](https://gamefoss.com.br/)** Or rather, the **not quite dead**, because it never completely disappeared.
+**[Gamefoss](https://gamefoss.com.br/)** is back from the dead! Or rather, the **not quite dead**, because it never completely disappeared.
 
 This project started in 2019, but between the pandemic and adult life, it ended up frozen in time. It always bothered me that it never reached the potential I imagined. Deep down, I kept asking myself: "What if I brought the project back?"
 
