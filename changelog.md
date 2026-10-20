@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://github.com/Dihgg/dihgg-website/compare/v1.16.0...v1.17.0) (2026-10-20)
+
+
+### Features
+
+* **component:** updating project tags display ([ed17aee](https://github.com/Dihgg/dihgg-website/commit/ed17aee5f429610cf70833c20ae944351181f974))
+
 ## [1.16.0](https://github.com/Dihgg/dihgg-website/compare/v1.15.1...v1.16.0) (2026-10-20)
 
 
