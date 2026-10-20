@@ -5,9 +5,9 @@ featuredImage: "/content/posts/gamefoss-screenshot.png"
 featuredImageAlt: "Logo do Gamefoss"
 date: 2026-10-20
 tags:
-  - gamefoss
   - astro
   - wordpress
+  - tailwind
   - pagefind
   - github-actions
 locale: pt-BR
