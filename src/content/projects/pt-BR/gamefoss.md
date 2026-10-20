@@ -1,22 +1,24 @@
 ---
 name: "Gamefoss"
-description: "Portal sobre jogos, entretenimento e tecnologia de forma relevante, precisa e leve."
+description: "Portal sobre jogos, tecnologia, sociedade e o que mais der na telha."
 image: "/content/projects/game-foss.svg"
 categories:
-  - "Podcast"
   - "Frontend"
   - "Backend"
+  - "Podcast"
 stack:
-  - "php"
+  - "node"
+  - "tailwind"
+  - "astro"
+  - "github-actions"
   - "wordpress"
-  - "sass"
-  - "coffeescript"
-  - "audacity"
+  - "php"
   - "figma"
+  - "audacity"
 links:
     - label: "Ver"
       href: "https://gamefoss.com.br/"
       icon: "podcast"
 locale: "pt-BR"
-sortOrder: 2
+sortOrder: 1
 ---
