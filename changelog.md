@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.1](https://github.com/Dihgg/dihgg-website/compare/v1.15.0...v1.15.1) (2026-10-20)
+
+
+### Bug Fixes
+
+* **content:** updating post tags ([82256fc](https://github.com/Dihgg/dihgg-website/commit/82256fce69fb77adf2f1b3fadeab2ef82caf629e))
+
 ## [1.15.0](https://github.com/Dihgg/dihgg-website/compare/v1.14.0...v1.15.0) (2026-10-20)
 
 
