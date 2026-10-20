@@ -138,6 +138,16 @@
             @apply w-3/4 mx-auto my-7 rounded-lg shadow-xl;
         }
 
+        table {
+            @apply w-full border-collapse my-6 border border-blue-500 text-left;
+            th, td {
+                @apply border border-blue-500 p-2;
+            }
+            th {
+                @apply bg-blue-500/10;
+            }
+        }
+
         .plantuml-diagram img,
         .mermaid svg {
             @apply border border-blue-500 rounded-lg;
