@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.15.0](https://github.com/Dihgg/dihgg-website/compare/v1.14.0...v1.15.0) (2026-10-20)
+
+
+### Features
+
+* **styles:** adding table styles ([35a074b](https://github.com/Dihgg/dihgg-website/commit/35a074bc0cb38c943eec6cb423b673119b147a82))
+
 ## [1.14.0](https://github.com/Dihgg/dihgg-website/compare/v1.13.1...v1.14.0) (2026-09-09)
 
 
