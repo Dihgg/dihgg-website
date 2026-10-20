@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/Dihgg/dihgg-website/compare/v1.15.1...v1.16.0) (2026-10-20)
+
+
+### Features
+
+* **share:** setting blog share image metatags ([843faae](https://github.com/Dihgg/dihgg-website/commit/843faae866615540ced2427925cd64285007e02c))
+
 ### [1.15.1](https://github.com/Dihgg/dihgg-website/compare/v1.15.0...v1.15.1) (2026-10-20)
 
 
