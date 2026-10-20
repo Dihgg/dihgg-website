@@ -14,7 +14,7 @@ locale: pt-BR
 translationKey: gamefoss-revamp-2026
 ---
 
-**[O Gamefoss voltou dos mortos!](https://gamefoss.com.br/)** Ou melhor, dos **não mortos**, porque ele nunca chegou a desaparecer completamente.
+O **[Gamefoss](https://gamefoss.com.br/)** voltou dos mortos! Ou melhor, dos **não mortos**, porque ele nunca chegou a desaparecer completamente.
 
 Esse projeto começou em 2019, mas, com a pandemia e a vida adulta, acabou ficando congelado no tempo. Sempre me incomodou o fato de ele nunca ter atingido o potencial que eu imaginava. No fundo, eu sempre me perguntava: "E se eu voltasse com o projeto?"
 

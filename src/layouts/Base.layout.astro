@@ -20,6 +20,9 @@ interface Props {
   description?: string;
   lang?: Locale;
   alternates?: AlternateLink[];
+  canonicalUrl?: string;
+  socialImage?: string;
+  socialType?: 'website' | 'article';
 }
 
 const {
@@ -27,6 +30,9 @@ const {
   description = 'Portfolio de Diego Lopes: projetos, experiencia e artigos sobre desenvolvimento.',
   lang = DEFAULT_LOCALE,
   alternates = [],
+  canonicalUrl,
+  socialImage,
+  socialType = 'website',
 } = Astro.props as Props;
 
 const locale = lang;
@@ -80,6 +86,15 @@ const footer: FooterProps = {
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={socialType} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -92,6 +107,7 @@ const footer: FooterProps = {
     <meta name="theme-color" content="#1d4ed8" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
     {GTAG_ID && (
       <>
