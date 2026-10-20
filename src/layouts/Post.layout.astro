@@ -25,6 +25,9 @@ const homePath = getRelativeLocaleUrl(locale);
 const blogPath = getRelativeLocaleUrl(locale, 'blog');
 const postPath = locale === 'pt-BR' ? ptPostPath : enPostPath;
 const shareUrl = `${SITE_URL}${postPath}`;
+const socialImage = post.data.featuredImage
+  ? new URL(post.data.featuredImage, SITE_URL).toString()
+  : undefined;
 
 import "@styles/pages/post.css";
 import Icon from '@/components/Icon';
@@ -34,6 +37,9 @@ import Icon from '@/components/Icon';
   title={`${post.data.title} | Blog Dihgg`}
   description={post.data.description}
   lang={locale}
+  canonicalUrl={shareUrl}
+  socialImage={socialImage}
+  socialType="article"
   alternates={[
     { href: `${SITE_URL}${ptPostPath}`, hreflang: 'pt-BR' },
     { href: `${SITE_URL}${enPostPath}`, hreflang: 'en' }
