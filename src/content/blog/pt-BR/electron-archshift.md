@@ -30,10 +30,10 @@ Bem, não tenho **R$ 10.000** dando sopa para comprar um **Mac** novo. E agora?
 
 Existem algumas opções:
 
-- Rodar a versão para Windows usando [CrossOver](https://www.codeweavers.com/) ou [Wine](https://www.winehq.org).
-- Pedir ao desenvolvedor para compilar uma versão para Intel.
-- Chorar.
-- Hackear o jogo e adaptá-lo para uma arquitetura diferente daquela para a qual foi originalmente compilado.
+1. Rodar a versão para Windows usando [CrossOver](https://www.codeweavers.com/) ou [Wine](https://www.winehq.org).
+2. Pedir ao desenvolvedor para compilar uma versão para Intel.
+3. Chorar.
+4. Hackear o jogo e adaptá-lo para uma arquitetura diferente daquela para a qual foi originalmente compilado.
 
 Claramente, a quarta opção foi a que escolhi!
 
@@ -88,7 +88,7 @@ Muito simples! O pacote disponibiliza dois comandos principais:
 **1. Verificar a compatibilidade**
 
 ```bash
-npx --yes electron-arcshift check "/path/to/App.app"
+npx electron-arcshift check "/path/to/App.app"
 ```
 
 Esse comando analisa o aplicativo e verifica a possibilidade de realizar a conversão.
@@ -96,11 +96,11 @@ Esse comando analisa o aplicativo e verifica a possibilidade de realizar a conve
 **2. Converter o aplicativo**
 
 ```bash
-npx --yes electron-arcshift convert "/path/to/App.app"
+npx electron-arcshift convert "/path/to/App.app"
 \ --out "/path/to/generated-files"
 ```
 
 Esse comando tenta converter um aplicativo `.app` criado para **Apple Silicon (ARM64)** em uma versão compatível com **Macs Intel (x64)**, salvando o resultado no diretório indicado.
 
-E pronto! Se o aplicativo for compatível com esse processo, você terá uma versão que poderá executar no seu Mac Intel, sem precisar modificar manualmente os arquivos internos.
+E pronto! Se o aplicativo for compatível com esse processo, você terá uma versão que poderá executar no seu Mac Intel..
 
