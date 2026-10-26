@@ -96,7 +96,8 @@ This command analyzes the application and checks whether an architecture convers
 **2. Convert the application**
 
 ```bash
-npx --yes electron-arcshift convert "/path/to/App.app" --out "/path/to/generated-files"
+npx electron-arcshift convert "/path/to/App.app" \
+--out "/path/to/generated-files"
 ```
 
 This command attempts to convert an `.app` built for **Apple Silicon (ARM64)** into a version compatible with **Intel Macs (x64)**, saving the result to the specified output directory.
