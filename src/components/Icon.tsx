@@ -34,7 +34,7 @@ import {
     SiNexusmods,
 } from 'react-icons/si';
 import { DiJava, DiPhotoshop } from 'react-icons/di';
-import { RiComputerLine, RiTwitterXFill } from 'react-icons/ri';
+import { RiComputerLine, RiTwitterXFill, RiNpmjsFill } from 'react-icons/ri';
 import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaPodcast, FaBrain, FaNetworkWired, FaFigma, FaBookDead } from "react-icons/fa";
 import { MdFindInPage, MdIosShare } from "react-icons/md";
 import { GiRaiseZombie, GiArtificialIntelligence } from "react-icons/gi";
@@ -111,6 +111,7 @@ export const ICON_MAP: Record<string, IconConfig> = {
     ['share']: { icon: <MdIosShare />, tint: 'text-slate-600', background: 'rgb(71 85 105)' },
     ['copy']: { icon: <IoIosCopy />, tint: 'text-slate-600', background: 'rgb(71 85 105)' },
     ['network']: { icon: <FaNetworkWired />, tint: 'text-slate-700', background: 'rgb(51 65 85)' },
+    ['npm']: { icon: <RiNpmjsFill />, tint: 'text-red-600', background: 'rgb(220 38 38)' },
     ['figma']: { icon: <FaFigma />, tint: 'text-fuchsia-600', background: 'rgb(192 38 211)' },
     ['audacity']: { icon: <SiAudacity />, tint: 'text-violet-600', background: 'rgb(124 58 237)' },
     ['nexusmods']: { icon: <SiNexusmods />, tint: 'text-yellow-800', background: 'rgb(133 77 14)' },
