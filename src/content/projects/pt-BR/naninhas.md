@@ -23,5 +23,5 @@ links:
       href: "https://github.com/Dihgg/naninhas"
       icon: "github"
 locale: "pt-BR"
-sortOrder: 1
+sortOrder: 2
 ---

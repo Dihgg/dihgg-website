@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://github.com/Dihgg/dihgg-website/compare/v1.16.0...v1.17.0) (2026-10-20)
+
+
+### Features
+
+* **component:** updating project tags display ([ed17aee](https://github.com/Dihgg/dihgg-website/commit/ed17aee5f429610cf70833c20ae944351181f974))
+
+## [1.16.0](https://github.com/Dihgg/dihgg-website/compare/v1.15.1...v1.16.0) (2026-10-20)
+
+
+### Features
+
+* **share:** setting blog share image metatags ([843faae](https://github.com/Dihgg/dihgg-website/commit/843faae866615540ced2427925cd64285007e02c))
+
+### [1.15.1](https://github.com/Dihgg/dihgg-website/compare/v1.15.0...v1.15.1) (2026-10-20)
+
+
+### Bug Fixes
+
+* **content:** updating post tags ([82256fc](https://github.com/Dihgg/dihgg-website/commit/82256fce69fb77adf2f1b3fadeab2ef82caf629e))
+
+## [1.15.0](https://github.com/Dihgg/dihgg-website/compare/v1.14.0...v1.15.0) (2026-10-20)
+
+
+### Features
+
+* **styles:** adding table styles ([35a074b](https://github.com/Dihgg/dihgg-website/commit/35a074bc0cb38c943eec6cb423b673119b147a82))
+
 ## [1.14.0](https://github.com/Dihgg/dihgg-website/compare/v1.13.1...v1.14.0) (2026-09-09)
 
 

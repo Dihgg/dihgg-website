@@ -90,7 +90,7 @@ function ProjectStack() {
     <div className="project-card__stack">
       <span className="project-card__stack__label">Stack</span>
       <PillStack
-        items={stack.sort()}
+        items={stack}
         maxCount={showFullStack ? stack.length : STACK_ITEMS_MAX_COUNT}
         tinted
         className="project-card__stack__list"

@@ -1,22 +1,24 @@
 ---
 name: "Gamefoss"
-description: "about games, entertainment and technology in a relevant, accurate and easy-to-understand way."
+description: "A portal about games, technology, society, and whatever else comes to mind."
 image: "/content/projects/game-foss.svg"
 categories:
-  - "Podcast"
   - "Frontend"
   - "Backend"
+  - "Podcast"
 stack:
-  - "php"
+  - "node"
+  - "tailwind"
+  - "astro"
+  - "github-actions"
   - "wordpress"
-  - "sass"
-  - "coffeescript"
-  - "audacity"
+  - "php"
   - "figma"
+  - "audacity"
 links:
     - label: "View"
       href: "https://gamefoss.com.br/"
       icon: "podcast"
 locale: "en"
-sortOrder: 2
+sortOrder: 1
 ---
