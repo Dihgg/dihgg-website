@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://github.com/Dihgg/dihgg-website/compare/v1.17.0...v1.18.0) (2026-10-26)
+
+
+### Features
+
+* **icons:** adding npmjs icon ([5fdcbc1](https://github.com/Dihgg/dihgg-website/commit/5fdcbc1b5ef270f18853dc55040bfb03e62b8b41))
+
 ## [1.17.0](https://github.com/Dihgg/dihgg-website/compare/v1.16.0...v1.17.0) (2026-10-20)
 
 
