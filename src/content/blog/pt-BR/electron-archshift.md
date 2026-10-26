@@ -3,7 +3,7 @@ title: "Electron Archshift: Rodando Apps do Apple Silicon no Intel"
 description: "Desenvolvi um pequeno pacote npm para adaptar aplicativos Electron do macOS Apple Silicon para o macOS Intel"
 featuredImage: "/content/posts/electron-archshift/main.png"
 featuredImageAlt: "Banner do Electron"
-date: 2026-10-27
+date: 2026-10-26
 tags:
   - node
   - npm
