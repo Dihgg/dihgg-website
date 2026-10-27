@@ -30,10 +30,10 @@ Well, I don't exactly have **R$ 10,000** lying around to buy a new **Mac**. So, 
 
 I had a few options:
 
-- Run the Windows version using [CrossOver](https://www.codeweavers.com/) or [Wine](https://www.winehq.org).
-- Ask the developer to compile an Intel-compatible version.
-- Cry.
-- Hack the game and adapt it to run on an architecture it wasn't originally built for.
+1. Run the Windows version using [CrossOver](https://www.codeweavers.com/) or [Wine](https://www.winehq.org).
+2. Ask the developer to compile an Intel-compatible version.
+3. Cry.
+4. Hack the game and adapt it to run on an architecture it wasn't originally built for.
 
 Naturally, I went with option number four!
 
@@ -51,9 +51,9 @@ The [.asar](https://www.electronjs.org/docs/latest/tutorial/asar-archives) forma
 
 Knowing that, and considering that Electron allows developers to turn web applications into desktop apps, I had an idea:
 
-**What if I could extract the original files and repackage the game to run on an Intel Mac?**
+**Is it possible to extract the original files and repackage it to run on an Intel Mac?**
 
-And the answer was: **yes!**
+And the answer was: **Yes, It is!** 
 
 With a bit of **Node.js** and a few tools from the **Electron** ecosystem, I managed to extract the application's contents and rebuild its package using an Intel-compatible version of Electron.
 
@@ -88,7 +88,7 @@ It's pretty straightforward! The package provides two main commands:
 **1. Check compatibility**
 
 ```bash
-npx --yes electron-arcshift check "/path/to/App.app"
+npx electron-arcshift check "/path/to/App.app"
 ```
 
 This command analyzes the application and checks whether an architecture conversion might be possible.
@@ -102,5 +102,5 @@ npx electron-arcshift convert "/path/to/App.app" \
 
 This command attempts to convert an `.app` built for **Apple Silicon (ARM64)** into a version compatible with **Intel Macs (x64)**, saving the result to the specified output directory.
 
-And that's it! If the application is compatible with the process, you'll end up with a version you can run on your Intel Mac, without having to manually mess around with its internal files.
+And that's it! If the application is compatible with the process, you'll end up with a version you can run on your Intel Mac..
 
