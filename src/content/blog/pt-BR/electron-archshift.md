@@ -12,6 +12,7 @@ locale: pt-BR
 translationKey: electron-archshift
 ---
 
+> Confira o [electron-archshift](https://www.npmjs.com/package/electron-arcshift) no **npmjs**
 ## O problema: duas arquiteturas para o macOS
 
 Nos últimos anos, a **Apple** promoveu uma verdadeira revolução em seus computadores com a chegada da família de processadores **Apple Silicon**.
