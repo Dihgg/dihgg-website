@@ -28,7 +28,7 @@ Open `http://localhost:4321`.
 - `npm run check`: validate Astro, TypeScript, and content collection types
 - `npm run test`: run test suite
 - `npm run coverage`: test coverage report
-- `npm run release`: bump package version and update `changelog.md` using standard-version
+- `npm run release`: bump package version and update `changelog.md` using commit-and-tag-version
 
 ## Project Structure
 
@@ -140,7 +140,7 @@ The project builds to static files only (`dist/`).
 It can be deployed on any static hosting/CDN setup.
 
 The GitHub Actions workflow runs on non-bot pushes to `main`. It creates a
-`standard-version` release commit and tag, builds the site, publishes a GitHub
+`commit-and-tag-version` release commit and tag, builds the site, publishes a GitHub
 Release containing the static output, and deploys `dist/` over FTP. Configure
 the repository variables `PUBLIC_SITE_URL`, `PUBLIC_GTAG_ID`, `FTP_SERVER`, and
 `FTP_USERNAME`, plus the `FTP_PASSWORD` secret, before using this workflow.

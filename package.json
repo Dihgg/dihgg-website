@@ -10,7 +10,7 @@
     "check": "astro check",
     "test": "jest",
     "coverage": "jest --coverage",
-    "release": "standard-version --infile changelog.md"
+    "release": "commit-and-tag-version --infile changelog.md"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,7 @@
     "astro": "^5.18.1",
     "astro-mermaid": "^2.0.1",
     "astro-plantuml": "^0.1.4",
+    "commit-and-tag-version": "^13.3.0",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
     "react": "^19.2.4",
@@ -52,7 +53,6 @@
     "pagefind": "^1.4.0",
     "postcss": "^8.5.8",
     "postcss-nested": "^7.0.2",
-    "standard-version": "^9.5.0",
     "ts-jest": "^29.4.6",
     "typescript": "^5.9.3"
   }
