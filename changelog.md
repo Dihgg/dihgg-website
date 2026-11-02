@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.19.0](https://github.com/Dihgg/dihgg-website/compare/v1.18.3...v1.19.0) (2026-11-02)
+
+### Features
+
+* **tooling:** deprecating standard-version to commit-and-tag-version ([1ba3ac7](https://github.com/Dihgg/dihgg-website/commit/1ba3ac723ad9102dcefe02d9b3981aaa4db4e106))
+
 ### [1.18.3](https://github.com/Dihgg/dihgg-website/compare/v1.18.2...v1.18.3) (2026-10-28)
 
 ### [1.18.2](https://github.com/Dihgg/dihgg-website/compare/v1.18.1...v1.18.2) (2026-10-26)
